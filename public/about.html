@@ -88,7 +88,7 @@
                             <a href="destination.html" class="dropdown-item">Destination</a>
                             <a href="booking.html" class="dropdown-item">Booking</a>
                             <!-- <a href="team.html" class="dropdown-item">Travel Guides</a> -->
-                            <!-- <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a> --> -->
+                            <!--  <a href="testimonial.html" class="dropdown-item">Testimonial</a> --> -->
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -319,3 +319,23 @@
 </body>
 
 </html>
+
+    <script>
+        window.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.onkeydown = function(e) {
+            if(e.ctrlKey && e.keyCode === 85) {
+                return false;
+            }
+        };
+
+        // Disable keyboard shortcuts for developer tools
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U')) {
+                e.preventDefault();
+                console.log('Developer tools are not allowed!');
+            }
+        });
+    </script>

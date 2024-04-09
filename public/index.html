@@ -584,31 +584,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
+    <script src="js/keylock.js"></script>
 </body>
+
 
 </html>
 
-<script>
-        // Disable right-click context menu
-        window.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        document.onkeydown = function(e) {
-            if(e.ctrlKey && e.keyCode === 85) {
-                return false;
-            }
-        };
-
-        // Disable keyboard shortcuts for developer tools
-        window.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U' || e.key === 'i' ||)) {
-                e.preventDefault();
-                console.log('Developer tools are not allowed!');
-            }
-        });
-    </script>
 <script>
     function openBookingModal(place, days) {
         // Get the modal body element
@@ -704,7 +685,8 @@
         var numberOfPeople = document.getElementById('number_of_people').value;
         var message = document.getElementById('message').value; 
         
-        emailjs.init("");
+        emailjs.init("dpHylrOzMjDWa9VYF");
+
 
        var templateParams = {
         from_name: name,

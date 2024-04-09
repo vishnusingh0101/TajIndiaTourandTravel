@@ -319,7 +319,7 @@
             </div>
         </div>
       </div>
-      
+
             <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -603,7 +603,7 @@
 
         // Disable keyboard shortcuts for developer tools
         window.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U')) {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U' || e.key === 'i' ||)) {
                 e.preventDefault();
                 console.log('Developer tools are not allowed!');
             }
@@ -714,7 +714,7 @@
         message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
         };
 
-        emailjs.send("service_4zh9hpj", "template_uqnsn7i", templateParams)
+        emailjs.send("service_8j9vn8o", "template_lr13lz8", templateParams)
             .then(function(response) {
                 successModal();
             }, function(error) {

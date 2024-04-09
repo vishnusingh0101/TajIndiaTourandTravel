@@ -343,7 +343,7 @@
 
         // Disable keyboard shortcuts for developer tools
         window.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U')) {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U' || e.key === 'i')) {
                 e.preventDefault();
                 console.log('Developer tools are not allowed!');
             }

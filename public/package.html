@@ -484,9 +484,7 @@
                             <div class="col-md-6 text-white">
                                 <h6 class="text-white text-uppercase">Booking</h6>
                                 <h1 class="text-white mb-4">Online Booking</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                                <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/918447095180?text=Hi%21" target="_blank">+91 8447095180</a></h4>
                             </div>
                             <div class="col-md-6">
                                 <h1 class="text-white mb-4">Book A Tour</h1>
@@ -573,7 +571,7 @@
         message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
         };
 
-        emailjs.send("service_4zh9hpj", "template_uqnsn7i", templateParams)
+        emailjs.send("service_8j9vn8o", "template_lr13lz8", templateParams)
             .then(function(response) {
                 successModal();
             }, function(error) {
@@ -589,3 +587,23 @@
         $('#successModal').modal('hide');
     }
 </script>
+
+<script>
+        window.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.onkeydown = function(e) {
+            if(e.ctrlKey && e.keyCode === 85) {
+                return false;
+            }
+        };
+
+        // Disable keyboard shortcuts for developer tools
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'I' || e.key === 'J' || e.key === 'U')) {
+                e.preventDefault();
+                console.log('Developer tools are not allowed!');
+            }
+        });
+    </script>

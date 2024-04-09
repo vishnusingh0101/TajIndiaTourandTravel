@@ -628,7 +628,7 @@
                                                 <label for="phone">Phone</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-floating date" id="date3" data-target-input="nearest">
                                                 <input type="date" class="form-control bg-transparent" id="datetime" placeholder="Date" data-target="#date3" data-toggle="datepicker" />
                                                 <label for="datetime">Date</label>
@@ -650,9 +650,9 @@
                                                 <label for="number_of_people">No of Persons</label>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-md-6">
                                             <div class="form-floating">
-                                                <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                                <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 58px"></textarea>
                                                 <label for="message">Message</label>
                                             </div>
                                         </div>
@@ -679,6 +679,7 @@
     function sendEmail() {
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
         var datetime = document.getElementById('datetime').value;
         var place = document.getElementById('location').value;
         var days = document.getElementById('forDays').value;
@@ -689,9 +690,11 @@
 
 
        var templateParams = {
+        to_name: "Taj India Tour & Travel",
         from_name: name,
         from_email: email,
-        to_name: "Taj India Tour & Travel",
+        from_phone: phone,
+        day: days,
         subject: "Booking for " + days + " days for " + place,
         message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
         };

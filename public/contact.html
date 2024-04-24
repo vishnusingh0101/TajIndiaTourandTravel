@@ -14,7 +14,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -34,7 +36,8 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -47,9 +50,11 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Ram Bazar Mori Gate, Delhi GPO, India </small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Ram Bazar Mori Gate, Delhi
+                        GPO, India </small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+91 8447095180</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>tajindiatourandtravel@gmail.com</small>
+                    <small class="text-light"><i
+                            class="fa fa-envelope-open me-2"></i>tajindiatourandtravel@gmail.com</small>
                 </div>
             </div>
             <!-- <div class="col-lg-4 text-center text-lg-end">
@@ -115,6 +120,29 @@
     </div>
     <!-- Navbar & Hero End -->
 
+    <!-- Success model starts -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span> 
+                </button> -->
+                </div>
+                <div class="modal-body">
+                    <p>Thanks for reaching out! Our team will connect with you shortly.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="closeModal()"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Success model ends -->
+
 
     <!-- Contact Start -->
     <div class="container-xxl py-5">
@@ -126,9 +154,11 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h5>Get In Touch</h5>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos</p>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
+                        eos</p>
                     <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -137,7 +167,8 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -146,7 +177,8 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -172,14 +204,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="tajindiatourandtravel@gmail.com" required>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="tajindiatourandtravel@gmail.com" required>
                                     <label for="email">example@gmail.com</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="subject" placeholder="Subject" inputmode="none">
-                                    <label for="subject">Phone</label>
+                                    <input type="number" class="form-control" id="phone" placeholder="Phone"
+                                        inputmode="none">
+                                    <label for="phone">Phone</label>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -190,7 +224,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                        style="height: 100px" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
@@ -279,12 +314,10 @@
             </div>
         </div>
     </div>
-<!-- Footer End -->
-
+    <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -310,25 +343,51 @@
         // Get form values
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
         var subject = document.getElementById('subject').value;
         var message = document.getElementById('message').value;
         // Initialize Email.js with your user ID
-        emailjs.init("");
+        emailjs.init("dpHylrOzMjDWa9VYF");
+
 
         // Prepare the email template parameters
         var templateParams = {
             from_name: name,
             from_email: email,
-            to_name: "Taj India Tour & Travel",
+            from_phone: phone,
             subject: subject,
+            days: "",
+            to_name: "Taj India Tour & Travel",
             message: message
         };
 
-        emailjs.send("service_4zh9hpj", "template_uqnsn7i", templateParams)
-            .then(function(response) {
-                alert("Email sent successfully", response);
-            }, function(error) {
+
+        emailjs.send("service_8j9vn8o", "template_lr13lz8", templateParams)
+            .then(function (response) {
+                successModal();
+                blankfields();
+            }, function (error) {
                 alert("Email failed to send", error);
+                blankfields();
             });
+    }
+
+    function blankfields(){
+        document.getElementById('name').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('subject').value = "";
+        document.getElementById('message').value = "";
+    }
+
+    function successModal() {
+        $('#successModal').modal('show');
+        $('#bookingModal').modal('hide');
+        setTimeout(function () {
+            $('#successModal').modal('hide');
+        }, 5000); // Close the alert after 5 seconds
+    }
+    function closeModal() {
+        $('#successModal').modal('hide');
     }
 </script>

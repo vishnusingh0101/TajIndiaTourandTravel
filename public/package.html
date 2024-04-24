@@ -505,12 +505,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input value="${place}" class="form-control bg-transparent" id="location" placeholder="No of Persons" hidden>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-floating">
-                                                <input value="${days}" class="form-control bg-transparent" id="forDays" placeholder="No of Persons" hidden>
+                                                <input type="phone" class="form-control bg-transparent" id="phone" placeholder="phone">
+                                                <label for="phone">phone</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -520,6 +516,16 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input value="${place}" class="form-control bg-transparent" id="location" placeholder="No of Persons" hidden>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input value="${days}" class="form-control bg-transparent" id="forDays" placeholder="No of Persons" hidden>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="number" class="form-control bg-transparent" id="number_of_people" placeholder="No of Persons">
                                                 <label for="presons">No of Persons</label>
@@ -556,6 +562,7 @@
         // Get form values
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
         var datetime = document.getElementById('datetime').value;
         var place = document.getElementById('location').value;
         var days = document.getElementById('forDays').value;
@@ -567,8 +574,10 @@
         var templateParams = {
         from_name: name,
         from_email: email,
+        from_phone: phone,
+        days: days,
         to_name: "Taj India Tour & Travel",
-        subject: "Booking for " + days + " days for " + place,
+        subject: "Booking for " + days + " for " + place,
         message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
         };
 
@@ -581,10 +590,15 @@
             });
     }
 
+
     function successModal() {
         $('#successModal').modal('show');
         $('#bookingModal').modal('hide');
+        setTimeout(function () {
+            $('#successModal').modal('hide');
+        }, 5000); // Close the alert after 5 seconds
     }
+
     function closeModal() {
         $('#successModal').modal('hide');
     }

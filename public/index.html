@@ -37,6 +37,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -251,7 +252,7 @@
 
 
     <!-- Destination Start -->
-    <div class="container-xxl py-5 destination">
+    <!-- <div class="container-xxl py-5 destination">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
@@ -304,10 +305,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Destination Start -->
-      <div class="modal" id="bookingModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-xl" role="document"> 
+    <div class="modal" id="bookingModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-body" id="bookingFormContent">
                     <!-- Your booking form content here -->
@@ -315,30 +316,32 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" onclick="closeBookingModal()">Close</button>
                 </div>
-           
+
             </div>
         </div>
-      </div>
+    </div>
 
-            <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="successModalLabel">Success!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Thanks for reaching out! Our team will connect with you shortly.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" onclick="closeModal()" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Thanks for reaching out! Our team will connect with you shortly.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="closeModal()"
+                        data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 
@@ -423,7 +426,8 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
                                 <h5>Hotel Booking</h5>
-                                <p>Book hotels hassle-free with us! Simply fill the form, and we'll handle the rest promptly.</p>
+                                <p>Book hotels hassle-free with us! Simply fill the form, and we'll handle the rest
+                                    promptly.</p>
                             </div>
                         </div>
                     </div>
@@ -432,7 +436,8 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-user text-primary mb-4"></i>
                                 <h5>Travel Guides</h5>
-                                <p>Gain insights and tips from our knowledgeable guides to enhance your travel experience.</p>
+                                <p>Gain insights and tips from our knowledgeable guides to enhance your travel
+                                    experience.</p>
                             </div>
                         </div>
                     </div>
@@ -441,7 +446,8 @@
                             <div class="p-4">
                                 <i class="fas fa-plane fa-lg text-primary mb-4"></i>
                                 <h5>Trian/Flight Booking</h5>
-                                <p>Effortlessly book trains and flights for stress-free travel experiences worldwide.</p>
+                                <p>Effortlessly book trains and flights for stress-free travel experiences worldwide.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -539,7 +545,8 @@
                     <div class="row g-2 pt-2">
                         <div class="col-8">
                             <a href="https://wa.me/+918447095180?text=Hi" target="_blank">
-                                <img class="img-fluid bg-light p-1" src="img\TajContactWhatsappScanner.PNG" alt="WhatsApp">
+                                <img class="img-fluid bg-light p-1" src="img\TajContactWhatsappScanner.PNG"
+                                    alt="WhatsApp">
                             </a>
                         </div>
                     </div>
@@ -564,7 +571,11 @@
             </div>
         </div>
     </div>
-    
+
+    <a href="https://api.whatsapp.com/send?phone=your-phone-number&text=Hi%20there!" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+
     <!-- Footer End -->
 
 
@@ -598,7 +609,7 @@
         var modalBody = document.getElementById('bookingFormContent');
 
         // Update the modal content with your booking form HTML
-       modalBody.innerHTML = `
+        modalBody.innerHTML = `
             <div class="container py-4 wow" id="bookingForm">
                 <div class="container">
                     <div class="booking p-5">
@@ -686,25 +697,25 @@
         var place = document.getElementById('location').value;
         var days = document.getElementById('forDays').value;
         var numberOfPeople = document.getElementById('number_of_people').value;
-        var message = document.getElementById('message').value; 
-        
+        var message = document.getElementById('message').value;
+
         emailjs.init("dpHylrOzMjDWa9VYF");
 
 
-       var templateParams = {
-        to_name: "Taj India Tour & Travel",
-        from_name: name,
-        from_email: email,
-        from_phone: phone,
-        day: days,
-        subject: "Booking for " + days + " days for " + place,
-        message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
+        var templateParams = {
+            to_name: "Taj India Tour & Travel",
+            from_name: name,
+            from_email: email,
+            from_phone: phone,
+            day: days,
+            subject: "Booking for " + days + " days for " + place,
+            message: message + ". On this date: " + datetime + ". Number of people: " + numberOfPeople
         };
 
         emailjs.send("service_8j9vn8o", "template_lr13lz8", templateParams)
-            .then(function(response) {
+            .then(function (response) {
                 successModal();
-            }, function(error) {
+            }, function (error) {
                 alert("Email failed to send", error);
             });
     }

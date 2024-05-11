@@ -4,10 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Taj India Tour and Travel</title>
+    <meta name="keywords"
+        content="Taj India, Taj Mahal, India travel, Indian tours, travel agency, tour packages, historical sites, cultural experiences, vacation in India, Golden Triangle tour, Agra, Delhi, Jaipur, Indian heritage, tourism in India, travel destinations, sightseeing, explore India">
+    <meta
+        content="Plan your dream vacation to India with Taj India Tour and Travel! We offer customized travel packages, ensuring a memorable experience. Explore our website to discover breathtaking destinations, cultural immersion, and affordable options."
+        name="description">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta name="keywords" content="Taj India, Taj Mahal, India travel, Indian tours, travel agency, tour packages, historical sites, cultural experiences, vacation in India, Golden Triangle tour, Agra, Delhi, Jaipur, Indian heritage, tourism in India, travel destinations, sightseeing, explore India">
-    <meta content="Plan your dream vacation to India with Taj India Tour and Travel! We offer customized travel packages, ensuring a memorable experience. Explore our website to discover breathtaking destinations, cultural immersion, and affordable options." name="description">
-
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -339,61 +341,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/keylock.js"></script>
+    <script src="js/obfuCom.js"></script>
+    <!-- <script src="js/keylock.js"></script> -->
 </body>
 
 </html>
-
-<script>
-    function sendEmail() {
-        // Get form values
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var phone = document.getElementById('phone').value;
-        var subject = document.getElementById('subject').value;
-        var message = document.getElementById('message').value;
-        // Initialize Email.js with your user ID
-        emailjs.init("dpHylrOzMjDWa9VYF");
-
-
-        // Prepare the email template parameters
-        var templateParams = {
-            from_name: name,
-            from_email: email,
-            from_phone: phone,
-            subject: subject,
-            days: "",
-            to_name: "Taj India Tour & Travel",
-            message: message
-        };
-
-
-        emailjs.send("service_8j9vn8o", "template_lr13lz8", templateParams)
-            .then(function (response) {
-                successModal();
-                blankfields();
-            }, function (error) {
-                alert("Email failed to send", error);
-                blankfields();
-            });
-    }
-
-    function blankfields(){
-        document.getElementById('name').value = "";
-        document.getElementById('email').value = "";
-        document.getElementById('phone').value = "";
-        document.getElementById('subject').value = "";
-        document.getElementById('message').value = "";
-    }
-
-    function successModal() {
-        $('#successModal').modal('show');
-        $('#bookingModal').modal('hide');
-        setTimeout(function () {
-            $('#successModal').modal('hide');
-        }, 5000); // Close the alert after 5 seconds
-    }
-    function closeModal() {
-        $('#successModal').modal('hide');
-    }
-</script>

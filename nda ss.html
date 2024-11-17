@@ -1,0 +1,3398 @@
+
+<!-- saved from url=(0043)https://upsconline.nic.in/tpform1.php#agree -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>UPSC - PART-I Registration</title>
+  
+  <link rel="stylesheet" type="text/css" href="./nda ss_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./nda ss_files/jquery.calendars.picker.css">
+  <style>
+  .tdfocus:focus{
+border-color: rgb(104, 145, 162);
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+	}
+  </style>
+  <script type="text/javascript" src="./nda ss_files/functions.js.download"></script></head><body onload="scrollIn();noBack();" onpageshow="if (event.persisted) noBack();" onunload="" cz-shortcut-listen="true"><div id="dropmenudiv" style="visibility:hidden;width:165px;background-color:lightyellow" onmouseover="clearhidemenu()" onmouseout="dynamichide(event)"></div>
+  <script type="text/javascript" src="./nda ss_files/commonf.js.download"></script>
+  <script type="text/javascript">
+   	function cname(){
+		var cand_name = document.getElementById("cand_name").value;
+		if(cand_name.length ==30){ 
+			if(document.getElementById("c_name").style.display == "none"){
+				alert ("Your name is exceeding 30 characters kindly use abbreviation in the Name column and also you should fill the full name in the 'Full Name' column.");
+			}
+			document.getElementById("cname").style.display = 'block';
+			document.getElementById("c_name").style.display = 'block';
+			document.getElementById("note").style.display = 'block';
+			document.getElementById("h_cname").value = '30'
+	  	}		
+	}
+	  
+ 	function changefees(){
+		var exam_code = document.getElementById("exam_code").value;
+		if(exam_code == "NDAI"){
+			document.getElementById("ndai_note").style.display = 'block';
+		}else{
+			document.getElementById("ndai_note").style.display = 'none';
+		}
+ 		if(document.form1.sex.value=='2'){
+		 //alert("case1");
+		    document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("hidefeeremph_1").style.display = 'none';
+		}else if(document.form1.sex.value=='1' || document.form1.sex.value=='3'){
+		  //alert("case2");
+			    if(document.form1.handicapp.value=='2'){
+					if(document.form1.community.value=='1' || document.form1.community.value=='2'){
+					//alert("case2.1");
+						document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+						document.getElementById("hidefeerem").style.display = 'block';
+						document.getElementById("showfeerem").style.display = 'none';
+						document.getElementById("hidefeeremph").style.display = 'none';
+						document.getElementById("feerem1").disabled=true;
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("feerem3").disabled=true;
+					}else{
+						//if(document.getElementById("pcategory").value == 1){
+						//alert("case2.1.1");
+							document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+							document.form1.feerem.selectedIndex=1;
+							document.getElementById("hidefeerem").style.display = 'block';
+							document.getElementById("showfeerem").style.display = 'none';
+							document.getElementById("hidefeeremph").style.display = 'none';
+							document.getElementById("feerem1").disabled=true;
+							document.getElementById("feerem2").disabled=true;
+							document.getElementById("feerem3").disabled=true;
+						//}else{
+						//alert("case2.1.2");
+							//document.getElementById("feerem_hi").value=document.getElementById("feerem3").value;
+							//document.form1.feerem.selectedIndex=1;
+							//document.getElementById("hidefeerem").style.display = 'none';
+							//document.getElementById("showfeerem").style.display = 'none';
+							//document.getElementById("hidefeeremph").style.display = 'block';
+							//document.getElementById("feerem1").disabled=true;
+							//document.getElementById("feerem2").disabled=true;
+							//document.getElementById("feerem3").disabled=true;
+							//document.getElementById("hidefeeremph_1").style.display = 'none';
+						//}
+						
+					}
+				}else{
+					if(document.form1.community.value=='1' || document.form1.community.value=='2'){
+					  //alert("case2.2");
+						document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+						document.form1.feerem.selectedIndex=1;
+						document.getElementById("hidefeerem").style.display = 'block';
+						document.getElementById("showfeerem").style.display = 'none';
+						document.getElementById("feerem1").value='0';
+						document.getElementById("feerem1").disabled=true;
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("hidefeeremph_1").style.display = 'none';
+					}else{
+				  	  //alert("case2.3");
+						document.getElementById("feerem1").value='0';
+						//alert(exam_code);
+							if(exam_code == "CDSII" || exam_code == "CDSI" || exam_code == "GEOL" || exam_code == "ENGG" || exam_code == "CSP"){//alert("fas");
+								document.getElementById("feerem_hi").value=1;
+							}else{
+								document.getElementById("feerem_hi").value=document.getElementById("feerem3").value;
+							}	
+							//document.getElementById("feerem_hi").value=document.getElementById("feerem3").value;
+							document.getElementById("hidefeeremph").style.display = 'none';
+							document.getElementById("showfeerem").style.display = 'none';
+							document.getElementById("hidefeerem").style.display = 'none';
+							document.getElementById("feerem1").disabled=true;
+							document.getElementById("feerem2").disabled=true;
+							document.getElementById("feerem3").disabled=true;
+							document.getElementById("hidefeeremph_1").style.display = 'block';
+							//alert(document.getElementById("feerem_hi").value);
+						//End
+					}
+			}
+		}else{
+		 //alert("case3");
+			if((document.form1.community.value=='3' || document.form1.community.value=='4' || document.form1.community.value=='5') && document.form1.handicapp.value=='1'){
+				document.getElementById("hidefeerem").style.display = 'none';
+				document.getElementById("showfeerem").style.display = 'block';
+				document.getElementById("feerem2").disabled=true;
+				document.getElementById("feerem1").disabled=false;
+				//document.getElementById("hidefeeremph_1").style.display = 'block';
+			}
+		}
+	}
+	function changefees0(){
+	 	if(document.form1.handicapp.value=='2'){
+		//alert("change fees case1");
+			if(document.form1.sex.value=='1' || document.form1.sex.value=='3'){
+				if(document.form1.community.value=='1' || document.form1.community.value=='2'){
+				//alert("change fees case1.1");
+					document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+					document.getElementById("hidefeerem").style.display = 'block';
+					document.getElementById("showfeerem").style.display = 'none';
+					document.getElementById("feerem1").disabled=true;
+					document.getElementById("feerem2").disabled=true;
+				}else{
+				//alert("change fees case1.2");
+					document.getElementById("showfeerem").style.display = 'block';
+					document.getElementById("feerem1").disabled=false;
+					document.getElementById("feerem1").value='0';
+				}
+			}else if(document.form1.sex.value=='2'){
+			//alert("change fees case1.3");
+				document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=false;
+				document.getElementById("feerem2").disabled=true;
+			}
+		}else{
+			if((document.form1.community.value=='3' || document.form1.community.value=='4' || document.form1.community.value=='5') && (document.form1.sex.value=='1' || document.form1.sex.value=='3')){	
+			//alert("case2");
+				document.getElementById("feerem_hi").value=1;
+				document.getElementById("hidefeerem").style.display = 'none';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem2").disabled=true;
+				document.getElementById("feerem1").disabled=false;
+			}else{
+			//alert("case3");
+				document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			}
+		}
+	}
+function changefees1(){
+	//alert("case A");
+	document.getElementById("community_certificate_date").value="";
+	var exam_code = document.form1.exam_code.value; 
+ 	if((document.form1.community.value=='3') || (document.form1.community.value=='4') || (document.form1.community.value=='5')) {//alert("case A");
+		    if((document.form1.sex.value=='1' || document.form1.sex.value=='3') && ((document.form1.sex.value=='1' || document.form1.sex.value=='3') && document.form1.handicapp.value=='1')){
+			 //alert("case1");
+   				document.form1.feerem.selectedIndex=0;
+				document.getElementById("showfeerem").style.display = 'block';		
+				document.getElementById("hidefeerem").style.display = 'none';
+				document.getElementById("feerem1").value='0';
+				document.getElementById("feerem_hi").value=document.getElementById("feerem1").value;
+				
+				document.getElementById("feerem2").disabled=true;
+				document.getElementById("feerem1").disabled=false;
+				if(document.form1.community.value=='3'){
+				 //alert("case1.1");
+					document.getElementById("obccom").style.display = 'block';
+					document.getElementById("obccomm").style.display = 'block';
+					document.getElementById("communitycertificate").style.display = 'none';
+					document.getElementById("communitycertificatedate").style.display = 'none';
+				//Add code 06 sept by Ranjeet kumar	
+					document.getElementById("feerem_hi").value=1;
+					//alert(document.getElementById("feerem_hi").value);
+					document.getElementById("stsccomm").style.display = 'none';
+					document.getElementById("hidefeeremph").style.display = 'none';
+					document.getElementById("hidefeeremph_1").style.display = 'block';
+					document.getElementById("showfeerem").style.display = 'none';
+					document.getElementById("hidefeerem").style.display = 'none';
+					document.getElementById("feerem1").disabled=true;
+					document.getElementById("feerem2").disabled=true;
+					document.getElementById("feerem3").disabled=true;
+
+				//End
+				}else{
+				  //alert("case1.3");
+					document.getElementById("obccom").style.display = 'none';
+					document.getElementById("obccomm").style.display = 'none';
+					document.getElementById("obccommunity").value='2';
+					if(document.form1.community.value=='5'){
+						//alert("case1.2");
+						document.getElementById("stsccomm").style.display = 'none';
+						document.getElementById("communitycertificate").style.display = 'none';
+						document.getElementById("communitycertificatedate").style.display = 'none';
+					}else{
+						document.getElementById("stsccomm").style.display = 'none';
+						document.getElementById("communitycertificate").style.display = 'none';
+						document.getElementById("communitycertificatedate").style.display = 'none';
+					}
+					document.getElementById("feerem_hi").value=1;
+					document.getElementById("hidefeeremph").style.display = 'none';
+					document.getElementById("showfeerem").style.display = 'none';
+					document.getElementById("hidefeerem").style.display = 'none';
+					document.getElementById("feerem1").disabled=true;
+					document.getElementById("feerem2").disabled=true;
+					document.getElementById("feerem3").disabled=true;
+					document.getElementById("obccommn").style.display = 'none';
+					document.getElementById("obccommy").style.display = 'none';	
+					document.getElementById("hidefeeremph_1").style.display = 'block';	
+				}
+			}else{//alert("case B");
+			 	if(document.form1.handicapp.value=='2'){
+					//alert("case2.1");
+					if(document.getElementById("hcategory").value!='0' && document.getElementById("pcategory").value=='2'){
+					  //alert("case2.1.1");
+					  if(document.form1.sex.value=='2'){
+					  	document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+						document.getElementById("hidefeeremph").style.display = 'none';
+						document.getElementById("showfeerem").style.display = 'none';
+						document.getElementById("hidefeerem").style.display = 'block';
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("feerem1").disabled=true;
+					  }else{
+						//alert("case2.1.2");
+						document.getElementById("feerem_hi").value=document.getElementById("feerem3").value;
+						document.getElementById("hidefeerem").style.display = 'none';
+						document.getElementById("showfeerem").style.display = 'none';
+						document.getElementById("hidefeeremph").style.display = 'block';
+						document.getElementById("feerem1").disabled=true;
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("feerem3").disabled=true;
+						document.getElementById("obccommn").style.display = 'none';
+						document.getElementById("hidefeeremph_1").style.display = 'none';
+					  }
+					}
+					if(document.form1.community.value=='3'){//alert("case2.1.3");
+						document.getElementById("obccom").style.display = 'block';
+						document.getElementById("obccomm").style.display = 'block';
+						document.getElementById("communitycertificate").style.display = 'none';
+						document.getElementById("communitycertificatedate").style.display = 'none';
+						document.getElementById("stsccomm").style.display = 'none';
+					}else{
+						//alert("case2.1.4");
+						document.getElementById("obccom").style.display = 'none';
+						document.getElementById("obccomm").style.display = 'none';
+						document.getElementById("obccommunity").value='2';
+						if(document.form1.community.value=='5'){
+							//alert("case2.1.5");
+							document.getElementById("stsccomm").style.display = 'none';
+							document.getElementById("communitycertificate").style.display = 'none';
+							document.getElementById("communitycertificatedate").style.display = 'none';
+							document.getElementById("obccommn").style.display = 'none';
+							document.getElementById("obccommy").style.display = 'none';
+						}else{
+							document.getElementById("stsccomm").style.display = 'none';
+							document.getElementById("obccommn").style.display = 'none';
+							document.getElementById("obccommy").style.display = 'none';
+							document.getElementById("communitycertificate").style.display = 'none';
+							document.getElementById("communitycertificatedate").style.display = 'none';
+						}
+					}
+				}else{//alert("case C");
+					if(document.form1.sex.value=='2'){
+					//alert("case2.2");
+						document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+						document.form1.feerem.selectedIndex=1;
+						document.getElementById("hidefeerem").style.display = 'block';
+						document.getElementById("showfeerem").style.display = 'none';
+						document.getElementById("hidefeeremph").style.display = 'none';
+						document.getElementById("feerem1").value='0';
+						document.getElementById("feerem1").disabled=true;
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("stsccomm").style.display = 'none';
+						if(document.form1.community.value=='3'){
+							//alert("case2.2.1");
+							document.getElementById("obccom").style.display = 'block';
+							document.getElementById("obccomm").style.display = 'block';
+							document.getElementById("obccommunity").value='2';
+							document.getElementById("communitycertificate").style.display = 'none';
+						    document.getElementById("communitycertificatedate").style.display = 'none';
+						}else{
+							//alert("case2.2.2");
+							document.getElementById("obccom").style.display = 'none';
+							document.getElementById("obccomm").style.display = 'none';
+							document.getElementById("obccommunity").value='2';
+							if(document.form1.community.value=='5'){
+								//alert("case2.2.2.1");
+								document.getElementById("stsccomm").style.display = 'none';
+								document.getElementById("communitycertificate").style.display = 'none';
+								document.getElementById("communitycertificatedate").style.display = 'none';
+							}else{
+								document.getElementById("communitycertificate").style.display = 'none';
+								document.getElementById("communitycertificatedate").style.display = 'none';
+							}
+							document.getElementById("obccommn").style.display = 'none';
+							document.getElementById("obccommy").style.display = 'none';
+						}
+					}else{
+					//alert("case2.3");
+						document.form1.feerem.selectedIndex=1;
+						document.getElementById("showfeerem").style.display = 'block';		
+						document.getElementById("hidefeerem").style.display = 'none';
+						document.getElementById("hidefeeremph").style.display = 'none';
+						document.getElementById("feerem1").style.display = 'block';
+						//document.getElementById("feerem1").value='0';
+						
+						if(exam_code == "CDSII" || exam_code == "CDSI" || exam_code == "NDAI" || exam_code == "NDAII" || exam_code == "GEOL" || exam_code == "ENGG"){
+							document.getElementById("feerem_hi").value=1;
+						}else{
+							document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+						}						
+						document.getElementById("feerem2").disabled=true;
+						document.getElementById("feerem1").disabled=true;
+						document.getElementById("feerem3").disabled=true;
+						if(document.form1.community.value=='3'){
+						 //alert("case2.3.1");
+							document.getElementById("obccom").style.display = 'block';
+							document.getElementById("obccomm").style.display = 'block';
+							document.getElementById("communitycertificate").style.display = 'none';
+							document.getElementById("communitycertificatedate").style.display = 'none';
+							document.getElementById("stsccomm").style.display = 'none';
+						}else{
+							//alert("case2.3.2");
+							document.getElementById("obccom").style.display = 'none';
+							document.getElementById("obccomm").style.display = 'none';
+							document.getElementById("obccommunity").value='2';
+							if(document.form1.community.value=='5'){
+								document.getElementById("stsccomm").style.display = 'none';
+								document.getElementById("communitycertificate").style.display = 'none';
+								document.getElementById("communitycertificatedate").style.display = 'none';
+							}else{
+								document.getElementById("communitycertificate").style.display = 'none';
+								document.getElementById("communitycertificatedate").style.display = 'none';
+								document.getElementById("stsccomm").style.display = 'none';
+							}
+							document.getElementById("obccommn").style.display = 'none';
+							document.getElementById("obccommy").style.display = 'none';
+						}
+					}
+				}
+			}
+		}else{
+		  // alert("case3");
+			if(document.form1.community.value=='0'){
+				document.getElementById("feerem1").disabled=false;
+			}else{
+		        document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				//alert(document.getElementById("feerem_hi").value);
+				document.form1.feerem.selectedIndex=1;
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("feerem1").value='0';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+				if(exam_code != "CSM"){
+					document.getElementById("communitycertificate").style.display = 'block';
+					document.getElementById("communitycertificatedate").style.display = 'block';
+				}
+				if(document.form1.community.value=='3'){
+					//alert("case3.1");
+					document.getElementById("obccom").style.display = 'block';
+					document.getElementById("obccomm").style.display = 'block';
+				}else{
+					//alert("case3.1.1");
+					document.getElementById("obccom").style.display = 'none';
+					document.getElementById("obccomm").style.display = 'none';
+					document.getElementById("obccommunity").value='2';
+					document.getElementById("obccommn").style.display = 'none';
+					document.getElementById("obccommy").style.display = 'none';
+					document.getElementById("stsccomm").style.display = 'block';
+					document.getElementById("hidefeeremph_1").style.display = 'none';
+				}
+		   }
+		}
+	}
+  function phyhan()
+  {
+    var z=document.getElementById("handicapp");
+    var x=document.getElementById("ycategory");
+    var y=document.getElementById("hcategory");
+	var sy = document.getElementById("yhcategory");
+	var phpercent = document.getElementById("phpercent");
+	
+	var ysubcat=document.getElementById("ysubcat");
+    var ysubcatopt=document.getElementById("ysubcatopt");
+	
+	//var ycatpgextratime = document.getElementById("ycatpgextratime");
+	var phper = document.getElementById("phper");
+	//var phpercent = document.getElementById("phpercent");
+	//var ycatpgextra = document.getElementById("ycatpgextra");
+	var blindscribe = document.getElementById("blindscribe");
+	var blindscribed = document.getElementById("blindscribed");
+	//var blindscribeextra = document.getElementById("blindscribeextra");
+	//var blindscribeextratime = document.getElementById("blindscribeextratime");
+	
+	var phcertificate = document.getElementById("phcertificate");
+	var phcertificatedate = document.getElementById("phcertificatedate");
+	
+	var blindscribeoption = document.getElementById("blindscribeoption");
+	var blindscribe_option = document.getElementById("blindscribe_option");
+	var blindscribeoptionbring = document.getElementById("blindscribeoptionbring");
+	var bscribe_optionlink = document.getElementById("bscribe_optionlink");
+	
+	var qpap = document.getElementById("qpap");
+	var qpaper = document.getElementById("qpaper");
+	var asdev = document.getElementById("asdev");
+	var assdev = document.getElementById("assdev");
+	
+	var ywrexcat = document.getElementById("ywrexcat");
+	var ywrexcatextratime = document.getElementById("ywrexcatextratime");
+	var exam_code = document.form1.exam_code.value;
+	if(exam_code == "IES"){
+	if(handicapp.value==1){
+		document.getElementById("phnewchange").style.display="none";
+		}
+	}	
+	blindscribeoption.style.display="none";
+	blindscribe_option.style.display="none";
+	blindscribeoptionbring.style.display="none";
+	bscribe_optionlink.style.display="none";
+	
+    x.style.display="none";
+	sy.style.display="none";
+	phpercent.style.display="none";
+	ysubcatopt.style.display="none";
+	ysubcat.style.display="none";
+
+	phper.style.display="none";
+	phpercent.style.display="none";
+
+	blindscribe.style.display="none";
+	blindscribed.style.display="none";
+
+	qpap.style.display="none";
+	qpaper.style.display="none";
+	asdev.style.display="none";
+	assdev.style.display="none";
+	document.getElementById("qstpaper").value=0;
+	document.getElementById("assidev").value=0;
+	document.getElementById("blindgrscribed").value=0;
+	
+	phcertificate.style.display="none";
+	phcertificatedate.style.display="none";
+	document.getElementById("ph_certificate_date").value="";
+	document.getElementById("pcategory").value="0";
+	//
+	phcommcertno.style.display="none";
+	phcommcertno1.style.display="none";
+	document.getElementById("ph_certno").value="";
+	phcommcert_issauth.style.display="none";
+	phcommcert_issauth1.style.display="none";
+	document.getElementById("phcertissauth").value="";
+	//
+	
+	document.getElementById("orthoscribe").style.display = 'none';
+	document.getElementById("orthogrscribed").style.display = 'none';
+	document.getElementById("orthoscribeoption").style.display = 'none';
+	document.getElementById("orthoscribeoptionbring").style.display = 'none';
+	document.getElementById("oscribe_optionlink").style.display = 'none';
+	document.getElementById("oscribe_optionlink1").style.display = 'none';
+	document.getElementById("phcdate").style.display = 'none';
+	
+	document.getElementById("multi_dis_sub_cat").style.display = 'none';
+	document.getElementById("multi_dis_subcat").style.display = 'none';
+	//document.getElementById("multi_dis_sub_cat_opt").value=0;
+	
+	document.getElementById("name_scribe").value='';
+	document.getElementById("pd_line1").value='';
+	document.getElementById("pd_line2").value='';
+	document.getElementById("pd_line3").value='';
+	document.getElementById("pd_dist").value=0;
+	document.getElementById("pd_district_others").value='';
+	document.getElementById("state_ps").value=0;
+	document.getElementById("state_ps_code_others").value='';
+	document.getElementById("pd_pincode").value='';
+	document.getElementById("pd_mobile").value='';
+	document.getElementById("edu_scribe").value=0;
+	document.getElementById("rel_scribe").value='';
+	//document.getElementById("billingtoo").value='off';
+
+    document.getElementById("hsubcatgory").value=0;
+	document.getElementById("orthoscribeoptionbring").value=0;
+	document.getElementById("blindscribeoptionbring").value=0;
+	document.getElementById("bscribe_optionlink1").style.display = 'none';
+	document.getElementById("multi_phcatper1").style.display="none";
+	
+	document.getElementById("ph_cat_blind_msg").style.display="none";
+	document.getElementById("phcatmsg").style.display="none";
+	document.getElementById("ph_cat_deaf_msg").style.display="none";
+	document.getElementById("ph_cat_intell_multi_msg").style.display="none";
+	
+	document.getElementById("ywrexcat").style.display="none";
+	document.getElementById("ywrexcatextratime").style.display="none";
+	document.getElementById("phwrextcatmsg").style.display = 'none';
+	document.getElementById("all_ycatpgextra").style.display = 'none';
+	document.getElementById("all_othoextratime").value="0";
+	document.getElementById("all_ycatpgextratime").style.display = 'none';
+	
+	//var dcstairs = document.getElementById("dcstairs");
+	//var dcstairsopt = document.getElementById("dcstairsopt");
+	//dcstairs.style.display="none";
+	//dcstairsopt.style.display="none";
+	//document.getElementById("dcstairsoption").value="0";
+	//
+	document.getElementById("asslistdev").style.display="none";
+	document.getElementById("asslistdevice").style.display="none";
+	document.getElementById("phassdev").style.display="none";
+	document.getElementById("phassdevice").style.display="none";
+	document.getElementById("phass_device_note").style.display = 'none';				
+	document.getElementById("phassdevice_note").style.display="none";
+	if((document.getElementById("phassdev1").style.display) == "block"){
+		document.getElementById("ph_id_assdev1").style.display = 'none'; 
+		document.getElementById("phassdev1").style.display = "none";
+	}
+	document.getElementById("count_assi_device").value = 0;
+	document.getElementById("idassdev2").style.display = 'none';
+	document.getElementById("ph_oth_assdev2").style.display = 'none';
+	document.getElementById("idassdev3").style.display = 'none';
+	document.getElementById("ph_oth_assdev3").style.display = 'none';
+	document.getElementById("idassdev4").style.display = 'none';
+	document.getElementById("ph_oth_assdev4").style.display = 'none';
+	document.getElementById("idassdev5").style.display = 'none';
+	document.getElementById("ph_oth_assdev5").style.display = 'none';
+	//
+	document.getElementById("hail_apmmeminasi").value = 0;
+	document.getElementById("language_exception").value = '';
+	document.getElementById("language_code").value = 0;
+	//
+	document.getElementById("pcatper2").style.display = 'none';
+	document.getElementById("pcatper2opt").style.display = 'none';
+	document.getElementById("phcatperless").value = 0;
+	//
+    if(z.value==2){
+		if(exam_code == "ENGG"){
+			document.getElementById("engg_phcatmsg").style.display = 'block';
+		}else{
+			document.getElementById("engg_phcatmsg").style.display = 'none';
+		}
+	   x.style.display="block";
+	   sy.style.display="block";
+	   document.getElementById("phcatmsg").style.display = 'none';
+	   //if(document.getElementById("sex").value==2){
+	   	 //alert("phy yes f");
+			//document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			//document.getElementById("hidefeerem").style.display = 'block';
+			//document.getElementById("showfeerem").style.display = 'none';
+			//document.getElementById("feerem1").disabled=true;
+			//document.getElementById("feerem2").disabled=true;
+			//
+		document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+		document.getElementById("hidefeerem").style.display = 'block';
+		document.getElementById("showfeerem").style.display = 'none';
+		document.getElementById("hidefeeremph").style.display = 'none';
+		document.getElementById("feerem1").disabled=true;
+		document.getElementById("feerem2").disabled=true;
+		document.getElementById("hidefeeremph_1").style.display = 'none';
+	  //}
+	}else{
+	  //alert("phy no f");
+	    document.getElementById("engg_phcatmsg").style.display = 'none';
+	    if(document.getElementById("sex").value==2){
+		  //alert("phy no f 1.1");
+			document.getElementById("hcategory").value="0";
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("phcatmsg").style.display = 'none';
+		}else{
+		  //alert("phy no f 1.2");
+		  	if(document.form1.community.value=='1' || document.form1.community.value=='2'){
+			 // alert("phy no f 1.2.1");
+				document.getElementById("hcategory").value="0";
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("phcatmsg").style.display = 'none';
+			}else{
+			 // alert("phy no f 1.2.2");
+				document.getElementById("hcategory").value="0";
+				document.getElementById("hidefeeremph_1").style.display = 'block';
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'none';
+				document.getElementById("phcatmsg").style.display = 'none';
+				document.getElementById("feerem3").disabled=true;
+				document.getElementById("feerem1").value=document.getElementById("feerem_hi").value;
+			}
+			
+		}
+		
+	}
+}
+function phyhancate() 
+  { 
+    var hcategory=document.getElementById("hcategory");
+    var phper=document.getElementById("phper");
+	var phpercent = document.getElementById("phpercent");
+	var pcategory = document.getElementById("pcategory");
+	
+	var ysubcat=document.getElementById("ysubcat");
+    var ysubcatopt=document.getElementById("ysubcatopt");
+
+	var handicapp = document.getElementById("handicapp");
+	var phcatper1 = document.getElementById("phcatper1");
+	var phcatper = document.getElementById("phcatper");
+	
+	var blindscribe = document.getElementById("blindscribe");
+	var blindscribed = document.getElementById("blindscribed");
+	var blindgrscribedextratime = document.getElementById("blindgrscribedextratime");
+
+	var phcertificate = document.getElementById("phcertificate");
+	var phcertificatedate = document.getElementById("phcertificatedate");
+	
+	var phcatper3 = document.getElementById("phcatper3");
+	var phcatper4 = document.getElementById("phcatper4");
+	var phcatper5 = document.getElementById("phcatper5");
+		
+	var blindscribeoption = document.getElementById("blindscribeoption");
+	var blindscribe_option = document.getElementById("blindscribe_option");
+	var blindscribeoptionbring = document.getElementById("blindscribeoptionbring");
+	var bscribe_optionlink = document.getElementById("bscribe_optionlink");
+	
+	var orthoscribe = document.getElementById("orthoscribe");
+	var orthoscribed = document.getElementById("orthoscribed");
+	var orthoscribeoption = document.getElementById("orthoscribeoption");
+	var orthoscribe_option = document.getElementById("orthoscribe_option");
+	
+	var qpap = document.getElementById("qpap");
+	var qpaper = document.getElementById("qpaper");
+	var asdev = document.getElementById("asdev");
+	var assdev = document.getElementById("assdev");
+	
+	var ywrexcat = document.getElementById("ywrexcat");
+	var ywrexcatextratime = document.getElementById("ywrexcatextratime");
+	var exam_code = document.form1.exam_code.value; 
+	
+	//var dcstairs = document.getElementById("dcstairs");
+	//var dcstairsopt = document.getElementById("dcstairsopt");
+	//alert('wee');
+	   if(exam_code == "IES"){
+		//   alert(handicapp.value);
+		if(handicapp.value==2){
+	    document.getElementById("phnewchange").style.display="block";
+		//alert(exam_code);
+		}else if(handicapp.value==1){
+		document.getElementById("phnewchange").style.display="none";
+		}
+	   }
+	orthoscribe.style.display="none";
+	orthoscribed.style.display="none";
+	orthoscribeoption.style.display="none";
+	orthoscribe_option.style.display="none";
+		
+	blindscribeoption.style.display="none";
+	blindscribe_option.style.display="none";
+	blindscribeoptionbring.style.display="none";
+	bscribe_optionlink.style.display="none";
+	
+	blindscribe.style.display="none";
+	blindscribed.style.display="none";
+	
+    phper.style.display="none";
+	phpercent.style.display="none";
+	
+	ysubcat.style.display="none";
+	ysubcatopt.style.display="none";
+	
+	ywrexcat.style.display="none";
+	ywrexcatextratime.style.display="none";
+	
+	phcatper1.style.display="none";
+	phcatper3.style.display="none";
+	//phcatper.style.display="none";
+	//
+	document.getElementById("phcommcertno").style.display = 'block';
+	document.getElementById("phcommcertno1").style.display = 'block';
+	document.getElementById("ph_certno").value="";
+	document.getElementById("phcommcert_issauth").style.display = 'block';
+	document.getElementById("phcommcert_issauth1").style.display = 'block';
+	document.getElementById("phcertissauth").value="";
+	document.getElementById("phcertificate").style.display = 'block';
+	document.getElementById("phcertificatedate").style.display = 'block';
+	document.getElementById("ph_certificate_date").value="";
+	document.getElementById("phcdate").style.display = 'block';
+	//
+	
+	qpap.style.display="none";
+	qpaper.style.display="none";
+	asdev.style.display="none";
+	assdev.style.display="none";
+	document.getElementById("qstpaper").value=0;
+	document.getElementById("assidev").value=0;
+	//dcstairs.style.display="none";
+	//dcstairsopt.style.display="none";
+	
+	document.getElementById("phcdate").style.display = 'none';
+	
+	document.getElementById("oscribe_optionlink").style.display = 'none';
+	document.getElementById("oscribe_optionlink1").style.display = 'none';
+	document.getElementById("bscribe_optionlink").style.display = 'none';
+	document.getElementById("bscribe_optionlink1").style.display = 'none';
+	document.getElementById("orthogrscribed").value=0;
+	document.getElementById("orthoscribeoptionbring").value=0;
+	document.getElementById("name_scribe").value='';
+	document.getElementById("pd_line1").value='';
+	document.getElementById("pd_line2").value='';
+	document.getElementById("pd_line3").value='';
+	document.getElementById("pd_dist").value=0;
+	document.getElementById("pd_district_others").value='';
+	document.getElementById("state_ps").value=0;
+	document.getElementById("state_ps_code_others").value='';
+	document.getElementById("pd_pincode").value='';
+	document.getElementById("pd_mobile").value='';
+	document.getElementById("edu_scribe").value=0;
+	document.getElementById("rel_scribe").value='';
+	document.getElementById("billingtoo").value='off';
+	document.getElementById("hsubcatgory").value=0;
+	document.getElementById("multi_dis_sub_cat").style.display = 'none';
+	document.getElementById("multi_dis_subcat").style.display = 'none';
+	//document.getElementById("multi_dis_sub_cat_opt").value=0;
+	document.getElementById("multi_phcatper1").style.display="none";
+	//document.getElementById("phper").style.display="block";
+	//document.getElementById("pcategory").value=0;
+	//document.getElementById("phpercent").style.display="block";
+	ysubcat.style.display="block";
+	ysubcatopt.style.display="block";
+	document.getElementById("hsubcatgory").value="0";
+	document.getElementById("phcatper6").style.display = 'none';
+	document.getElementById("hidefeeremph_1").style.display="none";
+	document.getElementById("all_ycatpgextra").style.display = 'none';
+	document.getElementById("all_othoextratime").value="0";
+	document.getElementById("all_ycatpgextratime").style.display = 'none';
+	document.getElementById("asslistdev").style.display="none";
+	document.getElementById("asslistdevice").style.display="none";
+	document.getElementById("phassdev").style.display="none";
+	document.getElementById("phassdevice").style.display="none";
+	document.getElementById("phass_device_note").style.display = 'none';				
+	document.getElementById("phassdevice_note").style.display="none";
+	if((document.getElementById("phassdev1").style.display) == "block"){
+		document.getElementById("ph_id_assdev1").style.display = 'none'; 
+		document.getElementById("phassdev1").style.display = "none";
+	}
+	document.getElementById("count_assi_device").value = 0;
+	document.getElementById("idassdev2").style.display = 'none';
+	document.getElementById("ph_oth_assdev2").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name2").value = '';
+	document.getElementById("idassdev3").style.display = 'none';
+	document.getElementById("ph_oth_assdev3").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name3").value = '';
+	document.getElementById("idassdev4").style.display = 'none';
+	document.getElementById("ph_oth_assdev4").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name4").value = '';
+	document.getElementById("idassdev5").style.display = 'none';
+	document.getElementById("ph_oth_assdev5").style.display = 'none';	
+	document.getElementById("ph_oth_assdev_name5").value = '';
+	//
+	document.getElementById("pcatper2").style.display = 'none';
+	document.getElementById("pcatper2opt").style.display = 'none';
+	document.getElementById("phcatperless").value = 0;
+	//
+	if(exam_code == "CSP" && document.getElementById("stream").value !=0){
+		document.getElementById("stream").value=0;
+		document.getElementById("csp_ifs_exam_pref_default_update").value=0;		
+	}
+	
+	if( document.getElementById("csm_centre_code").value !=''){
+		document.getElementById("csm_centre_code").value=0;
+	}
+	if(document.getElementById("blindscribeoptionbring").value !=''){
+		document.getElementById("blindscribeoptionbring").value=0;
+	}
+	document.getElementById("phwrextcatmsg").style.display = 'none';
+//alert("ranjeet2");
+    if(hcategory.value==1 && handicapp.value==2){
+		//alert("case PH Cat 1");
+		//phper.style.display="block";
+	   // phpercent.style.display="block";
+		ysubcat.style.display="block";
+	    ysubcatopt.style.display="block";
+		if(exam_code == "CSP" || exam_code == "ENGG"){
+			document.getElementById("phcatmsg").style.display = 'block';
+		}else{
+			document.getElementById("phcatmsg").style.display = 'none';
+		}
+	    
+		//document.getElementById("pcategory").value="0";
+		document.getElementById("hsubcatgory").value="0";
+		if(exam_code != "ENGG"){
+			phcatper3.style.display="block";
+		}
+		if(exam_code == "CMS"){
+			phcatper4.style.display="block";
+		}
+		phcatper1.style.display="none";
+		phcatper3.style.display="none";
+		phcatper5.style.display="none";
+		blindscribe.style.display="none";
+		blindscribed.style.display="none";
+		blindgrscribedextratime.style.display="none";
+		
+		if(hcategory.value==1){
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+		}
+		
+		if((document.getElementById("sex").value==1) || (document.getElementById("sex").value==3)){
+		  //alert("case PH Cat 1.1");
+		   if(document.getElementById("community").value==1 || document.getElementById("community").value==2){
+		   		//alert("case PH Cat 1.1.1");
+				document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+		   }else{
+		   	  //alert("case PH Cat 1.1.2");
+			    document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+				//document.getElementById("hidefeeremph").style.display = 'block';
+				//document.getElementById("hidefeerem").style.display = 'none';
+				//document.getElementById("showfeerem").style.display = 'none';
+				//document.getElementById("feerem1").value="0";
+				//document.getElementById("feerem1").disabled=true;
+				//document.getElementById("feerem2").disabled=true;
+				document.getElementById("phcatper6").style.display = 'none';
+				if(exam_code == "CSP" || exam_code == "ENGG"){
+					document.getElementById("phcatmsg").style.display = 'block';
+				}else{
+					document.getElementById("phcatmsg").style.display = 'none';
+				}
+		   }
+		}
+	}else if(hcategory.value==2 && handicapp.value==2){
+	  //alert("case PH Cat 2");
+		//phper.style.display="block";
+		//phpercent.style.display="block";
+		//document.getElementById("pcategory").value="0";
+		// disable writing extrimity
+		ysubcat.style.display="none";
+		ysubcatopt.style.display="none";
+		document.getElementById("hsubcatgory").value="0";
+		// enable extra time for low-vision
+		all_ycatpgextra.style.display="block";
+		all_ycatpgextratime.style.display="block";
+		document.getElementById("all_othoextratime").value="0";
+		// enable require scribe for low-vision
+		blindscribe.style.display="block";
+		blindscribed.style.display="block";
+		blindgrscribed.style.display="block";
+		document.getElementById("blindgrscribed").value="0";
+		//enable bring scribe for low-vision
+		qpap.style.display="block";
+		qpaper.style.display="block";
+		qstpaper.style.display="block";
+		document.getElementById("qstpaper").value="0";
+		//
+		if(exam_code != "GEOL"){
+			phcatper1.style.display="none";
+		}
+		if(exam_code == "ENGG"){
+			phcatper3.style.display="block";
+			phcatper1.style.display="none";
+			phcatmsg.style.display="none";
+		}
+		if(exam_code == "CMS"){
+			phcatper5.style.display="none";
+			phcatper1.style.display="none";
+		}
+		phcatper4.style.display="none";
+		document.getElementById("phcdate").style.display = 'none';
+		//blindscribe.style.display="none";
+		//blindscribed.style.display="none";
+		if(hcategory.value==2){
+			//alert("ranjeet");
+			document.getElementById("ph_cat_blind_msg").style.display = 'block';
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+			if(exam_code == "GEOL" || exam_code == "CSP" || exam_code == "ISS"){
+				document.getElementById("phcatmsg").style.display = 'none';
+			}else{
+				document.getElementById("phcatmsg").style.display = 'none';
+			}
+		}
+		
+		if(document.getElementById("sex").value==2){
+			//alert("case PH Cat 2.1");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+		}else{
+			if(document.getElementById("community").value==1 || document.getElementById("community").value==2){
+				//alert("case PH Cat 2.2.1");
+				document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+			}else{
+				//alert("case PH Cat 2.2.2");
+				/*document.getElementById("feerem1").value="0";
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'none';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+				document.getElementById("hidefeeremph").style.display = 'block';
+				*/
+				document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+				document.getElementById("hidefeeremph").style.display = 'none';
+				document.getElementById("hidefeerem").style.display = 'block';
+				document.getElementById("showfeerem").style.display = 'none';
+				document.getElementById("feerem1").disabled=true;
+				document.getElementById("feerem2").disabled=true;
+			}
+			
+		}
+		
+	}else if((hcategory.value==3 || hcategory.value==4 || hcategory.value==5) && handicapp.value==2){
+	  //alert("case PH Cat 3,4 and 5");
+		if((hcategory.value==4) || (hcategory.value==5)){
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			if(exam_code == "GEOL" || exam_code == "CSP"){
+				document.getElementById("phcatmsg").style.display = 'none';
+			}else{
+				document.getElementById("phcatmsg").style.display = 'none';
+			}
+		  if(exam_code == "CSP"){
+			alert("NOT eligible for I.Fo.S. Exam, 2021.");
+		  }
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'block';
+			
+		}else if(hcategory.value==3){
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+		}
+		//phper.style.display="block";
+		//phpercent.style.display="block";
+		//document.getElementById("pcategory").value="0";
+		ysubcat.style.display="block";
+		ysubcatopt.style.display="block";
+		document.getElementById("hsubcatgory").value="0";
+		document.getElementById("blindgrscribed").value="0";
+		document.getElementById("blindgrscribedextratime").value="0";
+		phcatper1.style.display="none";
+		phcatper3.style.display="none";
+		phcatper4.style.display="none";
+		phcatper5.style.display="none";
+		blindscribe.style.display="none";
+		blindscribed.style.display="none";
+		blindgrscribedextratime.style.display="none";
+		
+		if(hcategory.value==3){
+			document.getElementById("ph_cat_deaf_msg").style.display = 'block';
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			if(exam_code == "GEOL" || exam_code == "CSP" || exam_code == "IES"){
+				document.getElementById("phcatmsg").style.display = 'none';
+			}else{
+				document.getElementById("phcatmsg").style.display = 'none';
+			}
+		}
+		
+		if(document.getElementById("sex").value==2){
+		  //alert("case PH Cat 3.1");
+		    document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+		}else{
+		  if(document.getElementById("community").value==1 || document.getElementById("community").value==2){
+		  	//alert("case PH Cat 3.2");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+		  }else{
+		  	//alert("case PH Cat 3.2.1");
+			//document.getElementById("hidefeeremph").style.display = 'block';
+			//document.getElementById("hidefeerem").style.display = 'none';
+			//document.getElementById("showfeerem").style.display = 'none';
+			//document.getElementById("feerem1").value="0";
+			//document.getElementById("feerem1").disabled=true;
+			//document.getElementById("feerem2").disabled=true;
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("phcatper6").style.display = 'none';
+			//document.getElementById("phless").style.display = 'none';
+		  }
+		}
+	}else if((hcategory.value==6 || hcategory.value==7) && handicapp.value==2){
+		//alert("case PH Cat 6 and 7");
+		document.getElementById("phcatmsg").style.display = 'none';
+		if(document.getElementById("sex").value==2){
+		  //alert("Female case PH Cat 6/7");
+		  if(hcategory.value==6){
+				 //alert("case PH Cat 6");
+				 //
+				ysubcat.style.display="none";
+				ysubcatopt.style.display="none";
+				document.getElementById("hsubcatgory").value="0";
+				// enable extra time for low-vision
+				all_ycatpgextra.style.display="block";
+				all_ycatpgextratime.style.display="block";
+				document.getElementById("all_othoextratime").value="0";
+				// enable require scribe for low-vision
+				blindscribe.style.display="block";
+				blindscribed.style.display="block";
+				blindgrscribed.style.display="block";
+				document.getElementById("blindgrscribed").value="0";
+				//enable bring scribe for low-vision
+				qpap.style.display="block";
+				qpaper.style.display="block";
+				qstpaper.style.display="block";
+				document.getElementById("qstpaper").value="0";
+				//
+				if(exam_code != "GEOL"){
+				phcatper1.style.display="none";
+				}
+				if(exam_code == "ENGG"){
+				phcatper3.style.display="block";
+				phcatper1.style.display="none";
+				phcatmsg.style.display="none";
+				}
+				//
+				if(exam_code == "GEOL"){
+					document.getElementById("ph_cat_blind_msg").style.display = 'none';
+					document.getElementById("ph_cat_intell_multi_msg").style.display = 'block';
+				}				
+				//
+			}else{
+				//alert("case PH Cat 7");
+				ysubcat.style.display="block";
+				ysubcatopt.style.display="block";
+				document.getElementById("hsubcatgory").value="0";
+				all_ycatpgextra.style.display="none";
+				all_ycatpgextratime.style.display="none";
+				document.getElementById("all_othoextratime").value="0";
+				if(exam_code == "GEOL"){
+					document.getElementById("ph_cat_blind_msg").style.display = 'none';
+					document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+				}
+			}
+		    document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+		}else{//alert("male or transgender case PH Cat 4.2");
+			if(hcategory.value==6){
+				 //alert("case PH Cat 6");
+				// disable writing extrimity
+				ysubcat.style.display="none";
+				ysubcatopt.style.display="none";
+				document.getElementById("hsubcatgory").value="0";
+				// enable extra time for low-vision
+				all_ycatpgextra.style.display="block";
+				all_ycatpgextratime.style.display="block";
+				document.getElementById("all_othoextratime").value="0";
+				// enable require scribe for low-vision
+				blindscribe.style.display="block";
+				blindscribed.style.display="block";
+				blindgrscribed.style.display="block";
+				document.getElementById("blindgrscribed").value="0";
+				//enable bring scribe for low-vision
+				qpap.style.display="block";
+				qpaper.style.display="block";
+				qstpaper.style.display="block";
+				document.getElementById("qstpaper").value="0";
+				if(exam_code == "GEOL"){//alert("fads");
+					document.getElementById("ph_cat_blind_msg").style.display = 'block';
+				}else{
+					document.getElementById("ph_cat_blind_msg").style.display = 'none';
+				}
+				//
+			}else{
+				//alert("case PH Cat 7");
+				ysubcat.style.display="block";
+				ysubcatopt.style.display="block";
+				document.getElementById("hsubcatgory").value="0";
+				all_ycatpgextra.style.display="none";
+				all_ycatpgextratime.style.display="none";
+				document.getElementById("all_othoextratime").value="0";
+				document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			}
+			//document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';
+			document.getElementById("phcatmsg").style.display = 'none';	
+			//
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			//
+			//document.getElementById("hidefeeremph").style.display = 'block';
+			//document.getElementById("hidefeerem").style.display = 'none';
+			//document.getElementById("showfeerem").style.display = 'none';
+			//document.getElementById("feerem1").value="0";
+			//document.getElementById("feerem1").disabled=true;
+			//document.getElementById("feerem2").disabled=true;
+			//
+		}
+	}
+	else{//alert("case PH Cat 8");
+		document.getElementById("pcategory").value="0";
+		if(document.getElementById("sex").value==2){
+		  //alert("Female case PH Cat 8.1");
+		    document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("phcatmsg").style.display = 'none';	
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';	
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';	
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+		}else{
+			//alert("male or transgender case PH Cat 8.2");
+			//document.getElementById("hidefeeremph").style.display = 'block';
+			//document.getElementById("hidefeerem").style.display = 'none';
+			//document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("phcatmsg").style.display = 'none';	
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';	
+			document.getElementById("ph_cat_deaf_msg").style.display = 'none';	
+			document.getElementById("ph_cat_intell_multi_msg").style.display = 'none';
+			document.getElementById("feerem1").value="0";
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			//
+		}
+	}
+	
+}
+
+function orthoscribeoptionbring1()
+{
+var showhideflag=document.getElementById("orthogrscribed").value;
+//alert(showhideflag);
+	if(showhideflag==2)
+	{
+	//alert("No");
+	orthoscribeoption.style.display="none";
+	orthoscribe_option.style.display="none";
+	document.getElementById("orthoscribeoptionbring").style.display = 'none';
+	document.getElementById("oscribe_optionlink1").style.display = 'none';
+	document.getElementById("oscribe_optionlink").style.display = 'none';
+	document.getElementById("orthoscribeoptionbring").value = 0;
+	}
+	else if(showhideflag==1)
+	{
+	//alert("Yes");
+	orthoscribeoption.style.display="block";
+	orthoscribe_option.style.display="block";
+	document.getElementById("orthoscribeoptionbring").style.display = 'block';
+	document.getElementById("orthoscribeoptionbring").value = 0;
+	}
+	document.getElementById("name_scribe").value='';
+	document.getElementById("pd_line1").value='';
+	document.getElementById("pd_line2").value='';
+	document.getElementById("pd_line3").value='';
+	document.getElementById("pd_dist").value=0;
+	document.getElementById("pd_district_others").value='';
+	document.getElementById("state_ps").value=0;
+	document.getElementById("state_ps_code_others").value='';
+	document.getElementById("pd_pincode").value='';
+	document.getElementById("pd_mobile").value='';
+	document.getElementById("edu_scribe").value=0;
+	document.getElementById("rel_scribe").value='';
+	document.getElementById("billingtoo").value='off';
+}
+
+ function extralocotime(){
+    var exam_code = document.form1.exam_code.value;
+	var hsubcatgory=document.getElementById("hsubcatgory").value;
+    var orthoscribe=document.getElementById("orthoscribe");
+    var orthoscribed=document.getElementById("orthoscribed");
+    var orthoscribeoption=document.getElementById("orthoscribeoption");
+    var orthoscribe_option=document.getElementById("orthoscribe_option");
+	
+	document.getElementById("orthogrscribed").style.display = 'block';
+	document.getElementById("oscribe_optionlink").style.display = 'none';
+	//alert(hsubcatgory);
+	if(hsubcatgory == 11 && exam_code !='NDAI'){
+		//alert("ranjeet");
+			orthoscribe.style.display="block";
+			orthoscribed.style.display="block";
+		}else{ 
+		  //alert("ran");
+			orthoscribe.style.display="none";
+			orthoscribed.style.display="none";
+			orthoscribeoption.style.display="none";
+			orthoscribe_option.style.display="none";
+			document.getElementById("othoextratime").value="0";
+			document.getElementById("orthogrscribed").value="0";
+			document.getElementById("orthoscribeoptionbring").value="0";
+			oscribe_optionlink1.style.display="none";
+			oscribe_optionlink.style.display="none";
+		}
+ }
+function extratime()
+  {
+  	var hcategory=document.getElementById("hcategory");
+	var ysubcat=document.getElementById("ysubcat");
+    var ysubcatopt=document.getElementById("ysubcatopt");
+
+	var pcategory = document.getElementById("pcategory");
+	var othoextratime = document.getElementById("othoextratime");
+	var handicapp = document.getElementById("handicapp");
+	
+	var blindscribe = document.getElementById("blindscribe");
+	var blindscribed = document.getElementById("blindscribed");
+	var blindgrscribedextratime = document.getElementById("blindgrscribedextratime");
+	
+	var phcertificate = document.getElementById("phcertificate");
+	var phcertificatedate = document.getElementById("phcertificatedate");
+	
+	var blindscribeoption = document.getElementById("blindscribeoption");
+	var blindscribe_option = document.getElementById("blindscribe_option");
+	var blindscribeoptionbring = document.getElementById("blindscribeoptionbring");
+	var bscribe_optionlink = document.getElementById("bscribe_optionlink");
+	
+	var phcatper6 = document.getElementById("phcatper6");
+	var qpap = document.getElementById("qpap");
+	var qpaper = document.getElementById("qpaper");
+	var asdev = document.getElementById("asdev");
+	var assdev = document.getElementById("assdev");
+	
+	var ywrexcat = document.getElementById("ywrexcat");
+	var ywrexcatextratime = document.getElementById("ywrexcatextratime");
+	
+		
+	blindscribeoption.style.display="none";
+	blindscribe_option.style.display="none";
+	blindscribeoptionbring.style.display="none";
+	bscribe_optionlink.style.display="none";
+	
+	ysubcat.style.display="none";
+	ysubcatopt.style.display="none";
+	
+	blindscribe.style.display="none";
+	blindscribed.style.display="none";
+	
+	qpap.style.display="none";
+	qpaper.style.display="none";
+	asdev.style.display="none";
+	assdev.style.display="none";
+	document.getElementById("qstpaper").value="0";
+	document.getElementById("hsubcatgory").value="0";
+	document.getElementById("blindscribeoptionbring").value="0";
+	document.getElementById("ywrexcat_extratime").value="0";
+	var exam_code = document.form1.exam_code.value; 
+	
+	phcertificate.style.display="none";
+	phcertificatedate.style.display="none";
+	document.getElementById("ph_certificate_date").value="";
+	//
+	phcommcertno.style.display="none";
+	phcommcertno1.style.display="none";
+	document.getElementById("ph_certno").value="";
+	phcommcert_issauth.style.display="none";
+	phcommcert_issauth1.style.display="none";
+	document.getElementById("phcertissauth").value="";
+	//
+	document.getElementById("phcdate").style.display = 'none';
+	document.getElementById("orthoscribe").style.display = 'none';
+	document.getElementById("orthoscribed").style.display = 'none';
+	document.getElementById("orthoscribeoption").style.display = 'none';
+	document.getElementById("orthoscribe_option").style.display = 'none';
+	document.getElementById("oscribe_optionlink").style.display = 'none';
+	document.getElementById("oscribe_optionlink1").style.display = 'none';
+	document.getElementById("orthogrscribed").value="0";
+	document.getElementById("orthoscribeoptionbring").value="0";
+    document.getElementById("bscribe_optionlink1").style.display = 'none';
+	document.getElementById("bscribe_optionlink").style.display = 'none';
+	document.getElementById("multi_phcatper1").style.display="none";
+	
+	document.getElementById("ywrexcat").style.display="none";
+	document.getElementById("ywrexcatextratime").style.display="none";
+	document.getElementById("phwrextcatmsg").style.display = 'none';
+	document.getElementById("all_ycatpgextra").style.display = 'none';
+	document.getElementById("all_othoextratime").value="0";
+	document.getElementById("all_ycatpgextratime").style.display = 'none';
+	//var dcstairs = document.getElementById("dcstairs");
+	//var dcstairsopt = document.getElementById("dcstairsopt");
+	//dcstairs.style.display="none";
+	//dcstairsopt.style.display="none";
+	//document.getElementById("dcstairsoption").value="0";
+	//
+	document.getElementById("asslistdev").style.display="none";
+	document.getElementById("asslistdevice").style.display="none";
+	document.getElementById("phassdev").style.display="none";
+	document.getElementById("phassdevice").style.display="none";
+	document.getElementById("phass_device_note").style.display = 'none';				
+	document.getElementById("phassdevice_note").style.display="none";
+	if((document.getElementById("phassdev1").style.display) == "block"){
+		document.getElementById("ph_id_assdev1").style.display = 'none'; 
+		document.getElementById("phassdev1").style.display = "none";
+	}
+	document.getElementById("count_assi_device").value = 0;
+	document.getElementById("idassdev2").style.display = 'none';
+	document.getElementById("ph_oth_assdev2").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name2").value = '';
+	document.getElementById("idassdev3").style.display = 'none';
+	document.getElementById("ph_oth_assdev3").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name3").value = '';
+	document.getElementById("idassdev4").style.display = 'none';
+	document.getElementById("ph_oth_assdev4").style.display = 'none';
+	document.getElementById("ph_oth_assdev_name4").value = '';
+	document.getElementById("idassdev5").style.display = 'none';
+	document.getElementById("ph_oth_assdev5").style.display = 'none';	
+	document.getElementById("ph_oth_assdev_name5").value = '';		
+	//
+	document.getElementById("hail_apmmeminasi").value = 0;
+	document.getElementById("language_exception").value = '';
+	document.getElementById("language_code").value = 0;
+	//
+	document.getElementById("pcatper2").style.display = 'none';
+	document.getElementById("pcatper2opt").style.display = 'none';
+	document.getElementById("phcatperless").value = 0;
+	//
+	if(pcategory.value == 2){
+		phcatper6.style.display="block";
+	}else{
+		phcatper6.style.display="none";
+	}
+	if(exam_code == "CSP" && document.getElementById("stream").value !=0){
+		document.getElementById("stream").value=0;	
+		document.getElementById("csp_ifs_exam_pref_default_update").value=0;
+	}
+    if(handicapp.value==2 && hcategory.value==1){
+	  //alert("case2");
+	   
+	    if(exam_code != "CSM"){
+		 //alert("case2.1");
+		ysubcat.style.display="block";
+		ysubcatopt.style.display="block";
+		phcdate.style.display = 'block';
+		
+		//dcstairs.style.display="block";
+		//dcstairsopt.style.display="block";
+
+		document.getElementById("othoextratime").value="0";
+		document.getElementById("hsubcatgory").value="0";
+		document.getElementById("blindgrscribedextratime").value="0";
+		document.getElementById("hidefeerem").style.display = 'block';
+		document.getElementById("hidefeeremph").style.display = 'none';
+		}
+		document.getElementById("blindgrscribedextratime").value="0";
+		document.getElementById("hidefeeremph_1").style.display = 'none';
+		if(exam_code != "NDAI"){
+			document.getElementById("phcertificate").style.display = 'block';
+			document.getElementById("phcertificatedate").style.display = 'block';
+			document.getElementById("phcommcertno").style.display = 'block';
+			document.getElementById("phcommcertno1").style.display = 'block';
+			document.getElementById("phcommcert_issauth").style.display = 'block';
+			document.getElementById("phcommcert_issauth1").style.display = 'block';
+		}
+		if((document.getElementById("sex").value==1) || (document.getElementById("sex").value==3)){
+			//alert("case3.1");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("feerem2").disabled=true;
+		}
+	}else if(handicapp.value==2 && (hcategory.value==2 || hcategory.value==6)){
+	  //alert("case3");
+	    document.getElementById("ifsm_centre_code").value=0;
+		document.getElementById("phcatper1").style.display = 'block';
+		document.getElementById("phcdate").style.display = 'block';
+		document.getElementById("hidefeerem").style.display = 'block';
+		document.getElementById("hidefeeremph").style.display = 'none';
+		blindscribe.style.display="block";
+		blindscribed.style.display="block";
+		document.getElementById("blindgrscribed").value="0";
+		document.getElementById("blindgrscribedextratime").value="0";
+		qpap.style.display="block";
+		qpaper.style.display="block";
+		document.getElementById("all_ycatpgextra").style.display = 'block';
+		document.getElementById("all_othoextratime").value="0";
+		document.getElementById("all_ycatpgextratime").style.display = 'block';
+		//dcstairs.style.display="block";
+		//dcstairsopt.style.display="block";
+
+		if(exam_code != "NDAI"){
+			document.getElementById("phcertificate").style.display = 'block';
+			document.getElementById("phcertificatedate").style.display = 'block';
+			document.getElementById("phcommcertno").style.display = 'block';
+			document.getElementById("phcommcertno1").style.display = 'block';
+			document.getElementById("phcommcert_issauth").style.display = 'block';
+			document.getElementById("phcommcert_issauth1").style.display = 'block';
+		}
+		if((document.getElementById("sex").value==1) || (document.getElementById("sex").value==3)){
+		//alert("case3.2");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("hidefeeremph_1").style.display = 'none';
+		}
+		
+		if(hcategory.value == 6){//alert("case3.2a");
+			var ph_cat_blind_msg = document.getElementById("ph_cat_blind_msg");
+			document.getElementById("ph_cat_blind_msg").style.display = 'none';
+			document.getElementById("hidefeeremph_1").style.display = 'none';
+		}
+			
+	}else if(handicapp.value==2 && hcategory.value!=0){
+	   // alert("case3.3");
+		document.getElementById("ifsm_centre_code").value=0;
+		document.getElementById("phcatper1").style.display = 'none';
+		document.getElementById("phcdate").style.display = 'none';
+		document.getElementById("multi_dis_sub_cat").style.display = 'none';
+		document.getElementById("multi_dis_subcat").style.display = 'none';
+		//document.getElementById("multi_dis_sub_cat_opt").value="0";
+		//dcstairs.style.display="none";
+		//dcstairsopt.style.display="none";
+		//
+		if((document.getElementById("sex").value==1) || (document.getElementById("sex").value==3)){
+		  if(document.getElementById("community").value==1 || document.getElementById("community").value==2){
+			//alert("case3.3.1");
+			document.getElementById("blindgrscribed").value="0";
+			document.getElementById("blindgrscribedextratime").value="0";
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("feerem3").disabled=true;
+			document.getElementById("hidefeeremph_1").style.display = 'none';
+			document.getElementById("pcatper2").style.display = 'block';
+			document.getElementById("pcatper2opt").style.display = 'block';
+			document.getElementById("phcatperless").value="0";
+		  }else{
+			//alert("3.3.2");
+			document.getElementById("blindgrscribed").value="0";
+			document.getElementById("blindgrscribedextratime").value="0";
+			document.getElementById("feerem_hi").value=1;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("feerem3").disabled=true;
+			document.getElementById("hidefeeremph_1").style.display = 'block';
+			document.getElementById("pcatper2").style.display = 'block';
+			document.getElementById("pcatper2opt").style.display = 'block';
+			document.getElementById("phcatperless").value="0";
+		  }
+			
+		}else if(document.getElementById("sex").value==2){
+			//alert("case3.3.3");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("pcatper2").style.display = 'block';
+			document.getElementById("pcatper2opt").style.display = 'block';
+			document.getElementById("phcatperless").value="0";
+	   }else if(document.getElementById("sex").value == 0){
+			document.getElementById("pcatper2").style.display = 'block';
+			document.getElementById("pcatper2opt").style.display = 'block';
+			document.getElementById("phcatperless").value="0";
+	   }
+	}else if(handicapp.value==2 && (hcategory.value==3 || hcategory.value==4 || hcategory.value==5 || hcategory.value==7 || hcategory.value==8)){
+		//alert("case3.4");
+		ysubcat.style.display="block";
+		ysubcatopt.style.display="block";
+		//dcstairs.style.display="block";
+		//dcstairsopt.style.display="block";
+		if(exam_code != "NDAI"){ 
+			if(hcategory.value==5){
+				document.getElementById("phcertificate").style.display = 'block';
+				document.getElementById("phcertificatedate").style.display = 'block';
+				document.getElementById("phcommcertno").style.display = 'block';
+				document.getElementById("phcommcertno1").style.display = 'block';
+				document.getElementById("phcommcert_issauth").style.display = 'block';
+				document.getElementById("phcommcert_issauth1").style.display = 'block';
+				document.getElementById("multi_dis_sub_cat").style.display = 'none';
+				document.getElementById("multi_dis_subcat").style.display = 'none';
+			}else{
+				document.getElementById("phcertificate").style.display = 'block';
+				document.getElementById("phcertificatedate").style.display = 'block';
+				document.getElementById("phcommcertno").style.display = 'block';
+				document.getElementById("phcommcertno1").style.display = 'block';
+				document.getElementById("phcommcert_issauth").style.display = 'block';
+				document.getElementById("phcommcert_issauth1").style.display = 'block';
+			}
+		}
+		if(((document.getElementById("sex").value==1) || document.getElementById("sex").value==3)){
+		//alert("case3.4.1");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("feerem3").disabled=true;
+			if(hcategory.value==5){//alert("case3.4.1a");
+				document.getElementById("phcatper1").style.display = 'none';
+				document.getElementById("multi_dis_sub_cat").style.display = 'none';
+				document.getElementById("multi_dis_subcat").style.display = 'none';
+				document.getElementById("phcdate").style.display = 'none';
+				document.getElementById("hidefeeremph_1").style.display = 'none';
+			}else{//alert("case3.4.1b");
+				document.getElementById("phcatper1").style.display = 'none';
+				document.getElementById("phcdate").style.display = 'block';
+				document.getElementById("hidefeeremph_1").style.display = 'none';
+				
+			}
+			
+		}/*else if(((document.getElementById("sex").value==1) || (document.getElementById("sex").value==3))){
+		//alert("case3.4.2");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem3").value;
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("hidefeeremph").style.display = 'block';
+			document.getElementById("hidefeerem").style.display = 'none';
+			document.getElementById("feerem2").disabled=true;
+			document.getElementById("pcatper2").style.display = 'block';
+			document.getElementById("pcatper2opt").style.display = 'block';
+			document.getElementById("phcatperless").value="0";
+		}*/else if(document.getElementById("sex").value==2){
+		//alert("case3.4.3");
+			document.getElementById("feerem_hi").value=document.getElementById("feerem2").value;
+			document.getElementById("showfeerem").style.display = 'none';
+			document.getElementById("feerem1").disabled=true;
+			document.getElementById("hidefeeremph").style.display = 'none';
+			document.getElementById("hidefeerem").style.display = 'block';
+			document.getElementById("feerem2").disabled=true;
+			if(hcategory.value==5){
+				document.getElementById("phcatper1").style.display = 'none';
+				document.getElementById("multi_dis_sub_cat").style.display = 'none';
+				document.getElementById("multi_dis_subcat").style.display = 'none';
+				document.getElementById("phcdate").style.display = 'none';
+			}else{
+				document.getElementById("phcatper1").style.display = 'none';
+				document.getElementById("phcdate").style.display = 'block';
+			}
+		}
+	}  
+}
+function phcatpertext_cat(){
+	var pcategory=document.getElementById("pcategory").value;
+	var phcatperless=document.getElementById("phcatperless").value;
+	if(pcategory == 2 && phcatperless == 2){
+		alert("You have selected invalid option of disability percentage(%), Please select option '40% or more' in disability Percentage.");
+		document.form1.pcategory.focus();
+		document.getElementById("phcatperno").value = 2;
+	}else if(pcategory == 2 && phcatperless == 1){
+		alert("You have selected invalid option in the candidates of persons with benchmark disability, Please select option 'No' in the candidates of persons with benchmark disability.");
+		document.form1.handicapp.focus();
+		document.getElementById("phcatperno").value = 1;
+	}
+}
+function wrtext_cat(){
+	var pcategory=document.getElementById("pcategory").value;
+	var hsubcatgory=document.getElementById("hsubcatgory").value;
+	var hcategory=document.getElementById("hcategory").value;
+	
+	var orthoscribeoption=document.getElementById("orthoscribeoption");
+	var orthoscribe_option=document.getElementById("orthoscribe_option");
+	var orthoscribeoptionbring=document.getElementById("orthoscribeoptionbring");
+	var oscribe_optionlink1=document.getElementById("oscribe_optionlink1");
+	var oscribe_optionlink=document.getElementById("oscribe_optionlink");
+	
+	if(hsubcatgory == 1 && hcategory !=2){
+		document.getElementById("ywrexcat").style.display = 'block';
+		document.getElementById("ywrexcatextratime").style.display = 'block';
+		wrtext_cat_ajax();
+	}else{
+		//alert(hsubcatgory);
+		document.getElementById("ywrexcat").style.display = 'none';
+		document.getElementById("ywrexcatextratime").style.display = 'none';
+		
+		document.getElementById("orthoscribe").style.display = 'none';
+		document.getElementById("orthoscribed").style.display = 'none';
+		
+		orthoscribeoption.style.display="none";
+		orthoscribe_option.style.display="none";
+		orthoscribeoptionbring.style.display="none";
+		oscribe_optionlink1.style.display="none";
+		oscribe_optionlink.style.display="none";
+		document.getElementById("qpap").style.display = 'none';
+		document.getElementById("qpaper").style.display = 'none';
+		document.getElementById("qstpaper").value="0";
+		document.getElementById("asdev").style.display = 'none';		
+		document.getElementById("assdev").style.display = 'none';
+		document.getElementById("all_ycatpgextra").style.display = 'none';
+		document.getElementById("all_othoextratime").value="0";
+		document.getElementById("all_ycatpgextratime").style.display = 'none';
+	}	
+	chacheclearscribe();
+}
+function blockscribe(){
+	var pcategory=document.getElementById("pcategory").value;
+	var hsubcatgory=document.getElementById("hsubcatgory").value;
+	var hcategory=document.getElementById("hcategory").value;
+	var ywrexcat_extratime=document.getElementById("ywrexcat_extratime").value;
+	var phwrextcatmsg=document.getElementById("phwrextcatmsg");
+	
+	if(hsubcatgory == 1 && hcategory !=2 && ywrexcat_extratime !=55){
+		document.getElementById("orthoscribe").style.display = 'block';
+		document.getElementById("orthoscribed").style.display = 'block';
+		document.getElementById("orthogrscribed").style.display = 'block';
+		document.getElementById("orthogrscribed").value="0";
+		document.getElementById("orthoscribeoption").style.display = 'none';
+		document.getElementById("orthoscribe_option").style.display = 'none';
+		document.getElementById("orthoscribeoptionbring").style.display = 'none';
+		document.getElementById("oscribe_optionlink").style.display = 'none';	
+		document.getElementById("oscribe_optionlink1").style.display = 'none';
+		document.getElementById("phwrextcatmsg").style.display = 'block';
+		document.getElementById("all_ycatpgextra").style.display = 'block';
+		document.getElementById("all_othoextratime").value="0";
+		document.getElementById("all_ycatpgextratime").style.display = 'block';
+		if(ywrexcat_extratime == 53){
+			document.getElementById("qpap").style.display = 'block';
+			document.getElementById("qpaper").style.display = 'block';
+		}else{
+			document.getElementById("qpap").style.display = 'none';
+			document.getElementById("qpaper").style.display = 'none';
+			document.getElementById("qstpaper").value="0";
+			document.getElementById("asdev").style.display = 'none';
+			document.getElementById("assdev").style.display = 'none';
+			//
+			document.getElementById("asslistdev").style.display="none";
+			document.getElementById("asslistdevice").style.display="none";
+			document.getElementById("phassdev").style.display="none";
+			document.getElementById("phassdevice").style.display="none";
+			document.getElementById("phass_device_note").style.display = 'none';				
+			document.getElementById("phassdevice_note").style.display="none";
+			if((document.getElementById("phassdev1").style.display) == "block"){
+				document.getElementById("ph_id_assdev1").style.display = 'none'; 
+				document.getElementById("phassdev1").style.display = "none";
+			}
+			
+			//
+		}
+	}else{
+		document.getElementById("orthoscribe").style.display = 'none';
+		document.getElementById("orthoscribed").style.display = 'none';
+		document.getElementById("orthogrscribed").style.display = 'none';
+		document.getElementById("orthoscribeoption").style.display = 'none';
+		document.getElementById("orthoscribe_option").style.display = 'none';
+		document.getElementById("orthoscribeoptionbring").style.display = 'none';
+		document.getElementById("oscribe_optionlink").style.display = 'none';	
+		document.getElementById("oscribe_optionlink1").style.display = 'none';	
+		document.getElementById("qpap").style.display = 'none';
+		document.getElementById("qpaper").style.display = 'none';
+		document.getElementById("qstpaper").value="0";
+		document.getElementById("asdev").style.display = 'none';		
+		document.getElementById("assdev").style.display = 'none';
+		document.getElementById("phwrextcatmsg").style.display = 'block';
+		//
+		document.getElementById("asslistdev").style.display="none";
+		document.getElementById("asslistdevice").style.display="none";
+		document.getElementById("phassdev").style.display="none";
+		document.getElementById("phassdevice").style.display="none";
+		document.getElementById("phassdevice_note").style.display="none";
+		document.getElementById("all_ycatpgextra").style.display = 'none';
+		document.getElementById("all_othoextratime").value="0";
+		document.getElementById("all_ycatpgextratime").style.display = 'none';
+		//
+	}
+	chacheclearscribe();
+}
+function wrtext_cat_ajax(){ 
+	var hcategory=document.getElementById("hcategory").value;
+	var exam_code = document.form1.exam_code.value; 
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("ywrexcat_extratime").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	if(hcategory != ''){
+		//alert("sub_cat_page.php?hcategory="+hcategory);
+		//alert(exam_code);
+		xmlhttp.open("GET","sub_cat_page.php?hcategory="+hcategory+"&examcode="+exam_code,true);
+		xmlhttp.send();		
+	}
+}
+function bsextratime(){
+	var exam_code = document.form1.exam_code.value; 
+	var blindgrscribedextratime = document.getElementById("blindgrscribedextratime");
+	var blindgrscribed = document.getElementById("blindgrscribed");
+	var handicapp = document.getElementById("handicapp");
+	var hcategory = document.getElementById("hcategory");
+	var pcategory = document.getElementById("pcategory");
+	
+	var blindscribeoption = document.getElementById("blindscribeoption");
+	var blindscribe_option = document.getElementById("blindscribe_option");
+	var blindscribeoptionbring = document.getElementById("blindscribeoptionbring");
+	var bscribe_optionlink = document.getElementById("bscribe_optionlink");
+	bscribe_optionlink.style.display="none";
+	document.getElementById("bscribe_optionlink1").style.display = 'none';
+	document.getElementById("bscribe_optionlink").style.display = 'none';
+	document.getElementById("blindscribeoptionbring").value="0";
+	
+	if(exam_code !="CSP"){
+		if(handicapp.value==2 && (hcategory.value==2 ||  hcategory.value==6)  && blindgrscribed.value==1){
+			document.getElementById("blindgrscribedextratime").value="0";
+			blindgrscribedextratime.style.display="block";
+		}else if(handicapp.value==2 && (hcategory.value==2 || hcategory.value==6)  && blindgrscribed.value==2){
+			document.getElementById("blindgrscribedextratime").value="0";
+			blindgrscribedextratime.style.display="block";
+		}
+	}
+	//if(exam_code == "CSP"){
+	if(handicapp.value==2 && (hcategory.value==2 || hcategory.value==5 || hcategory.value==6)  && blindgrscribed.value==1){
+		blindscribeoption.style.display="block";
+		blindscribe_option.style.display="block";
+		document.getElementById("blindscribeoptionbring").value="0";
+		blindscribeoptionbring.style.display="block";
+	}else{
+		blindscribeoption.style.display="none";
+		blindscribe_option.style.display="none";
+		blindscribeoptionbring.style.display="none";
+	}
+	//function to clear chache clear scribe
+	chacheclearscribe();
+}
+function assidevice(){
+	var qstpaper = document.getElementById("qstpaper");
+	var asdev = document.getElementById("asdev");
+	var assdev = document.getElementById("assdev");
+	var assidev = document.getElementById("assidev");
+	var qstpaperfontsize = document.getElementById("qstpaperfontsize");
+	var assidevinfo = document.getElementById("assidevinfo");
+	
+	if(qstpaper.value == 2){
+		asdev.style.display="block";
+		assdev.style.display="block";
+		qstpaperfontsize.style.display="block";
+	}else if(qstpaper.value == 1){
+		qstpaperfontsize.style.display="block";
+		asdev.style.display="block";
+		assdev.style.display="block";
+	}
+	if(assidev.value == 1){
+		assidevinfo.style.display="block";
+		asslistdev.style.display="block";
+		asslistdevice.style.display="block";
+	}else if(assidev.value == 2){
+		assidevinfo.style.display="none";
+		asslistdev.style.display="none";
+		asslistdevice.style.display="none";
+		document.getElementById("assi_device").value='0';
+		document.getElementById("phassdev").style.display="none";
+		document.getElementById("phassdevice").style.display="none";
+		document.getElementById("phass_device_note").style.display = 'none';				
+		document.getElementById("phassdevice_note").style.display="none";
+		if((document.getElementById("phassdev1").style.display) == "block"){
+			document.getElementById("ph_id_assdev1").style.display = 'none'; 
+			document.getElementById("phassdev1").style.display = "none";
+		}
+		//
+		document.getElementById("count_assi_device").value = 0;
+		document.getElementById("idassdev2").style.display = 'none';
+		document.getElementById("ph_oth_assdev2").style.display = 'none';
+		document.getElementById("ph_oth_assdev_name2").value = '';
+		document.getElementById("idassdev3").style.display = 'none';
+		document.getElementById("ph_oth_assdev3").style.display = 'none';
+		document.getElementById("ph_oth_assdev_name3").value = '';
+		document.getElementById("idassdev4").style.display = 'none';
+		document.getElementById("ph_oth_assdev4").style.display = 'none';
+		document.getElementById("ph_oth_assdev_name4").value = '';
+		document.getElementById("idassdev5").style.display = 'none';
+		document.getElementById("ph_oth_assdev5").style.display = 'none';	
+		document.getElementById("ph_oth_assdev_name5").value = '';
+		//
+	}	
+}
+function bscribeoption(){
+	var exam_code = document.form1.exam_code.value; 
+    var blindscribeoptionbring = document.getElementById("blindscribeoptionbring").value;
+
+	var handicapp = document.getElementById("handicapp");
+	var hcategory = document.getElementById("hcategory");
+	var pcategory = document.getElementById("pcategory");
+	var blindgrscribed = document.getElementById("blindgrscribed");
+	
+	var bscribe_optionlink = document.getElementById("bscribe_optionlink");
+	var bscribe_optionlink1 = document.getElementById("bscribe_optionlink1");
+	
+	//if(exam_code == "CSP"){
+		if(handicapp.value==2 && (hcategory.value==2 || hcategory.value==5 || hcategory.value==6)  && blindgrscribed.value==1 && blindscribeoptionbring == 1){
+			bscribe_optionlink.style.display="block";
+			bscribe_optionlink1.style.display="none";
+		}else if(handicapp.value==2 && (hcategory.value==2 || hcategory.value==5 || hcategory.value==6) && blindgrscribed.value==1 && blindscribeoptionbring == 2){
+			bscribe_optionlink1.style.display="block";
+			bscribe_optionlink.style.display="none";
+		//function to clear chache clear scribe
+			chacheclearscribe();
+		}
+	//}     
+}
+function oscribeoption(){
+	var exam_code = document.form1.exam_code.value; 
+    var orthoscribeoptionbring = document.getElementById("orthoscribeoptionbring").value;
+	var handicapp = document.getElementById("handicapp");
+	var hsubcatgory = document.getElementById("hsubcatgory");
+	var pcategory = document.getElementById("pcategory");
+	var orthogrscribed = document.getElementById("orthogrscribed");
+	
+	var oscribe_optionlink = document.getElementById("oscribe_optionlink");
+	var oscribe_optionlink1 = document.getElementById("oscribe_optionlink1");
+	
+	//if(exam_code == "CSP"){ 
+		if(handicapp.value==2 && hsubcatgory.value==1 && orthogrscribed.value==1 && orthoscribeoptionbring == 1){
+			oscribe_optionlink.style.display="block";
+			oscribe_optionlink1.style.display="none";
+		}else if(handicapp.value==2 && hsubcatgory.value==1 && orthogrscribed.value==1 && orthoscribeoptionbring == 2){
+			oscribe_optionlink1.style.display="block";
+			oscribe_optionlink.style.display="none";
+	//function to clear chache clear scribe
+			chacheclearscribe();
+		}
+	//}     
+}
+ function chacheclearscribe(){
+	document.getElementById("name_scribe").value='';
+	document.getElementById("pd_line1").value='';
+	document.getElementById("pd_line2").value='';
+	document.getElementById("pd_line3").value='';
+	document.getElementById("pd_dist").value=0;
+	document.getElementById("pd_district_others").value='';
+	document.getElementById("state_ps").value=0;
+	document.getElementById("pd_pincode").value='';
+	document.getElementById("state_ps_code_others").value='';
+	document.getElementById("pd_mobile").value='';
+	document.getElementById("edu_scribe").value=0;
+	document.getElementById("rel_scribe").value='';
+	document.getElementById("billingtoo").value='off';
+ }
+  function setMinotry(minority_status)
+  {
+	if(minority_status=='0')
+	{
+		document.getElementById("showminotry1").style.display = 'none';
+  		document.getElementById("showminotry").style.display = 'none';
+		document.getElementById("minority_code").disabled=true;
+	}else if(minority_status=='1')
+	{	
+		document.getElementById("showminotry1").style.display = 'block';
+		document.getElementById("showminotry").style.display = 'block';
+		document.getElementById("minority_code").disabled=false;
+	}
+  }
+  
+  
+    function showeqdetails(){
+    var exam_code = document.form1.exam_code.value; 
+    window.open('eqdetails.php?exam_code='+exam_code,'test',"status=0,toolbar=0,location=0,menubar=0,scrollbars=1,width=800,height=600,top=100,left=300");
+  }
+  function showcitizendetails(){
+    var exam_code = document.form1.exam_code.value; 
+    window.open('citizenshipdetails.php?exam_code='+exam_code,'test',"status=0,toolbar=0,location=0,menubar=0,scrollbars=1,width=700,height=500,top=100,left=300");
+  }
+ function showphcatvacancy(){
+    var exam_code = document.form1.exam_code.value; 
+    window.open('phcatvacancy.php?exam_code='+exam_code,'test',"status=0,toolbar=0,location=0,menubar=0,scrollbars=1,width=600,height=400,top=100,left=300");
+  }
+function lit()
+  {
+	   var id=document.form1.csp_ifs_exam_pref.value;
+	   if(id != 44){
+		document.getElementById("lit_sub").style.display="block";
+	   }
+	   //document.getElementById("lit_sub").style.display="block";
+	   var browserName  = navigator.appName;
+	     if(id == 43){
+			   if (browserName=="Netscape"){ 
+					 document.getElementById("lit_sub").style.display=""; 
+					 document.getElementById("lit_sub_detail").style.display="none";
+					 document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					 document.form1.literature_sub.value=0;
+				}else {
+					 document.getElementById("lit_sub").style.display="block"; 
+					 document.getElementById("lit_sub_detail").style.display="none";
+					 document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					 document.form1.literature_sub.value=0;
+				} 
+	     }else if(id == 44){
+		  if (browserName=="Netscape"){ 
+					 document.getElementById("lit_sub_detail").style.display=""; 
+				}else {
+					 document.getElementById("lit_sub_detail").style.display="block"; 
+				} 
+		 }else if((id == 2) || (id == 5) || (id == 8) ||(id == 11)||(id == 14)||(id == 17)||(id == 20)||(id == 23)||(id == 26)||(id == 29)||(id == 32)||(id == 35)||(id == 38)||(id == 41)){
+		 	if (browserName=="Netscape"){ 
+					document.getElementById("lit_sub").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					document.form1.literature_sub.value=0;
+			}else{
+					document.getElementById("lit_sub").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					document.form1.literature_sub.value=0;
+			}
+		 }else{ 
+			if (browserName=="Netscape"){ 
+					document.getElementById("lit_sub").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					document.form1.literature_sub.value=0;
+			}else{
+					document.getElementById("lit_sub").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="none";
+					document.form1.literature_sub.value=0;
+			}
+	    }
+  }
+  
+function lit_sub()
+	{ 
+		var id=document.form1.literature_sub.value;
+		var browserName  = navigator.appName;
+		if(id == 82){
+		     if(browserName=="Netscape"){
+			 	document.getElementById("lit_sub_detail").style.display="";
+				document.getElementById("lit_sub_detail_Ajax").style.display="none";
+			 }else{
+			 	document.getElementById("lit_sub_detail").style.display="block";
+				document.getElementById("lit_sub_detail_Ajax").style.display="none";
+			 }
+		}else{ 
+			if(browserName=="Netscape"){
+					document.getElementById("lit_sub_detail").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="";
+				}else{
+					document.getElementById("lit_sub_detail").style.display="none";
+					document.getElementById("lit_sub_detail_Ajax").style.display="block";
+				}
+				if (id == "")
+				  {
+				  document.getElementById("lit_sub_detail_Ajax").innerHTML="";
+				  return;
+				  }
+				else if(id == 0){alert("Select literature subject");return false;} 
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				xmlhttp.onreadystatechange=function()
+				  {
+				  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+					document.getElementById("lit_sub_detail_Ajax").innerHTML=xmlhttp.responseText;
+					}
+				  }
+				xmlhttp.open("GET","display_literature_sub.php?literature_sub_id="+id,true);
+				xmlhttp.send();
+				
+		}
+	} 
+function lit_update()
+  {
+	   var id=document.form1.csp_ifs_exam_pref_update.value;
+	   var browserName  = navigator.appName;
+	    if(id == 43){
+	       if(browserName=="Netscape"){
+		   	  document.getElementById("lit_sub_update").style.display=""; 
+		      document.form1.literature_sub.value=0;
+			  document.form1.cspsubcode.value=0;
+		   }else{
+		   	  document.getElementById("lit_sub_update").style.display="block"; 
+		      document.getElementById("lit_sub_detail_update").style.display="none";
+		      document.getElementById("literature_update").style.display="none";
+			  document.form1.literature_sub.value=0;
+			  document.form1.cspsubcode.value=0;
+		   }
+	   }else if(id == 44){
+		  if (browserName=="Netscape"){ 
+					 document.getElementById("lit_sub_detail_update").style.display=""; 
+				}else {
+					 document.getElementById("lit_sub_detail_update").style.display="block";
+				} 
+		 }else if((id == 2) || (id == 5) || (id == 8) ||(id == 11)||(id == 14)||(id == 17)||(id == 20)||(id == 23)||(id == 26)||(id == 29)||(id == 32)||(id == 35)||(id == 38)||(id == 41)){
+		 	if (browserName=="Netscape"){ 
+					document.getElementById("lit_sub_detail_update").style.display="none";
+			}else{
+					document.getElementById("lit_sub_detail_update").style.display="none";
+			}
+		 }else if(id == 0){
+		  document.getElementById("lit_sub_update").style.display="none"; 
+		  document.getElementById("lit_sub_details").style.display="none"; 
+		  document.getElementById("lit_sub_detail_update").style.display="none"; 
+		  document.getElementById("lit_sub_detail_Ajax_update").style.display="none"; 
+		 }else{ 
+			if (browserName=="Netscape"){ 
+					document.getElementById("lit_sub_detail_update").style.display="";
+			}else{
+					document.getElementById("lit_sub_detail_update").style.display="block";
+			}
+	    }
+  }
+function lit_sub_update()
+	{ 
+		var id=document.form1.literature_sub.value;
+		var browserName  = navigator.appName;
+		    if(id == 82){
+					 if(browserName=="Netscape"){
+						document.getElementById("lit_sub_detail_update").style.display="";
+						document.getElementById("lit_sub_detail_Ajax_update").style.display="none";
+						document.getElementById("lit_sub_details").style.display="none";
+						document.form1.cspsubcode.value=0;
+					 }else{
+						document.getElementById("lit_sub_detail_update").style.display="block";
+						document.getElementById("lit_sub_detail_Ajax_update").style.display="none";
+						document.getElementById("lit_sub_details").style.display="none";
+						document.form1.cspsubcode.value=0;
+					 }
+			}else{ 
+				   if(browserName=="Netscape"){
+					  document.getElementById("lit_sub_detail_update").style.display="none";
+					  document.getElementById("lit_sub_detail_Ajax_update").style.display="";
+					  document.getElementById("lit_sub_details").style.display="none";
+				   }else{
+					  document.getElementById("lit_sub_detail_update").style.display="none";
+					  document.getElementById("lit_sub_detail_Ajax_update").style.display="block";
+					  document.getElementById("lit_sub_details").style.display="none";
+				   }
+			  
+					if (id == "")
+					  {
+					  document.getElementById("lit_sub_detail_Ajax_update").innerHTML="";
+					  return;
+					  }
+					else if(id == 0){alert("Select literature subject");return false;} 
+					if (window.XMLHttpRequest)
+					  {// code for IE7+, Firefox, Chrome, Opera, Safari
+					  xmlhttp=new XMLHttpRequest();
+					  }
+					else
+					  {// code for IE6, IE5
+					  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+					  }
+					xmlhttp.onreadystatechange=function()
+					  {
+					  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+						document.getElementById("lit_sub_detail_Ajax_update").innerHTML=xmlhttp.responseText;
+						}
+					  }
+					xmlhttp.open("GET","display_literature_sub.php?literature_sub_id="+id,true);
+					xmlhttp.send();
+				
+		    }
+} 
+function function_stream()
+	{ 
+		var id=document.form1.stream.value;
+		var hcategory=document.form1.hcategory.value;
+		var pcategory=document.form1.pcategory.value;
+		var browserName  = navigator.appName;
+		     if(browserName=="Netscape"){
+				  document.getElementById("exam_pref").style.display="";
+				  document.getElementById("lit_sub").style.display="none";
+				  document.getElementById("lit_sub_detail_Ajax").style.display="none";
+				  document.getElementById("lit_sub_detail").style.display="none"; 
+				  document.getElementById("degree_considered").style.display="none";
+				  
+			 }else{
+				  document.getElementById("exam_pref").style.display="block";
+				  document.getElementById("lit_sub").style.display="none";
+				  document.getElementById("lit_sub_detail_Ajax").style.display="none";
+				  document.getElementById("lit_sub_detail").style.display="none"; 
+				  document.getElementById("degree_considered").style.display="none";
+			 }
+				if (id == "")
+				  {
+				  document.getElementById("csp_ifs_exam_pref_normal").innerHTML="";
+				  return;
+				  }
+				else if(id == 0){alert("Select Your Degree Subject in Graduation");return false;} 
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				xmlhttp.onreadystatechange=function()
+				  {
+				  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+					document.getElementById("csp_ifs_exam_pref_normal").innerHTML=xmlhttp.responseText;
+					}
+				  }
+				  
+				xmlhttp.open("GET","csp_ifs_exam_pref.php?exam_pref_id="+id+"&hcategory="+hcategory+"&pcategory="+pcategory,true);
+				xmlhttp.send();
+				
+		
+	} 
+function function_stream_update()
+	{ 
+		var id=document.form1.stream.value;
+		var hcategory=document.form1.hcategory.value;
+		var pcategory=document.form1.pcategory.value;
+		var browserName  = navigator.appName;
+		   if(id == 0){
+			   document.getElementById("default_exam_pref").style.display="none";
+			   document.getElementById("lit_sub_update").style.display="none";
+			   document.getElementById("lit_sub_details").style.display="none";
+			   document.getElementById("exam_pref_update").style.display="none";
+			   document.getElementById("lit_sub_detail_update").style.display="none";
+			   document.getElementById("stream").focus();
+			   alert("Select your Degree Subject in Graduation."); 
+		   }else{
+				 if(browserName=="Netscape"){
+					  document.getElementById("exam_pref_update").style.display="";
+					  document.getElementById("default_exam_pref").style.display="none";
+					  document.getElementById("lit_sub_update").style.display="none";
+					  document.getElementById("lit_sub_details").style.display="none";
+					  document.getElementById("lit_sub_detail_Ajax_update").style.display="none";
+					  document.getElementById("degree_considered_update").style.display="none";
+					  document.getElementById("lit_sub_detail_update").style.display="none";
+					  document.form1.ifsopt1.value='';
+					  document.form1.ifsopt2.value='';
+					  document.form1.ifsnoofatt.value='';
+					  document.form1.cspnoofatt.value='';
+					  document.form1.literature_sub.value=0;
+					  document.form1.formupdate.value=3;
+					  document.form1.updatedefault.value=0;						 
+				 }else{
+					  document.getElementById("exam_pref_update").style.display="block";
+					  document.getElementById("default_exam_pref").style.display="none";
+					  document.getElementById("lit_sub_update").style.display="none";
+					  document.getElementById("lit_sub_details").style.display="none";
+					  document.getElementById("degree_considered_update").style.display="none";
+					  document.getElementById("lit_sub_detail_update").style.display="none";
+					  document.form1.ifsopt1.value='';
+					  document.form1.ifsopt2.value='';
+					  document.form1.ifsnoofatt.value='';
+					  document.form1.cspnoofatt.value='';
+					  document.form1.literature_sub.value=0;
+					  document.form1.formupdate.value=3;
+					  document.form1.updatedefault.value=0;
+				 }
+			}
+				if (id == "")
+				  {
+				  document.getElementById("csp_ifs_exam_pref").innerHTML="";
+				  return;
+				  }
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				xmlhttp.onreadystatechange=function()
+				  {
+				  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+					document.getElementById("csp_ifs_exam_pref").innerHTML=xmlhttp.responseText;
+					}
+				  }
+				xmlhttp.open("GET","csp_ifs_exam_pref.php?update_exam_pref_id="+id+"&hcategory="+hcategory+"&pcategory="+pcategory,true);
+				xmlhttp.send();
+	} 
+function function_exam_pref_update(){
+	var id=document.form1.csp_ifs_exam_pref.value;
+	var browserName  = navigator.appName;
+	//value set
+	document.form1.per_gud_level.value='';
+	document.form1.cspnoofatt.value='';
+	document.form1.csm_centre_code.value=0;
+	document.form1.cspsubcode.value=0;
+	document.form1.medium_code.value=0;
+	document.form1.opt_medium_code.value=0;
+	document.form1.hail_apmmeminasi.value=0;
+	document.form1.language_exception.value=0;
+	document.form1.language_code.value=0;
+	document.form1.scriberquired.value=0;
+	document.form1.cspmain_qstpaper.value=0;
+	document.form1.ifsopt1.value=0;
+	document.form1.ifsopt2.value=0;
+	document.form1.ifsnoofatt.value=0;
+	document.form1.csm_tenexatratime.value=0;
+	document.form1.ifsm_centre_code.value=0;
+	document.form1.ifsm_scriberquired.value=0;
+	document.getElementById("csp2011apply").value=0;
+	//
+	if((id == 2) || (id == 5) || (id == 8) ||(id == 11)||(id == 14)||(id == 17)||(id == 20)||(id == 23)||(id == 26)||(id == 29)||(id == 32)||(id == 35)||(id == 38)||(id == 41)){
+		 	if (browserName=="Netscape"){ //alert("none");
+					document.getElementById("degree_considered_update").style.display="none";
+					 document.form1.ifsopt1.value='';
+				     document.form1.ifsopt2.value='';
+					 document.form1.ifsnoofatt.value='';
+					 document.form1.cspnoofatt.value='';
+			}else{
+					document.getElementById("degree_considered_update").style.display="none";
+					 document.form1.ifsopt1.value='';
+				     document.form1.ifsopt2.value='';
+				     document.form1.ifsnoofatt.value='';
+					 document.form1.cspnoofatt.value='';
+			}
+		 }else if(id == 0){
+		  	document.getElementById("lit_sub_update").style.display="none";
+			document.getElementById("lit_sub_details").style.display="none";
+			document.form1.literature_sub.value=0;
+		 }else if(id == 43){
+			   if(browserName=="Netscape"){
+				  document.getElementById("lit_sub_update").style.display=""; 
+				  document.form1.literature_sub.value=0;
+				  document.form1.cspsubcode.value=0;
+			   }else{
+				  document.getElementById("lit_sub_update").style.display="block"; 
+				  document.getElementById("lit_sub_detail_update").style.display="none";
+				  document.getElementById("literature_update").style.display="none";
+				  document.form1.literature_sub.value=0;
+				  document.form1.cspsubcode.value=0;
+			   }
+		   }else{
+			if (browserName=="Netscape"){ 
+			       
+					document.getElementById("degree_considered_update").style.display="";
+					 document.form1.ifsopt1.value='';
+				     document.form1.ifsopt2.value='';
+				     document.form1.ifsnoofatt.value='';
+					 document.form1.cspnoofatt.value='';
+			}else{
+					document.getElementById("degree_considered_update").style.display="block";
+					document.form1.ifsopt1.value='';
+				    document.form1.ifsopt2.value='';
+				    document.form1.ifsnoofatt.value='';
+					document.form1.cspnoofatt.value='';
+			}
+	    }
+}
+function isNumberKey(evt){
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+}
+function frc(){
+document.getElementById("feerem_hi").value=document.getElementById("feerem1").value;
+}
+
+function communitycertificatedate(){
+
+var exam_code = document.form1.exam_code.value; 
+//alert(exam_code);
+		if(document.getElementById("obccommunity").value==0){
+		if(exam_code != "CSM"){//alert("case1");
+			document.getElementById("communitycertificate").style.display = 'block';
+			document.getElementById("communitycertificatedate").style.display = 'block';
+			document.getElementById("obccommy").style.display = 'none';
+			document.getElementById("obccommn").style.display = 'block';
+			//
+			document.getElementById("commcertno").style.display = 'block'; 
+			document.getElementById("commcertno1").style.display = 'block';
+			document.getElementById("comm_certno").value='';
+			document.getElementById("commcert_issauth").style.display = 'block';
+			document.getElementById("commcert_issauth1").style.display = 'block';
+			document.getElementById("commcertissauth").value='';
+		}
+	}else{
+		//alert("case2");
+	    document.getElementById("community_certificate_date").value = "";
+		document.getElementById("communitycertificate").style.display = 'none';
+		document.getElementById("communitycertificatedate").style.display = 'none';
+		document.getElementById("obccommy").style.display = 'block';
+		document.getElementById("obccommn").style.display = 'none';
+		//
+		document.getElementById("commcertno").style.display = 'none'; 
+	    document.getElementById("commcertno1").style.display = 'none';
+		document.getElementById("comm_certno").value='';
+		document.getElementById("commcert_issauth").style.display = 'none';
+		document.getElementById("commcert_issauth1").style.display = 'none';
+		document.getElementById("commcertissauth").value='';
+	}
+}
+function national(){
+	var exam_code = document.form1.exam_code.value; 
+	var nationality = document.form1.nationality.value;
+	
+	if(exam_code == "CSP" && nationality == 2){
+		alert("NOT ELIGIBLE FOR IAS, IPS and Indian Foreign Service.");
+		document.getElementById("nationality_msg").style.display = 'block';
+	}else{
+		document.getElementById("nationality_msg").style.display = 'none';
+	}
+}
+function cpl_blank(){
+	var cplicence = document.form1.cplicence.value; 
+	if(cplicence!=''){
+		document.form1.cplicence.value=0;
+	}	
+}
+function stream_pref(){
+	var csp_ifs_exam_pref = document.getElementById("csp_ifs_exam_pref").value;
+
+	if(csp_ifs_exam_pref == 1 || csp_ifs_exam_pref == 4 || csp_ifs_exam_pref == 7 || csp_ifs_exam_pref == 10 || csp_ifs_exam_pref == 13 
+	|| csp_ifs_exam_pref == 16 || csp_ifs_exam_pref == 19 || csp_ifs_exam_pref == 22 || csp_ifs_exam_pref == 25 || csp_ifs_exam_pref == 28
+	|| csp_ifs_exam_pref == 31 || csp_ifs_exam_pref == 34 || csp_ifs_exam_pref == 37 || csp_ifs_exam_pref == 40 || csp_ifs_exam_pref == 43
+	|| csp_ifs_exam_pref == 44 || csp_ifs_exam_pref == 45 || csp_ifs_exam_pref == 46 || csp_ifs_exam_pref == 47 || csp_ifs_exam_pref == 48
+	|| csp_ifs_exam_pref == 49 || csp_ifs_exam_pref == 50 || csp_ifs_exam_pref == 51 || csp_ifs_exam_pref == 52 || csp_ifs_exam_pref == 53
+	|| csp_ifs_exam_pref == 54 || csp_ifs_exam_pref == 55){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}else if(csp_ifs_exam_pref == 2 || csp_ifs_exam_pref == 5 || csp_ifs_exam_pref == 8 || csp_ifs_exam_pref == 11 || csp_ifs_exam_pref == 14 
+	|| csp_ifs_exam_pref == 17 || csp_ifs_exam_pref == 20 || csp_ifs_exam_pref == 23 || csp_ifs_exam_pref == 26 || csp_ifs_exam_pref == 29
+	|| csp_ifs_exam_pref == 32 || csp_ifs_exam_pref == 35 || csp_ifs_exam_pref == 38 || csp_ifs_exam_pref == 41){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");	
+	}else if(csp_ifs_exam_pref == 3 || csp_ifs_exam_pref == 6 || csp_ifs_exam_pref == 9 || csp_ifs_exam_pref == 12 || csp_ifs_exam_pref == 15 
+	|| csp_ifs_exam_pref == 18 || csp_ifs_exam_pref == 21 || csp_ifs_exam_pref == 24 || csp_ifs_exam_pref == 27 || csp_ifs_exam_pref == 30
+	|| csp_ifs_exam_pref == 33 || csp_ifs_exam_pref == 36 || csp_ifs_exam_pref == 39 || csp_ifs_exam_pref == 42){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination and in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}
+}
+function stream_pref1(){
+	var csp_ifs_exam_pref = document.getElementById("csp_ifs_exam_pref_update").value;
+
+	if(csp_ifs_exam_pref == 1 || csp_ifs_exam_pref == 4 || csp_ifs_exam_pref == 7 || csp_ifs_exam_pref == 10 || csp_ifs_exam_pref == 13 
+	|| csp_ifs_exam_pref == 16 || csp_ifs_exam_pref == 19 || csp_ifs_exam_pref == 22 || csp_ifs_exam_pref == 25 || csp_ifs_exam_pref == 28
+	|| csp_ifs_exam_pref == 31 || csp_ifs_exam_pref == 34 || csp_ifs_exam_pref == 37 || csp_ifs_exam_pref == 40 || csp_ifs_exam_pref == 43
+	|| csp_ifs_exam_pref == 44 || csp_ifs_exam_pref == 45 || csp_ifs_exam_pref == 46 || csp_ifs_exam_pref == 47 || csp_ifs_exam_pref == 48
+	|| csp_ifs_exam_pref == 49 || csp_ifs_exam_pref == 50 || csp_ifs_exam_pref == 51 || csp_ifs_exam_pref == 52 || csp_ifs_exam_pref == 53
+	|| csp_ifs_exam_pref == 54 || csp_ifs_exam_pref == 55){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}else if(csp_ifs_exam_pref == 2 || csp_ifs_exam_pref == 5 || csp_ifs_exam_pref == 8 || csp_ifs_exam_pref == 11 || csp_ifs_exam_pref == 14 
+	|| csp_ifs_exam_pref == 17 || csp_ifs_exam_pref == 20 || csp_ifs_exam_pref == 23 || csp_ifs_exam_pref == 26 || csp_ifs_exam_pref == 29
+	|| csp_ifs_exam_pref == 32 || csp_ifs_exam_pref == 35 || csp_ifs_exam_pref == 38 || csp_ifs_exam_pref == 41){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");	
+	}else if(csp_ifs_exam_pref == 3 || csp_ifs_exam_pref == 6 || csp_ifs_exam_pref == 9 || csp_ifs_exam_pref == 12 || csp_ifs_exam_pref == 15 
+	|| csp_ifs_exam_pref == 18 || csp_ifs_exam_pref == 21 || csp_ifs_exam_pref == 24 || csp_ifs_exam_pref == 27 || csp_ifs_exam_pref == 30
+	|| csp_ifs_exam_pref == 33 || csp_ifs_exam_pref == 36 || csp_ifs_exam_pref == 39 || csp_ifs_exam_pref == 42){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination and in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}
+}
+function stream_pref_update(){
+	var csp_ifs_exam_pref_default_update = document.getElementById("csp_ifs_exam_pref_default_update").value;
+  if(csp_ifs_exam_pref_default_update == 1 || csp_ifs_exam_pref_default_update == 4 || csp_ifs_exam_pref_default_update == 7 || csp_ifs_exam_pref_default_update == 10 || csp_ifs_exam_pref_default_update == 13 
+	|| csp_ifs_exam_pref_default_update == 16 || csp_ifs_exam_pref_default_update == 19 || csp_ifs_exam_pref_default_update == 22 || csp_ifs_exam_pref_default_update == 25 || csp_ifs_exam_pref_default_update == 28
+	|| csp_ifs_exam_pref_default_update == 31 || csp_ifs_exam_pref_default_update == 34 || csp_ifs_exam_pref_default_update == 37 || csp_ifs_exam_pref_default_update == 40 || csp_ifs_exam_pref_default_update == 43
+	|| csp_ifs_exam_pref_default_update == 44 || csp_ifs_exam_pref_default_update == 45 || csp_ifs_exam_pref_default_update == 46 || csp_ifs_exam_pref_default_update == 47 || csp_ifs_exam_pref_default_update == 48
+	|| csp_ifs_exam_pref_default_update == 49 || csp_ifs_exam_pref_default_update == 50 || csp_ifs_exam_pref_default_update == 51 || csp_ifs_exam_pref_default_update == 52 || csp_ifs_exam_pref_default_update == 53
+	|| csp_ifs_exam_pref_default_update == 54 || csp_ifs_exam_pref_default_update == 55){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}else if(csp_ifs_exam_pref_default_update == 2 || csp_ifs_exam_pref_default_update == 5 || csp_ifs_exam_pref_default_update == 8 || csp_ifs_exam_pref_default_update == 11 || csp_ifs_exam_pref_default_update == 14 
+	|| csp_ifs_exam_pref_default_update == 17 || csp_ifs_exam_pref_default_update == 20 || csp_ifs_exam_pref_default_update == 23 || csp_ifs_exam_pref_default_update == 26 || csp_ifs_exam_pref_default_update == 29
+	|| csp_ifs_exam_pref_default_update == 32 || csp_ifs_exam_pref_default_update == 35 || csp_ifs_exam_pref_default_update == 38 || csp_ifs_exam_pref_default_update == 41){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");	
+	}else if(csp_ifs_exam_pref_default_update == 3 || csp_ifs_exam_pref_default_update == 6 || csp_ifs_exam_pref_default_update == 9 || csp_ifs_exam_pref_default_update == 12 || csp_ifs_exam_pref_default_update == 15 
+	|| csp_ifs_exam_pref_default_update == 18 || csp_ifs_exam_pref_default_update == 21 || csp_ifs_exam_pref_default_update == 24 || csp_ifs_exam_pref_default_update == 27 || csp_ifs_exam_pref_default_update == 30
+	|| csp_ifs_exam_pref_default_update == 33 || csp_ifs_exam_pref_default_update == 36 || csp_ifs_exam_pref_default_update == 39 || csp_ifs_exam_pref_default_update == 42){
+	alert("Candidates should note that No change is allowed in the Specific Details like the center of Examination, Optional Subjects, Medium of Examination, Compulsory Indian Language for Civil Services (Main) Examination and in the Specific Details like the center of Examination and Optional Subjects for Indian Forest Service (Main) Examination once submitted. Hence, you are cautioned to be careful while filling these details.");
+	}
+}
+</script>
+<script type="text/javascript" src="./nda ss_files/jquery-3.5.1.min.js.download"></script>
+<script src="./nda ss_files/ToolTip.js.download" type="text/javascript"></script>
+<script type="text/javascript" src="./nda ss_files/jquery.calendars.js.download"></script>
+<script type="text/javascript" src="./nda ss_files/jquery.calendars.plus.js.download"></script>
+<script type="text/javascript" src="./nda ss_files/jquery.calendars.picker.js.download"></script>
+<link rel="stylesheet" type="text/css" href="./nda ss_files/example-styles.css">
+<script type="text/javascript" src="./nda ss_files/jquery.multi-select.js.download"></script>
+ 
+<script src="./nda ss_files/bootstrap.min.js.download"></script>
+
+<script type="text/javascript">
+$(function() {
+	$('#ph_certificate_date').calendarsPicker({calendar: $.calendars.instance('Gregorian')});
+});
+$(function() {
+	$('#community_certificate_date').calendarsPicker({calendar: $.calendars.instance('Gregorian')});
+});
+</script>
+<script type="text/javascript">
+window.history.forward(1);
+function noBack(){ 
+  window.history.forward(); 
+  myFunction();
+}
+function myFunction(){
+	window.location.href="#agree";	
+}
+</script>
+<script type="text/javascript">
+//Add 13-12-2012 created by ranjeet kumar
+var BM = 2; // button middle
+var BR = 3; // button right
+var msg ="For security reasons,Right Click is not allowed!";
+
+function mouseDown(e) 
+{ 
+  try { if (event.button==BM||event.button==BR) {return false;} }  
+  catch (e) { if (e.which == BR) {return false;} } 
+}
+document.oncontextmenu = function() { //alert(msg); 
+return false; }
+document.ondragstart   = function() { //alert(msg); 
+return false; }
+document.onmousedown   = mouseDown;
+
+var message="For security reasons,Right Click is not allowed!"; // Message for the alert box
+
+// Don't edit below!
+
+function click(e) {
+if (document.all) {
+if (event.button == 2) {
+//alert(message);
+return false;
+}
+}
+if (document.layers) {
+if (e.which == 3) {
+alert(message);
+return false;
+}
+}
+}
+if (document.layers) {
+document.captureEvents(Event.MOUSEDOWN);
+}
+document.onmousedown=click;
+// End 13-12-2012 created by ranjeet kumar
+//////////F12,F5,ctrl+r disable code////////////////////////
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+           //alert('No F-12');
+            return false;
+        }/*else if(event.keyCode == 116){
+		    return false;
+		}else if(event.keyCode == 116){
+		    return false;
+		}*/else if(event.keyCode == 82){
+		    if (event.ctrlKey){
+                event.returnValue = false;
+                event.keyCode = 0;
+                return false;
+            }
+		}
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }/*else if(event.keyCode == 116){
+		    return false;
+		}else if(event.keyCode == 116){
+		    return false;
+		}*/else if(event.keyCode == 82){
+		    if (event.ctrlKey){
+                event.returnValue = false;
+                event.keyCode = 0;
+                return false;
+            }
+		}
+    }
+document.onkeydown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }/*else if(event.keyCode == 116){
+		    return false;
+		}else if(event.keyCode == 116){
+		    return false;
+		}*/else if(event.keyCode == 82){
+		    if (event.ctrlKey){
+                event.returnValue = false;
+                event.keyCode = 0;
+                return false;
+            }
+		}
+    }
+
+	
+/////////////////////end///////////////////////
+
+function getCDistrict(val)
+{
+var xmlhttp;
+
+if(val=='99')
+	{
+		//alert(document.getElementById("state_code_others").value);
+		if(document.getElementById("state_code_others").value!=''){
+		document.getElementById("state_code_others").value = "";
+		}
+		document.getElementById("state_code_others").style.display = 'block';
+	}else 
+	{	
+		document.getElementById("state_code_others").style.display = 'none';
+	}
+  
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange=function()
+{
+if (xmlhttp.readyState==4 && xmlhttp.status==200)
+{
+document.getElementById("c_district_ajax").innerHTML=xmlhttp.responseText;
+}
+}
+
+xmlhttp.open("GET","getDistrictAjax.php?s="+val+"&p=1",true);
+xmlhttp.send();
+}
+//
+$(function(){
+	$('#assi_device').multiSelect();
+	
+});
+</script>
+<script type="text/javascript">
+
+function getDistrictOth(district_others)
+  {
+var distictArray = new Array
+('4','18','44','78','117','119','148','150','153','165','168','202','225','238','259','284','316','331','334','336','389','426','443','445','467','480','511','516','539','573','578','617','651','660','672','739','753','777');
+	if(distictArray.indexOf(district_others) !== -1){
+        //alert("Value exists!")
+		document.getElementById("district_others").style.display = 'block';
+    } else{
+       // alert("Value does not exists!")
+		document.getElementById("district_others").style.display = 'none';
+    }
+  } 
+function listassdev(){
+	var x=document.getElementById("assi_device");
+    for (var i = 0; i < x.options.length; i++) {
+		if((x.options[i].selected ==true) && (x.options[i].value == 19)){
+			document.getElementById("phassdev").style.display = 'block'; 
+			document.getElementById("phassdevice").style.display = 'block'; 
+			document.getElementById("phassdevice_name").style.display = 'block';
+			document.getElementById("phass_device_note").style.display = 'block';				
+			document.getElementById("phassdevice_note").style.display = 'block'; 
+			document.getElementById("ph_id_assdev1").style.display = 'block'; 
+			document.getElementById("phassdev1").style.display = 'block'; 
+		}else{
+			if((x.options[i].selected ==false) && (x.options[i].value == 19)){
+				document.getElementById("phassdev").style.display = 'none'; 
+				document.getElementById("phassdevice").style.display = 'none'; 
+				document.getElementById("phassdevice_name").style.display = 'none'; 
+				document.getElementById("phass_device_note").style.display = 'none';
+				document.getElementById("phassdevice_note").style.display = 'none'; 
+				document.getElementById("phassdevice_name").value = "";
+				document.getElementById("ph_id_assdev1").style.display = 'none';
+				document.getElementById("phassdev1").style.display = 'none';
+				document.getElementById("count_assi_device").value = 0;
+				document.getElementById("idassdev2").style.display = 'none';
+				document.getElementById("ph_oth_assdev2").style.display = 'none';
+				document.getElementById("ph_oth_assdev_name2").value = '';
+				document.getElementById("idassdev3").style.display = 'none';
+				document.getElementById("ph_oth_assdev3").style.display = 'none';
+				document.getElementById("ph_oth_assdev_name3").value = '';
+				document.getElementById("idassdev4").style.display = 'none';
+				document.getElementById("ph_oth_assdev4").style.display = 'none';
+				document.getElementById("ph_oth_assdev_name4").value = '';
+				document.getElementById("idassdev5").style.display = 'none';
+				document.getElementById("ph_oth_assdev5").style.display = 'none';	
+				document.getElementById("ph_oth_assdev_name5").value = '';
+			}			 
+		}
+    }
+ }
+ function addassdev(){
+	var assidev=document.getElementById("assidev");
+	var x=document.getElementById("assi_device");
+	var k = document.getElementById("count_assi_device").value;
+	if(k==0){
+		var j=2;
+	}else{
+		var j=parseInt(document.getElementById("count_assi_device").value);
+		j=j+1;
+	}
+	if((assidev.value == 1)&& (document.getElementById("phassdevice").style.display == "block")){
+		for (var i = 0; i < x.options.length; i++) {
+			if((x.options[i].selected ==true) && (x.options[i].value == 19)){
+				if(j == 2){
+					document.getElementById("idassdev2").style.display = 'block';
+					document.getElementById("ph_oth_assdev2").style.display = 'block';
+					document.getElementById("count_assi_device").value=j;
+					document.getElementById("ph_oth_assdev_name2").value='';
+				}else if(j == 3){
+					document.getElementById("idassdev2").style.display = 'block';
+					document.getElementById("ph_oth_assdev2").style.display = 'block';
+					document.getElementById("idassdev3").style.display = 'block';
+					document.getElementById("ph_oth_assdev3").style.display = 'block';
+					document.getElementById("count_assi_device").value=j;
+					document.getElementById("ph_oth_assdev_name3").value='';
+				}else if(j == 4){
+					document.getElementById("idassdev2").style.display = 'block';
+					document.getElementById("ph_oth_assdev2").style.display = 'block';
+					document.getElementById("idassdev3").style.display = 'block';
+					document.getElementById("ph_oth_assdev3").style.display = 'block';
+					document.getElementById("idassdev4").style.display = 'block';
+					document.getElementById("ph_oth_assdev4").style.display = 'block';
+					document.getElementById("count_assi_device").value=j;
+					document.getElementById("ph_oth_assdev_name4").value='';
+				}else if(j == 5){
+					document.getElementById("idassdev2").style.display = 'block';
+					document.getElementById("ph_oth_assdev2").style.display = 'block';
+					document.getElementById("idassdev3").style.display = 'block';
+					document.getElementById("ph_oth_assdev3").style.display = 'block';
+					document.getElementById("idassdev4").style.display = 'block';
+					document.getElementById("ph_oth_assdev4").style.display = 'block';
+					document.getElementById("idassdev5").style.display = 'block';
+					document.getElementById("ph_oth_assdev5").style.display = 'block';
+					document.getElementById("count_assi_device").value=j;
+					document.getElementById("ph_oth_assdev_name5").value='';
+				}else{
+					alert("You can not add more than 5 'other assistive device' name.");
+					j=5;
+				}
+			}
+		}
+	 }
+ }
+function removeassdev2(){
+	var rmv2=document.getElementById("rmv2").value;
+	var l = parseInt(document.getElementById("count_assi_device").value);
+	if(document.getElementById("ph_oth_assdev3").style.display == "none"){
+		if((rmv2 == 2) && (document.getElementById("ph_oth_assdev2").style.display == "block")){
+			document.getElementById("idassdev2").style.display = 'none';
+			document.getElementById("ph_oth_assdev2").style.display = 'none';
+			l = l-1;
+			document.getElementById("count_assi_device").value = l;
+			document.getElementById("ph_oth_assdev_name2").value = "";
+		}
+	}else{
+		if((document.getElementById("ph_oth_assdev3").style.display == "block") && (document.getElementById("ph_oth_assdev4").style.display == "none") && (document.getElementById("ph_oth_assdev5").style.display == "none")){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name3").focus();
+		}else if((document.getElementById("ph_oth_assdev3").style.display == "block") && (document.getElementById("ph_oth_assdev4").style.display == "block") && (document.getElementById("ph_oth_assdev5").style.display == "none")){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name4").focus();
+		}else if((document.getElementById("ph_oth_assdev3").style.display == "block") && (document.getElementById("ph_oth_assdev4").style.display == "block") && (document.getElementById("ph_oth_assdev5").style.display == "block")){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name5").focus();
+		}
+	}
+}
+function removeassdev3(){
+	var rmv3=document.getElementById("rmv3").value;
+	var l = parseInt(document.getElementById("count_assi_device").value);
+	if(document.getElementById("ph_oth_assdev4").style.display == "none"){
+		if((rmv3 == 3 ) && (document.getElementById("ph_oth_assdev3").style.display == "block")){
+			document.getElementById("idassdev3").style.display = 'none';
+			document.getElementById("ph_oth_assdev3").style.display = 'none';
+			l = l-1;
+			document.getElementById("count_assi_device").value = l;
+			document.getElementById("ph_oth_assdev_name3").value = "";
+		}
+	}else{
+		if((document.getElementById("ph_oth_assdev4").style.display == "block") && (document.getElementById("ph_oth_assdev5").style.display == "none")){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name4").focus();
+		}else if((document.getElementById("ph_oth_assdev4").style.display == "block")&&(document.getElementById("ph_oth_assdev5").style.display == "block")){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name5").focus();
+		}
+	}
+}
+function removeassdev4(){
+	var rmv4=document.getElementById("rmv4").value;
+	var l = parseInt(document.getElementById("count_assi_device").value);
+	if(document.getElementById("ph_oth_assdev5").style.display == "none"){
+		if((rmv4 == 4) && (document.getElementById("ph_oth_assdev4").style.display == "block")){
+			document.getElementById("idassdev4").style.display = 'none';
+			document.getElementById("ph_oth_assdev4").style.display = 'none';
+			l = l-1;
+			document.getElementById("count_assi_device").value = l;
+			document.getElementById("ph_oth_assdev_name4").value = "";
+		}
+	}else{
+		if(document.getElementById("ph_oth_assdev5").style.display == "block"){
+			alert("For deleting any row of 'Other Assistive Device' Name, Please delete/remove already displayed/selected row(s) of higher 'Other Assistive Device' Name.");
+			document.getElementById("ph_oth_assdev_name5").focus();
+		}
+	}
+}
+function removeassdev5(){
+	var rmv5=document.getElementById("rmv5").value;
+	var l = document.getElementById("count_assi_device").value;
+	if((rmv5 == 5) && (document.getElementById("ph_oth_assdev5").style.display == "block")){
+		document.getElementById("idassdev5").style.display = 'none';
+		document.getElementById("ph_oth_assdev5").style.display = 'none';
+		l = l-1;
+		document.getElementById("count_assi_device").value = l;
+		document.getElementById("ph_oth_assdev_name5").value = "";
+	}
+}
+function certnoissauth(){
+	var community=document.getElementById("community").value;
+	if(community == 1 || community == 2){
+		document.getElementById("commcertno").style.display = 'block'; 
+	    document.getElementById("commcertno1").style.display = 'block';
+		document.getElementById("comm_certno").value='';
+		document.getElementById("commcert_issauth").style.display = 'block';
+		document.getElementById("commcert_issauth1").style.display = 'block';
+		document.getElementById("commcertissauth").value='';
+	}else if(community == 5){
+		//alert("Important Instructions for EWS candidates: \n(i) I&AC must be dated prior to the closing date of the application (24.03.2021).\n(ii) It must be issued by the Competent Authority.\n(iii) It must be based on the income for financial year 2019-20.\n(iv) It must be in the prescribed format.\n(v) I&AC must be uploaded with the DAF-I of the Civil Services (Main) Examination, 2021.\nFailing the above, the candidature in EWS Category shall not be accepted and it will be converted into General Category, and no representations on the same will be entertained.\n");
+		document.getElementById("commcertno").style.display = 'none'; 
+	    document.getElementById("commcertno1").style.display = 'none';
+		document.getElementById("comm_certno").value='';
+		document.getElementById("commcert_issauth").style.display = 'none';
+		document.getElementById("commcert_issauth1").style.display = 'none';
+		document.getElementById("commcertissauth").value='';
+	}else{
+		document.getElementById("commcertno").style.display = 'none'; 
+	    document.getElementById("commcertno1").style.display = 'none';
+		document.getElementById("comm_certno").value='';
+		document.getElementById("commcert_issauth").style.display = 'none';
+		document.getElementById("commcert_issauth1").style.display = 'none';
+		document.getElementById("commcertissauth").value='';
+	}
+}
+</script>
+
+
+<img src="./nda ss_files/upschead.jpg" width="100%"><table class="table" style="background:url(images/headbg1.jpg) no-repeat" align="right"><tbody><tr style="color:#FFFFFF"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://upsconline.nic.in/index.php" style="text-decoration:none;color:#FFFFFF"><b>&nbsp;&nbsp;&nbsp;&nbsp;Home मुखपृष्ठ</b></a></td><td>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://upsconline.nic.in/mainmenu2.php" style="text-decoration:none;color:#FFFFFF"><b>Examination List परीक्षा सूची &nbsp;</b></a></td><td>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://upsconline.nic.in/faq.php" style="text-decoration:none;color:#FFFFFF"><b>FAQ / सामान्य प्रश्न &nbsp;</b></a></td></tr></tbody></table><br>
+<br>
+<br>
+<p align="center" class="Pageheading">
+   <b><font size="4">Application Form For
+   National Defence Academy &amp; Naval Academy Examination (I) - 2022</font></b><br>
+   <strong>राष्ट्रीय रक्षा अकादमी एवं नौसेना अकादमी परीक्षा (I)-2022 के लिए आवेदन पत्र </strong><br></p>
+  <p style="margin-left:4.3%"><img src="./nda ss_files/first.jpg" width="auto"></p>
+  <div class="bodydiv">
+  <div class="divheading" align="center">
+  <b>PART-I REGISTRATION / भाग-I पंजीकरण </b>
+  </div>
+  <form name="form1" method="post" action="https://upsconline.nic.in/form3.php">
+    <input type="hidden" name="exam_code" id="exam_code" value="NDAI"><input type="hidden" name="year" value="2022"><input type="hidden" name="notice_no" value="03/2022-NDA-I"><input type="hidden" name="notice_date" value="22-12-2021"><input type="hidden" name="close_date" id="close_date" value="11-01-2022">    <br><table align="center" class="table" cellspacing="6" width="90%" border="0">
+      <tbody><tr class="formfieldheading">
+        <td colspan="3"><strong>Personal Details / व्यक्तिगत विवरण</strong> </td>
+      </tr>
+      <tr>
+        <td width="49%" valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Name / नाम  <font color="red">*</font> : </td>
+        <td colspan="2"><input name="cand_name" type="text" maxlength="30" id="cand_name" value="" size="40" title="Name as recorded in Matriculation Certificate" onkeypress="return alphaonly(event,this);" onblur="cname();" class="tdfocus" autocomplete="OFF" onpaste="return false;"><br><span class="note"><b><u>Note 1</u>:</b> Name as recorded in the Matriculation/Secondary Examination Certificate.<br> <b><u>नोट 1 </u></b>: मैट्रिक/माध्यमिक परीक्षा प्रमाण-पत्र में दर्ज नाम के अनुसार <br><b><u>Note 2</u>:</b> Please do not use any prefix such as Mr. or Ms. etc unless it consists of <br>only 3 letters as 4 letters are mandatory for NAME field. <br> <b><u>नोट 2 </u></b>: कृपया नाम के आगे श्री (Mr.) या सुश्री (Ms.) आदि न लगाएं जब तक कि इसमें केवल 3 अक्षर ही हो 
+				क्योंकि नाम के स्थान पर 4 अक्षर अनिवार्य हैं।<br><b><u>Note 3</u>:</b> If your name is exceeding 30 characters, please read the FAQ. <br> <b><u>नोट 3 :</u></b> यदि आपका नाम 30 अक्षरों से अधिक है, तो कृपया सामान्य प्रश्न पढ़ें।  </span></td>
+          </tr>
+     <tr>
+        <td valign="top" nowrap="nowrap" style="display:none" id="cname"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Full Name / पूरा नाम : </td>
+        <td colspan="2">
+          <input type="text" maxlength="100" name="c_name" id="c_name" autocomplete="OFF" value="" size="70" title="Name as recorded in Matriculation Certificate" onkeypress="return alphaonly(event,this)" class="tdfocus" style="display:none" onpaste="return false;">
+          <span class="note" style="display:none" id="note" name="note"><b><u>Note</u>:</b> As Name is more than 30 characters long, you may abbreviate the name to accommodate in the Name column and also fill Full Name as mentioned in 10th class certificate (Matriculation/Secondary Examination Certificate) in the Full Name column. <br>
+		  <b><u>नोट</u>:</b> नाम 30 अक्षरों से अधिक होने पर, नाम को संक्षिप्त कर 'नाम' कॉलम में भरे और 10 वीं कक्षा के  प्रमाणपत्रों (मैट्रिक/माध्यमिक परीक्षा प्रमाण-पत्र) के अनुसार पूरा नाम 'पूरा नाम' कॉलम में भी भरे ।
+          </span>
+         </td>
+     </tr>
+       <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Gender / लिंग <font color="red">*</font> : </td>
+        <td colspan="2"><select name="sex" id="sex" onchange="changefees()" class="textbox" style="visibility: visible;"><option value="0">Select Gender</option><option value="1">Male / पुरुष  </option><option value="2">Female / महिला</option></select>		<br>		<span class="note" id="ndai_note" name="note" style="display: block;"><b><u>Note</u>:</b> No vacancy earmarked for women candidates in Naval Academy.</span>
+		        </td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Date Of Birth / जन्म तिथि <font color="red">*</font> : </td>
+        <td colspan="2"><select name="date1" id="date1" onchange="cpl_blank()" class="textbox" style="visibility: visible;"><option class="seldate" value="0">Day</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>          &nbsp;
+          <select name="month1" id="month1" onchange="cpl_blank()" class="textbox" style="visibility: visible;">
+            <option class="seldate" value="0">Month</option><option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option><option value="04">Apr</option><option value="05">May</option><option value="06">Jun</option><option value="07">Jul</option><option value="08">Aug</option><option value="09">Sep</option><option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>          </select>
+          &nbsp;
+          <select name="year1" id="year1" onchange="cpl_blank()" class="textbox" style="visibility: visible;"><option class="seldate" value="0">Year</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option></select><br><span class="note">[Date of Birth as recorded in the Matriculation/Secondary Examination Certificate]<br> [  मैट्रिक/माध्यमिक परीक्षा प्रमाण-पत्र में दर्ज जन्म‍-तिथि के अनुसार ]</span>        </td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Father's Name / पिता का नाम <font color="red">*</font> : </td>
+        <td colspan="2"><input name="fname" type="text" maxlength="30" size="40" id="fname" value="" onkeypress="return alphaonly(event,this)" class="tdfocus" autocomplete="OFF" onpaste="return false;">            <br>
+            <span class="note">[Please do not use any prefix such as Shri or Dr. etc.] <br> [ कृपया नाम के आगे श्री या डा. आदि न लगाएं ]</span> </td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Mother's Name /  	माता का नाम <font color="red">*</font> : </td>
+        <td colspan="2"><input name="mname" type="text" maxlength="30" size="40" id="mname" value="" onkeypress="return alphaonly(event,this)" class="tdfocus" autocomplete="OFF" onpaste="return false;">            <br>
+            <span class="note">[Please do not use any prefix such as Smt or Dr. etc.] <br> [ कृपया नाम के आगे श्रीमती या डा. आदि न लगाएं ]</span> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Nationality / राष्ट्रीयता <font color="red">*</font> : </td>
+        <td colspan="2"><select name="nationality" id="nationality" onchange="national(this.value);" class="textbox" style="visibility: visible;"><option value="1">Indian / भारतीय</option><option value="2">Others / अन्य</option></select> 
+		  &nbsp;&nbsp;<span id="nationality_msg" style="display:none;" class="note"> <font color="red"><strong><u>Note</u> : Not Eligible for IAS, IPS and Indian Foreign Service.</strong></font></span>
+		  </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Marital Status / वैवाहिक स्थिति <font color="red">*</font> : </td>
+        <td colspan="2"><select name="marital_code" id="marital_code" style="visibility: visible;"><option value="1">Unmarried / अवि‍वाहित</option></select>        </td>
+      </tr>
+      <!-- Modified 10 Jan 2011-->
+	        <tr>
+        <td style="display:none"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Candidates of PwBD with disability 40% or above / <br>&nbsp;&nbsp;&nbsp;&nbsp;बेंचमार्क विकलांगता 40% या  उससे अधिक : </td>
+        <td colspan="2" style="display:none"><select name="handicapp" id="handicapp" onchange="phyhan(this.value);changefees0()" class="textbox" style="visibility: visible;"><option value="1">No</option></select><br><span class="note" id="engg_phcatmsg" style="display:none;">&nbsp;</span>          </td>
+      </tr>
+	  	  <tr>
+        <td id="yhcategory" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;If Yes Select the Category / यदि हाँ तो श्रेणी का चयन करें <font color="red">*</font> : 
+		</td>
+		<td colspan="2">
+		<div id="ycategory" nowrap="nowrap" style="display:none;">
+		  <select name="hcategory" id="hcategory" onchange="phyhancate(this.value);" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option><option value="1">Locomotor Disability, etc</option><option value="2">Blindness</option><option value="3">Deaf</option><option value="4">Autism, intellectual disability, etc</option><option value="5">Multiple-Disabilities, etc</option><option value="6">Low Vision</option><option value="7">Hard of hearing/Hearing Impaired(Partially deaf)</option><option value="8">Leprosy cured/Acid attack</option></select></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note" id="phnewchange" style="display:none"><span style="display:block;">&nbsp;</span></span><span class="note" id="phcatmsg" style="display:none;"></span><br><span class="note" id="ph_cat_blind_msg" style="display:none;"></span><span class="note" id="ph_cat_deaf_msg" style="display:none;"></span><span class="note" id="ph_cat_intell_multi_msg" style="display:none;"></span>		
+		<br>
+        </td>
+      </tr>
+	  <tr>
+        <td id="phper" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Select Percentage / प्रतिशत&nbsp;<font color="red">*</font> : 
+		</td>
+		<td colspan="2">
+    	  <div id="phpercent" nowrap="nowrap" style="display:none;">
+			  <select name="pcategory" id="pcategory" onchange="extratime(this.value);" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">40% or more</option>
+		  <option value="2" selected="selected">Less than 40%</option>
+         </select><span class="note" id="phcatper4"> </span><span class="note" id="phcatper5" style="display:none;">
+		 		[ No extra time shall be permitted to such candidates. ]
+		      </span>		<span id="phcatper3" class="note"></span>
+        <span class="note" id="phcatper6" style="display:none;">
+		 	<strong><u>Note</u></strong> : [As per the notification, the Candidates with less than 40% disability will not be considered for any relaxation which are applicable to PwBD candidates and required to pay fee if not exempted under the rules. <br> (अधिसूचना के अनुसार, 40% से कम दिव्यांग वाले उम्मीदवारों को किसी भी छूट के लिए विचार नहीं किया जाएगा जो विकलांग उम्मीदवारों के लिए लागू हैं,  ऐसे उम्मीदवार को शुल्क का भुगतान करना आवश्यक होगा यदि नियमों के तहत छूट प्राप्त नहीं है।।]
+		      </span>		<span id="phcatper1" class="note" style="display:none;">
+		<strong><u>Note</u></strong> : [A Compensatory time of 20 minutes per hour shall be permitted for the Blind / Low Vision Candidates. The Blind / Low Vision Candidates are allowed to write the Examination with the help of the scribe  / कम विजन / अंधे  उम्मीदवारों को क्षतिपूर्ति के लिए प्रति घंटे 20 मिनट का अतिरिक्त समय दिया जायेगा और उम्मीदवारों को स्क्राइब की सहायता से परीक्षा लिखने के लिए अनुमति दी जाती है ]
+		</span>
+		</div>
+		</td>      </tr>
+	  <tr>
+        <td id="pcatper2" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Do you agree that you are less than 40% / <br> क्या आप सहमत हैं कि आपका / आपकी बेंचमार्क दिव्यांग  प्रतिशत 40% से कम हैं &nbsp;<font color="red">*</font> :&nbsp;
+		</td><td colspan="2">
+		  <div id="pcatper2opt" nowrap="nowrap" style="display:none;">
+		  <select name="phcatperless" id="phcatperless" onchange="phcatpertext_cat(this.value);" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>					<option value="1">Yes</option>
+					<option value="2">No</option>
+					</select>		 </div></td>
+      </tr>
+	<tr>
+        <td id="ysubcat" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Do you belong to writing extremity category <br> क्या आप लिखने में अक्षम श्रेणी से संबंधित  हैं &nbsp;<font color="red">*</font> :&nbsp;
+		</td><td colspan="2">
+		  <div id="ysubcatopt" nowrap="nowrap" style="display:none;">
+		  <select name="hsubcatgory" id="hsubcatgory" onchange="wrtext_cat(this.value);" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>					<option value="1">Yes</option>
+					<option value="2">No</option>
+					</select>		 </div></td>
+      </tr>
+	  <tr>
+		<td id="ywrexcat" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;If Yes, select the writing extremity category<br>&nbsp;&nbsp;&nbsp;&nbsp; on account of PwBD &nbsp;<br> यदि हाँ, PwBD के कारण लेखन अक्षम चरम श्रेणी का चयन करें<font color="red">*</font> :&nbsp;
+		</td>
+		<td colspan="2">
+			<div id="ywrexcatextratime" nowrap="nowrap" style="display:none;">
+			  <select name="ywrexcat_extratime" id="ywrexcat_extratime" onchange="blockscribe(this.value);" class="textbox" style="visibility: visible;"></select><span class="note" id="phcatper"></span>			 <span class="note" id="phwrextcatmsg" style="display:none;">
+				<strong><u>Note 1</u>:<font color="blue"> Please Upload the supporting document/certificate related to writing extremity category on account of PwBD in Part - II Registration</font>.</strong> 
+				<br>
+				<strong><u>Note 2</u>:<font color="red"> </font></strong><font color="red">[A Compensatory time of 20 minutes per hour shall be permitted to the Candidates of this category.<br> The Candidates are allowed to write the Examination with the help of the scribe.</font>]
+			</span>
+		   </div>
+		  </td>
+		</tr>
+    	  <tr>
+        <td id="ycatpgextra" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Would you require  extra time of 20 minutes per hour&nbsp;<font color="red">*</font> :&nbsp;
+		</td><td colspan="2">
+		  <div id="ycatpgextratime" nowrap="nowrap" style="display:none;">
+		  <select name="othoextratime" id="othoextratime" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">Yes</option>
+		  <option value="2">No</option>
+         </select>		 </div></td>
+      </tr>
+	  <tr>
+        <td id="all_ycatpgextra" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Do you want to avail Compensatory Time / <br>&nbsp;&nbsp;&nbsp;&nbsp; क्या आप प्रतिपूरक समय लेना चाहते हैं &nbsp;<font color="red">*</font> :&nbsp;
+		</td><td colspan="2">
+		  <div id="all_ycatpgextratime" nowrap="nowrap" style="display:none;">
+		  <select name="all_othoextratime" id="all_othoextratime" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">Yes</option>
+		  <option value="2">No</option>
+         </select>		 </div></td>
+      </tr>
+	  <!--added 12may2015-->
+	  
+      <tr>
+        <td id="orthoscribe" valign="top" nowrap="nowrap" style="display:none;">
+		<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Whether you require Scribe <br> क्या आपको स्क्राइब की आवश्यकता है &nbsp;<font color="red">*</font> : 
+		</td>
+         <td colspan="2">
+		  <div id="orthoscribed" nowrap="nowrap" style="display:none;">
+		  <select name="orthogrscribed" id="orthogrscribed" onchange="orthoscribeoptionbring1()" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">Yes</option>
+		  <option value="2">No</option>
+         </select>         </div></td>
+      </tr>
+	  <tr>
+		 <td id="orthoscribeoption" valign="top" style="display:none;">
+		  <img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Whether you would bring your own Scribe<br> क्या आप अपना स्क्राइब लाना चाहते है&nbsp;<font color="red">*</font> : 
+	   	</td>
+	 	<td colspan="2" align="left" valign="top"><table width="100%" class="table">
+          <tbody><tr>
+            <td width="15%"><div id="orthoscribe_option" nowrap="nowrap" style="display:none;">
+							<select name="orthoscribeoptionbring" id="orthoscribeoptionbring" onchange="oscribeoption(this.value);" class="textbox" style="visibility: visible;">
+								<option value="0" class="selInstruct">[ Select ]</option>
+								<option value="1">Yes</option>
+								<option value="2">No</option>
+							</select>
+							</div>
+			</td>
+			<td width="80%">
+			<div id="oscribe_optionlink" nowrap="nowrap" style="display:none;"><font color="blue"><b>Scribe application form is required to be filled before submission of Part I. / भाग I प्रस्तुत करने से पहले स्क्राइब आवेदन पत्र भरना अनिवार्य है।</b></font>
+						
+			</div>
+			<div id="oscribe_optionlink1" nowrap="nowrap" style="display:none;">
+						
+							<font color="blue"><b>The commission will provide the Scribe. / आयोग स्क्राइब प्रदान करेगा।</b></font>
+						
+			</div>
+			</td>
+          </tr>
+        </tbody></table></td>
+	</tr>
+	  <!--add-->
+	  <tr>
+		<td id="multi_dis_sub_cat" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Select Multiple Disabilities Include /<br> एकाधिक दिव्यांग में निम्लिखित शामिल हैं &nbsp;<font color="red">*</font> :&nbsp;
+		</td>
+		<td colspan="2">
+		  <div id="multi_dis_subcat" nowrap="nowrap" style="display:none;">
+		  </div>
+		 <span id="multi_phcatper1" class="note" style="display:none;">
+		<strong><u>Note</u></strong> : [ A Compensatory time of 20 minutes per hour shall be permitted for candidates with locomotor disability and cerebral palsy where dominant(writing) extremity is affected to the extent of slowing the performance of function (minimum of 40% impairment) or Blindness. The locomotor disability and cerebral palsy or the Blindness Candidates are allowed to write the Examination with the help of the scribe   
+		/  ऐसे उम्मी दवार जो चलने में असमर्थ (लोकोमोटर) एवं प्रमस्तिष्कीय पक्षाघात से पीड़ित हैं और उनकी कार्य निष्पाादन क्षमता (लेखन क्षमता) प्रभावित (न्यू्नतम 40% अक्षमता) है अथवा जो दृष्टिनहीन हैं उन्हें  20 मिनट प्रतिघंटे की दर से प्रतिपूरक समय प्रदान किया जाएगा। लोकोमोटर अक्षमता तथा प्रमस्तिष्की्य पक्षाघात से पीडि़त या दृष्टिहीन उम्मीदवारों को सिविल सेवा(प्रारंभिक) तथा सिविल सेवा (प्रधान) दोनों ही परीक्षाओं में स्क्राइब (लेखन सहायक) की सहायता लेने की अनुमति है। ]
+		</span>
+		 </td>
+      </tr>
+	  <!--end-->
+	 <tr>
+        <td id="blindscribe" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Would you require Scribe <br> क्या आपको स्क्राइब की आवश्यकता है&nbsp;<font color="red">*</font> : 
+		</td>
+         <td colspan="2">
+		  <div id="blindscribed" nowrap="nowrap" style="display:none;">
+		  <select name="blindgrscribed" id="blindgrscribed" onchange="bsextratime(this.value);" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">Yes</option>
+		  <option value="2">No</option>
+         </select></div></td>      </tr> 
+      	  <tr>
+		 <td id="blindscribeoption" valign="top" style="display:none;">
+		  <img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Would you bring your own Scribe <br> क्या आप अपना स्क्राइब लाना चाहते है&nbsp;<font color="red">*</font> : 
+	   	</td>
+	 	<td colspan="2" align="left" valign="top"><table width="100%" class="table">
+          <tbody><tr>
+            <td width="15%"><div id="blindscribe_option" nowrap="nowrap" style="display:none;">
+							<select name="blindscribeoptionbring" id="blindscribeoptionbring" onchange="bscribeoption(this.value);" class="textbox" style="visibility: visible;">
+								<option value="0" class="selInstruct">[ Select ]</option>
+								<option value="1">Yes</option>
+								<option value="2">No</option>
+							</select>
+							</div>
+			</td>
+            <td width="80%">
+			<div id="bscribe_optionlink" nowrap="nowrap" style="display:none;">
+								<font color="blue"><b>Scribe application form is required to be filled before submission <br>of Part I. / भाग I प्रस्तुत करने से पहले स्क्राइब आवेदन पत्र भरना अनिवार्य है।</b></font>
+						
+			</div>
+			<div id="bscribe_optionlink1" nowrap="nowrap" style="display:none;">
+						
+							<font color="blue"><b>The commission will provide the Scribe. / आयोग स्क्राइब प्रदान करेगा।</b></font>
+						
+			</div>
+			</td>
+          </tr> 
+        </tbody></table></td>
+	</tr>
+<!--- new add for CSP-2016 -->
+<tr>
+  <td id="qpap" valign="top" nowrap="nowrap" style="display:none;"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Do you want question paper in bigger font size<br> / क्या आप प्रश्न पत्र बड़े फॉन्ट साइज में चाहते है <font color="red">*</font> : </td>
+  <td colspan="2"><div id="qpaper" nowrap="nowrap" style="display:none;">
+      <select name="qstpaper" id="qstpaper" class="textbox" onchange="assidevice(this.value)" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>      <option value="1">Yes</option>
+      <option value="2">No</option>
+      </select><span class="note" id="qstpaperfontsize" style="display:none;">
+<strong><u>Note</u></strong> : [ Please note that the Commission would be able to provide question papers in bigger font size of 16 only. / कृपया ध्यान दें कि आयोग प्रश्न पत्रों को 16 फॉन्ट साइज तक ही प्रदान करने में सक्षम हो पाएगा।]
+     </span></div></td></tr>
+
+<tr>
+  <td id="asdev" valign="top" nowrap="nowrap" style="display:none;"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Do you want to bring any assistive device to facilitate<br>&nbsp;&nbsp;&nbsp;&nbsp; yourself in taking the exam / क्या आप परीक्षा &nbsp;&nbsp;&nbsp;&nbsp;<br>लेने में अपने आप  को सुविधाजनक बनाने के लिए किसी <br>&nbsp;&nbsp;&nbsp;&nbsp;अन्य सहायक उपकरण को लाना चाहते हैं<font color="red">*</font> : </td>
+  <td colspan="2"><div id="assdev" nowrap="nowrap" style="display:none;">
+      <select name="assidev" id="assidev" class="textbox" onchange="assidevice(this.value)" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>      <option value="1">Yes</option>
+      <option value="2">No</option>
+      </select><span class="note" id="assidevinfo" style="display:none;">&nbsp;</span></div></td></tr>	 
+<tr>
+  <td id="asslistdev" valign="top" nowrap="nowrap" style="display:none;"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;If Yes, Select the name of assistive device to bring in the exam <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hall / यदि हाँ, तो सहायक उपकरण के नाम का चयन करें <font color="red">*</font> : </td>
+  <td colspan="2"><div id="asslistdevice" nowrap="nowrap" style="display:none;">
+   <select name="assi_device[]" id="assi_device" class="textbox" multiple="" onchange="listassdev(this.value);" style="display: none; visibility: visible;">					<option value="1">Bioptic telescope</option>
+					<option value="2">Black spectacles</option>
+					<option value="3">Braille Watch</option>
+					<option value="4">Digi LED</option>
+					<option value="5">Dome Magnifier</option>
+					<option value="6">Electric Point</option>
+					<option value="7">Hand Held Magnifier</option>
+					<option value="8">Hands Free head loupe spectacles</option>
+					<option value="9">Magnifying Glass</option>
+					<option value="10">Magnifier</option>
+					<option value="11">Medical Device Assistance</option>
+					<option value="12">Medicines/Eye drops</option>
+					<option value="13">Plain papers</option>
+					<option value="14">Pocket Magnifier</option>
+					<option value="15">Table Lamp</option>
+					<option value="16">Taylor Frame/ Taylor Mathematical slate</option>
+					<option value="17">Tissue papers</option>
+					<option value="18">Wheel Chair Assistance</option>
+					<option value="19">Others</option>
+   </select><div class="multi-select-container"><span class="multi-select-button" role="button" aria-haspopup="true" tabindex="0" aria-label="">[ Select option ]</span><div class="multi-select-menu" role="menu" style="width: auto;"><div class="multi-select-menuitems"><label class="multi-select-menuitem" for="assi_device[]_0" role="menuitem"><input type="checkbox" id="assi_device[]_0" value="1"> Bioptic telescope</label><label class="multi-select-menuitem" for="assi_device[]_1" role="menuitem"><input type="checkbox" id="assi_device[]_1" value="2"> Black spectacles</label><label class="multi-select-menuitem" for="assi_device[]_2" role="menuitem"><input type="checkbox" id="assi_device[]_2" value="3"> Braille Watch</label><label class="multi-select-menuitem" for="assi_device[]_3" role="menuitem"><input type="checkbox" id="assi_device[]_3" value="4"> Digi LED</label><label class="multi-select-menuitem" for="assi_device[]_4" role="menuitem"><input type="checkbox" id="assi_device[]_4" value="5"> Dome Magnifier</label><label class="multi-select-menuitem" for="assi_device[]_5" role="menuitem"><input type="checkbox" id="assi_device[]_5" value="6"> Electric Point</label><label class="multi-select-menuitem" for="assi_device[]_6" role="menuitem"><input type="checkbox" id="assi_device[]_6" value="7"> Hand Held Magnifier</label><label class="multi-select-menuitem" for="assi_device[]_7" role="menuitem"><input type="checkbox" id="assi_device[]_7" value="8"> Hands Free head loupe spectacles</label><label class="multi-select-menuitem" for="assi_device[]_8" role="menuitem"><input type="checkbox" id="assi_device[]_8" value="9"> Magnifying Glass</label><label class="multi-select-menuitem" for="assi_device[]_9" role="menuitem"><input type="checkbox" id="assi_device[]_9" value="10"> Magnifier</label><label class="multi-select-menuitem" for="assi_device[]_10" role="menuitem"><input type="checkbox" id="assi_device[]_10" value="11"> Medical Device Assistance</label><label class="multi-select-menuitem" for="assi_device[]_11" role="menuitem"><input type="checkbox" id="assi_device[]_11" value="12"> Medicines/Eye drops</label><label class="multi-select-menuitem" for="assi_device[]_12" role="menuitem"><input type="checkbox" id="assi_device[]_12" value="13"> Plain papers</label><label class="multi-select-menuitem" for="assi_device[]_13" role="menuitem"><input type="checkbox" id="assi_device[]_13" value="14"> Pocket Magnifier</label><label class="multi-select-menuitem" for="assi_device[]_14" role="menuitem"><input type="checkbox" id="assi_device[]_14" value="15"> Table Lamp</label><label class="multi-select-menuitem" for="assi_device[]_15" role="menuitem"><input type="checkbox" id="assi_device[]_15" value="16"> Taylor Frame/ Taylor Mathematical slate</label><label class="multi-select-menuitem" for="assi_device[]_16" role="menuitem"><input type="checkbox" id="assi_device[]_16" value="17"> Tissue papers</label><label class="multi-select-menuitem" for="assi_device[]_17" role="menuitem"><input type="checkbox" id="assi_device[]_17" value="18"> Wheel Chair Assistance</label><label class="multi-select-menuitem" for="assi_device[]_18" role="menuitem"><input type="checkbox" id="assi_device[]_18" value="19"> Others</label></div></div></div>   <br>
+					<span class="note"><strong><u>Note</u></strong>: [More than one Assistive Device can be selected from the listed 'Assistive Devices'. List of Assistive Devices under 'Other Assistive Device' which are not allowed : <font color="blue">Digital Watches, Portable Video Magnifier, Digital Magnifier and Any electronic equipment or programmable device or storage media, etc., capable of being used as a communication in the examination.</font>]</span>
+				</div>
+	</td>
+</tr> 
+<tr>
+	<td id="phassdev" valign="top" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+	  <div id="phassdevice" nowrap="nowrap" style="display:none;">
+	 <input name="phassdevice_name" type="text" id="phassdevice_name" value="" autocomplete="OFF" maxlength="50" size="45" placeholder="Enter Other Assistive Device Name 1">
+	  </div>
+	  
+	</td>
+</tr>
+<tr>
+	<td id="ph_id_assdev1" valign="top" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="phassdev1" valign="top" nowrap="nowrap" style="display:none;">Click to Add More button for Others Assistive Device - &nbsp;<button type="button" name="add" id="add" class="btn btn-success" onclick="addassdev();">Add More</button>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="idassdev2" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="ph_oth_assdev2" nowrap="nowrap" style="display:none;">
+		<input name="phassdevice_name1" type="text" id="ph_oth_assdev_name2" value="" autocomplete="OFF" maxlength="50" size="45" placeholder="Enter Other Assistive Device Name 2">&nbsp;<button type="button" name="remove" id="rmv2" value="2" class="btn btn-danger btn_remove" onclick="removeassdev2();">X</button>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="idassdev3" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="ph_oth_assdev3" nowrap="nowrap" style="display:none;">
+		<input name="phassdevice_name2" type="text" id="ph_oth_assdev_name3" value="" autocomplete="OFF" maxlength="50" size="45" placeholder="Enter Other Assistive Device Name 3">&nbsp;<button type="button" name="remove" id="rmv3" value="3" class="btn btn-danger btn_remove" onclick="removeassdev3();">X</button>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="idassdev4" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="ph_oth_assdev4" nowrap="nowrap" style="display:none;">
+		<input name="phassdevice_name3" type="text" id="ph_oth_assdev_name4" value="" autocomplete="OFF" maxlength="50" size="45" placeholder="Enter Other Assistive Device Name 4">&nbsp;<button type="button" name="remove" id="rmv4" value="4" class="btn btn-danger btn_remove" onclick="removeassdev4();">X</button>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="idassdev5" nowrap="nowrap" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="ph_oth_assdev5" nowrap="nowrap" style="display:none;">
+		<input name="phassdevice_name4" type="text" id="ph_oth_assdev_name5" value="" autocomplete="OFF" maxlength="50" size="45" placeholder="Enter Other Assistive Device Name 5">&nbsp;<button type="button" name="remove" id="rmv5" value="5" class="btn btn-danger btn_remove" onclick="removeassdev5();">X</button>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="phass_device_note" style="display:none;">&nbsp;</td>
+	<td colspan="2">
+		<div id="phassdevice_note" style="display:none;">
+		<span class="note"><strong><u>Note 1</u>: [<font color="red">Do not enter special characters like ( _ , \ , / etc.) in Other Assistive Device Name.</font>]</strong><br><strong><u>Note 2</u>: [<font color="blue">PwBD Candidates are required to enter the name of 'other assistive device' along with its image(s) in Part-II Registration.</font>]</strong></span>
+		</div> 
+	</td>
+</tr>
+<tr>
+	<td id="phcommcertno" valign="top" nowrap="nowrap" style="display:none;">
+		<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;PwBD certificate number /<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;बेंचमार्क दिव्यांग प्रमाण पत्र संख्या&nbsp;<font color="red">*</font> :&nbsp;
+	</td>
+	<td colspan="2">
+	  <div id="phcommcertno1" style="display:none;">
+		<input name="ph_certno" type="text" id="ph_certno" value="" autocomplete="OFF" maxlength="60" size="60" class="tdfocus" onpaste="return false;"> 
+	  </div>
+	</td>
+</tr>
+<tr>
+	<td id="phcommcert_issauth" valign="top" nowrap="nowrap" style="display:none;">
+		<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;PwBD certificate issuing authority designation /<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;बेंचमार्क दिव्यांग प्रमाण पत्र जारी करने वाले प्राधिकरण पदनाम&nbsp;<font color="red">*</font> :&nbsp;
+	</td>
+	<td colspan="2">
+	  <div id="phcommcert_issauth1" style="display:none;">
+		<input name="phcertissauth" type="text" id="phcertissauth" value="" autocomplete="OFF" maxlength="50" size="45" onkeypress="return alphaonly(event,this);" class="tdfocus" onpaste="return false;"> 
+	  </div>
+	</td>
+</tr>
+<tr>
+<td id="phcertificate" valign="top" nowrap="nowrap" style="display:none;">
+    <img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;PwBD certificate date / <br> बेंचमार्क दिव्यांग प्रमाण पत्र की तिथि&nbsp;<font color="red">*</font> :&nbsp;
+</td><td colspan="2">
+  <div id="phcertificatedate" nowrap="nowrap" style="display:none;">
+    <input name="ph_certificate_date" type="text" id="ph_certificate_date" value="" autocomplete="OFF" onblur="javaScript: if (this.value==&#39;&#39;) {this.value=&#39;DD-MM-YYYY&#39;;}" onclick="javaScript: if (this.value==&#39;DD-MM-YYYY&#39;) {this.value=&#39;&#39;;}" readonly="readonly" class="hasCalendarsPicker">
+    <span class="note">[  DD-MM-YYYY / डीडी-एमएम-वाईवाईवाईवाई ]</span>  </div>
+  <div id="phcdate" style="display:none;">
+    <span class="note"><strong><u>Note</u></strong>: [PwBD Candidates claiming relaxation must ensure that all certificates should have been issued earlier than the closing date. / छूट का दावा करने वाले  दिव्यांग उम्मीदवारों को यह सुनिश्चित करना चाहिए कि सभी प्रमाण पत्र अंतिम तिथि से पहले जारी किये गए हो।] </span>
+  </div> 
+  </td>
+</tr>
+	  
+  	  <tr>
+        <td id="blindscribeextra" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Would you require  extra time of 20 minutes per hour&nbsp;<font color="red">*</font> : 
+		</td>
+		<td colspan="2">
+		<div id="blindscribeextratime" nowrap="nowrap" style="display:none;">
+		  <select name="blindgrscribedextratime" id="blindgrscribedextratime" class="textbox" style="visibility: visible;"><option value="0" class="selInstruct">[ Select ]</option>		  <option value="1">Yes</option>
+		  <option value="2">No</option>
+         </select></div></td>      </tr> 
+      
+      <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Community /  	समुदाय <font color="red">*</font> : </td>
+        <td colspan="2"><select name="community" id="community" onchange="changefees1();certnoissauth();" class="textbox" style="visibility: visible;">
+            <option value="0" class="selInstruct">[Select Community]</option>
+            <option value="4">General</option><option value="3">OBC</option><option value="1">SC</option><option value="2">ST</option>          </select>
+         <div id="stsccomm" style="display:none;">
+          	<span class="note"><strong><u>Note 1</u></strong>:[SC /ST Candidates claiming relaxation must ensure that all certificates should have been issued earlier than the closing date. <br> अ.जा./अ.ज.जा. के आरक्षण का दावा करने वाले उम्मी दवारों को यह सुनिश्चित कर लेना चाहिए कि सभी प्रमाण पत्र अंतिम तिथि से पहले जारी किए गए हैं।] </span>
+          </div> 
+	 </td>
+      </tr>
+	  <tr>
+        <td id="obccom" valign="top" nowrap="nowrap" style="display:none;">
+		<img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Do you belong to Creamy Layer <br> क्या आप क्रीमी लेयर से संबंध रखते हैं <font color="red">*</font> : </td>
+        <td colspan="2"><div id="obccomm" style="display:none;">
+		  <select name="obccommunity" id="obccommunity" onchange="communitycertificatedate()" class="textbox" style="visibility: visible;">
+		  <option value="2" selected="selected">Select Creamy Layer</option>
+		              <option value="0">No / नहीं</option>
+			<option value="1">Yes / हां   </option>
+		            </select>
+		  </div>
+		  <div id="obccommy" style="display:none;">
+          		<span class="note">[Candidates belonging to OBCs but coming in the ' Creamy Layer ' and thus not being entitled to
+             						OBC reservation will be treated as General community. / जो उम्मीरदवार अन्य  पिछड़ा वर्ग से संबंध रखते हैं परंतु ‘क्रीमी लेयर’ के अंतर्गत आते हैं और इस प्रकार ओबीसी आरक्षण के लिए पात्र नहीं हैं, उन्हें  सामान्य  समुदाय के तौर पर माना जाएगा।] </span>
+          </div>
+          <div id="obccommn" style="display:none;">
+          		<span class="note"><strong><u>Note 1</u></strong>:[OBC Candidates claiming relaxation must ensure that the certificates should have been issued 
+                					earlier than the closing date. / अ.पि.व. के आरक्षण का दावा करने वाले उम्मी दवारों को यह सुनिश्चित कर लेना चाहिए कि प्रमाण पत्र अंतिम तिथि से पहले जारी किए गए हैं।] 
+				</span> 
+          </div>
+		  </td>
+      </tr>
+	  <tr>
+        <td id="commcertno" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Community Certificate Number /<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;सामुदायिक प्रमाण पत्र संख्या&nbsp;<font color="red">*</font> :&nbsp;
+		</td>
+		<td colspan="2">
+		  <div id="commcertno1" style="display:none;">
+		  	<input name="comm_certno" type="text" id="comm_certno" value="" autocomplete="OFF" maxlength="60" size="60" class="tdfocus" onpaste="return false;"> 
+		  </div>
+		</td>
+      </tr>
+	  <tr>
+        <td id="commcert_issauth" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Community Certificate Issuing Authority Designation /<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;सामुदायिक प्रमाण पत्र जारी करने वाले प्राधिकरण पदनाम&nbsp;<font color="red">*</font> :&nbsp;
+		</td>
+		<td colspan="2">
+		  <div id="commcert_issauth1" style="display:none;">
+		  	<input name="commcertissauth" type="text" id="commcertissauth" value="" autocomplete="OFF" maxlength="50" size="45" onkeypress="return alphaonly(event,this);" class="tdfocus" onpaste="return false;"> 
+		  </div>
+		</td>
+      </tr>
+	  <tr>
+        <td id="communitycertificate" valign="top" nowrap="nowrap" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif" valign="top">&nbsp;&nbsp;Community certificate date /<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; समुदाय प्रमाण पत्र की तारीख&nbsp;<font color="red">*</font> :&nbsp;
+		</td><td colspan="2">
+		  <div id="communitycertificatedate" style="display:none;">
+		  	<input name="community_certificate_date" type="text" id="community_certificate_date" value="" autocomplete="OFF" onblur="javaScript: if (this.value==&#39;&#39;) {this.value=&#39;DD-MM-YYYY&#39;;}" onclick="javaScript: if (this.value==&#39;DD-MM-YYYY&#39;) {this.value=&#39;&#39;;}" readonly="readonly" class="hasCalendarsPicker"> 
+				<span class="note">[ DD-MM-YYYY / डीडी-एमएम-वाईवाईवाईवाई]</span>		  </div>
+		  </td>
+      </tr>
+      <!-- Modified 10 Jan 2011-->
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Do you belong to Minority /<br> &nbsp;&nbsp;&nbsp;&nbsp;क्या आप अल्पसंख्यक हैं <font color="red">*</font> :</td>
+        <td width="15%" nowrap="nowrap" valign="top" colspan="2"><select name="minority_status" id="minority_status" onchange="setMinotry(this.value)" class="textbox" style="visibility: visible;">
+            <option value="99">Select Minority</option>
+                        <option value="0">No / नहीं</option>
+            <option value="1">Yes / हां   </option>
+                      </select>
+        </td>
+	  </tr>
+	  <tr>
+	    <td id="showminotry1" style="display:none;">
+			<img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;If Yes Select the Religion /<br>&nbsp;&nbsp;&nbsp;&nbsp; यदि हां तो कृपया धर्म का चयन करें <font color="red">*</font> :
+		</td>
+        <td colspan="2">
+		  <div id="showminotry" style="display:none;">
+			<select name="minority_code" id="minority_code" disabled="" style="visibility: visible;"><option value="0" class="selInstruct">[Select]</option>				<option value="1">
+				  Muslim			  </option>
+			  				<option value="2">
+				  Christian			  </option>
+			  				<option value="3">
+				  Sikh			  </option>
+			  				<option value="4">
+				  Buddhist			  </option>
+			  				<option value="5">
+				  Zoroastrian			  </option>
+			  				<option value="6">
+				  Jain			  </option>
+			  </select>		   </div>
+        </td>
+      </tr>
+      <!-- Modified 10 Jan 2011-->
+      <tr>
+        <td valign="top"><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Fee Remission Allowed /<br> &nbsp;&nbsp;&nbsp;&nbsp;शुल्क माफ किया गया है: </td>
+        <td colspan="2">
+		    <div id="showfeerem" style="display: none;"> 
+				<select name="feerem" id="feerem1" style="display: none; visibility: visible;" onchange="frc(this.value)" class="textbox" disabled=""><option value="1">No / नहीं</option><option value="2">Yes / हां   </option></select> 
+		    </div>
+            <div id="hidefeerem" style="display:none"> <select name="feerem" id="feerem2" disabled="" onchange="" style="visibility: visible;"><option value="2" selected="">Yes</option></select> </div>
+		<div id="hidefeeremph" style="display: none;"> <select name="feerem" id="feerem3" disabled="" onchange="" style="visibility: visible;"><option value="1" selected="">No</option></select> </div>
+		<div id="hidefeeremph_1" style="display: block;"> <select name="feerem" id="feerem4" disabled="" onchange="" style="visibility: visible;"><option value="1" selected="">No</option></select> 
+		</div>
+          <span class="note"> [Fee exemption is admissible only to SC/ST
+            			 / Female candidates and the candidates who are wards of JCO/NCO/Other Rank officers AND studying in Sainik/Military School			<br> केवल अ.जा./अ.ज.जा.   महिला  उम्मीदवारों के लिए शुल्क भुगतान हेतु छूट है  
+और जो उम्मीदवार जूनियर कमीशन अफसर / नॉन - कमीशन्ड ऑफिसर/ अन्य रैंक के अधिकारियों के वार्ड हैं और सैनिक / सैन्य स्कूल में पढ़ रहे है			
+            ] </span> </td>
+      </tr>
+      <tr class="formfieldheading">
+        <td colspan="3"><strong>Educational Qualification / शैक्षिक योग्यता </strong> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Select your educational qualifications /<br> &nbsp;&nbsp;&nbsp;&nbsp;अपनी शैक्षिक योग्यता का चयन करें <font color="red">*</font> : </td>
+        <td align="left" colspan="2"><span class="linkspan" onclick="showeqdetails()"><img src="./nda ss_files/info.gif" title="details"><b>View Details / विवरण देखें</b></span>&nbsp;&nbsp;            <select name="qualcode" id="qualcode" class="eqmenu" maxlength="110" style="visibility: visible;">
+              <option value="0" class="selInstruct">[ Select the Qualification ]</option>
+              <option value="1">Passed 12th class of 10 plus 2 pattern of school education or an equiv. exam. but not having Physics, Chemistry  and Maths to...</option><option value="2">Passed 12th class of 10 plus 2 pattern of school education or an equiv. exam. with Physics, Chemistry and Maths among the sub...</option><option value="3">Appeared/Appearing at 12th class of 10 plus 2 pattern of school education or an equiv. exam. but not having Physics, Chemistr...</option><option value="4">Appeared/Appearing at 12th class of 10 plus 2 pattern of school education or an equiv. exam. with Physics, Chemistry and Math...</option>          </select></td>
+      </tr>
+        
+      <tr class="formfieldheading">
+        <td colspan="3"><strong>Address / आवासीय पता</strong> </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><!--<span class="note"> [Do not enter your name again in the address field / कृपया पते के स्‍थान पर अपना नाम दोबारा न लिखें।] </span>--> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Line 1 /  	लाइन 1 <font color="red">*</font> : </td>
+        <td colspan="2"><input name="add1" type="text" id="add1" size="40" value="" maxlength="30" onkeypress="return noQuotes(event, this)" class="tdfocus" autocomplete="OFF">        </td>
+      </tr>
+	  <tr>
+	  <td></td>
+	  <td colspan="2"><span class="note"> [Do not enter special characters like (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> etc.) or your name again in the address Line 1.<br> पते की पंक्ति 1 में विशेष वर्ण 
+जैसे (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> आदि) अथवा अपना नाम दोबारा दर्ज न करे।] </span></td>
+	  </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Line 2 /  	लाइन 2 <font color="red">*</font> : </td>
+        <td colspan="2"><input name="add2" type="text" id="add2" size="40" value="" maxlength="30" onkeypress="return noQuotes(event, this)" class="tdfocus" autocomplete="OFF">        </td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><span class="note"> [Do not enter special characters like (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> etc.) in the address Line 2/ पते की पंक्ति 2 में विशेष वर्ण जैसे (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> आदि) दर्ज न करें।] </span> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Line 3 /  	लाइन 3 : </td>
+        <td colspan="2"><input name="po" type="text" id="po" size="40" value="" maxlength="30" onkeypress="return noQuotes(event, this)" class="tdfocus" autocomplete="OFF">        </td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><span class="note"> [Do not enter special characters like (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> etc.) in the address Line 3/ पते की पंक्ति 3 में विशेष वर्ण जैसे (<font color="#FF0000"> _ </font><font color="#000000">,</font> <font color="#FF0000">\ </font><font color="#000000">,</font> <font color="#FF0000">/</font> आदि)  दर्ज न करें।] </span> </td>
+      </tr>
+	   <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;State/UT  	राज्य्/संघ शासित क्षेत्र <font color="red">*</font> : </td>
+        <td colspan="2">
+				<select name="state" id="state" class="tdfocus" onchange="getCDistrict(this.value);" style="visibility: visible;">
+            <option value="0">[ Select State/UT ]</option>
+            <option value="31">Andaman &amp; Nicobar Island</option><option value="25">Andhra Pradesh</option><option value="14">Arunachal Pradesh</option><option value="15">Assam</option><option value="10">Bihar</option><option value="4">Chandigarh</option><option value="34">Chhattisgarh</option><option value="30">Dadra &amp; Nagar Haveli</option><option value="33">Daman &amp; Diu</option><option value="7">Delhi</option><option value="27">Goa</option><option value="22">Gujarat</option><option value="8">Haryana</option><option value="2">Himachal Pradesh</option><option value="1">Jammu &amp; Kashmir</option><option value="11">Jharkhand</option><option value="24">Karnataka</option><option value="28">Kerala</option><option value="38">Ladakh</option><option value="32">Lakshadweep</option><option value="12">Madhya Pradesh</option><option value="23">Maharashtra</option><option value="36">Manipur</option><option value="20">Meghalaya</option><option value="18">Mizoram</option><option value="16">Nagaland</option><option value="21">Odisha</option><option value="99">Others</option><option value="29">Puducherry</option><option value="3">Punjab</option><option value="5">Rajasthan</option><option value="13">Sikkim</option><option value="26">Tamil Nadu</option><option value="37">Telangana</option><option value="17">Tripura</option><option value="9">Uttar Pradesh</option><option value="6">Uttrakhand</option><option value="19">West Bengal</option></select>
+<input name="state_code_others" type="text" id="state_code_others" size="50" maxlength="50" value="" class="tdfocus" style="display:none;" autocomplete="OFF">	
+        </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;District/City  	जिला/शहर <font color="red">*</font> : </td>
+        <td colspan="2" id="c_district_ajax">
+		
+		<select name="district" id="district" title="select state first for listing district" class="tdfocus" style="visibility: visible;">
+					<option value="0">[ Select District/City ]</option>
+		</select>
+	<input name="district_others" type="text" id="district_others" size="50" maxlength="50" value="" class="tdfocus" style="display:none;" autocomplete="OFF">
+		</td>
+      </tr>
+     
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;PIN Code  /	पिन कोड <font color="red">*</font> : </td>
+        <td colspan="2"><input name="pincode" type="text" id="pincode" size="4" maxlength="6" value="" onkeypress="return isNumberKey(event)" class="tdfocus" autocomplete="OFF"> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Phone No. with Area Code /  	क्षेत्र कोड के साथ फोन नं. : </td>
+        <td colspan="2"><input name="area_code" type="text" id="area_code" size="4" maxlength="5" value="" class="tdfocus" autocomplete="OFF">		<input name="phone" type="text" id="phone" size="12" maxlength="12" value="" class="tdfocus"> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Mobile No. /  	मोबाइल नं.<font color="red">*</font> : </td>
+        <td colspan="2"><input name="mobile" type="text" id="mobile" size="15" maxlength="10" value="" onkeypress="return isNumberKey(event)" class="tdfocus" autocomplete="OFF"> </td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;e-mail /  	ई-मेल <font color="red">*</font> : </td>
+        <td colspan="2"><input name="email" type="text" id="email" size="40" value="" class="tdfocus" autocomplete="OFF"> <br>
+        <span class="note"> [The Commission may be communicating with the candidates through e-mails (if required). Therefore, Candidates should provide a valid e-mail id only./आयोग ईमेल के माध्यम से उम्मीदवारों के साथ संवाद कर सकता है (यदि आवश्यक हो)।
+इसलिए, उम्मीदवारों को केवल वैध ई-मेल आईडी  प्रदान करना चाहिए।] </span></td>
+      </tr>
+      <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Confirm e-mail /  	ई-मेल की पुष्टि करें <font color="red">*</font> : </td>
+        <td colspan="2"><input name="confirmemail" type="text" id="confirmemail" size="40" value="" onpaste="return false;" autocomplete="OFF" class="tdfocus"> </td>
+      </tr>
+	  <tr>
+        <td><img src="./nda ss_files/formbullet.gif">&nbsp;&nbsp;Alternative e-mail /  	वैकल्पिक ई-मेल : </td>
+        <td colspan="2"><input name="a_email" type="text" id="a_email" size="40" value="" class="tdfocus" autocomplete="OFF"> </td>
+      </tr>
+    </tbody></table>
+    </form></div>
+<div style="margin:1%">
+  <span class="flashnote">(*) - Star marked fields are essentially to be filled by the candidate. / उम्मीदवार (*) स्टार चिन्ह वाले स्था्नों को अवश्ये भरें। </span>
+  </div>
+  <p align="center">
+    <input type="hidden" name="feerem_hi" id="feerem_hi" value="1"><input type="hidden" name="agerelax" value=""><input type="hidden" name="agerelaxcode" value=""><input type="hidden" name="phcatperno" id="phcatperno" value=""><input type="hidden" name="pha_code" id="pha_code" value=""><input type="hidden" name="ndaprefarmy" value=""><input type="hidden" name="ndaprefnavy" value=""><input type="hidden" name="ndaprefaf" value=""><input type="hidden" name="ndaprefna" value=""><input type="hidden" name="ndamarital" value=""><input type="hidden" name="ndasanikschool" id="ndasanikschool" value=""><input type="hidden" name="ndasonjco" id="ndasonjco" value=""><input type="hidden" name="geolcat" value=""><input type="hidden" name="cspsubcode" value=""><input type="hidden" name="cspsubcode2" value=""><input type="hidden" name="cspnoofatt" value=""><input type="hidden" name="scriberquired" value=""><input type="hidden" name="ifsopt1" value=""><input type="hidden" name="ifsopt2" value=""><input type="hidden" name="ifsnoofatt" value=""><input type="hidden" name="enggbranch" value=""><input type="hidden" name="cdsprefIMA" value=""><input type="hidden" name="cdsprefNA" value=""><input type="hidden" name="cdsprefAFA" value=""><input type="hidden" name="cdsprefOTA" value=""><input type="hidden" name="cdsmarital" value=""><input type="hidden" name="cdsnccc" value=""><input type="hidden" name="cdsarmedforce" value=""><input type="hidden" name="ifsm_centre_code" id="ifsm_centre_code" value=""><input type="hidden" name="language_exception" id="language_exception" value=""><input type="hidden" name="language_code" id="language_code" value=""><input type="hidden" name="csm_centre_code" id="csm_centre_code" value=""><input type="hidden" name="medium_code" value=""><input type="hidden" name="medium_code_cpf" value=""><input type="hidden" name="exserviceman" value=""><input type="hidden" name="per_gud_level" value=""><input type="hidden" name="formupdate" id="formupdate" value=""><input type="hidden" name="updatedefault" id="updatedefault" value="0"><input type="hidden" name="cdssanikschool" value=""><input type="hidden" name="csm_tenexatratime" id="csm_tenexatratime" value=""><input type="hidden" name="ifsm_scriberquired" id="ifsm_scriberquired" value=""><input type="hidden" name="cplicence" value=""><input type="hidden" name="csp2011apply" id="csp2011apply" value=""><input type="hidden" name="h_cname" id="h_cname" value=""><input type="hidden" name="enggm_centre_code" value=""><input type="hidden" name="opt_medium_code" value=""><input type="hidden" name="ph_id_pr" value=""><input type="hidden" name="pabt_cpss" id="pabt_cpss" value=""><input type="hidden" name="afa_gdo" id="afa_gdo" value=""><input type="hidden" name="pabt_cpss_year" id="pabt_cpss_year" value=""><input type="hidden" name="geolm_centre_code" id="geolm_centre_code" value=""><input type="hidden" name="app_chs" id="app_chs" value=""><input type="hidden" name="gov_ser" id="gov_ser" value=""><input type="hidden" name="chs_age_over" id="chs_age_over" value=""><input type="hidden" name="perv_app" id="perv_app" value=""><input type="hidden" name="nda_rid" id="nda_rid" value=""><input type="hidden" name="old_pref_nda" id="old_pref_nda" value=""><input type="hidden" name="cspmain_qstpaper" id="cspmain_qstpaper" value="">
+<input type="hidden" name="hail_apmmeminasi" id="hail_apmmeminasi" value="">
+<input type="hidden" name="name_visual_imp" id="name_visual_imp" value="">
+<input type="hidden" name="name_scribe" id="name_scribe" value="">
+<input type="hidden" name="pd_line1" id="pd_line1" value="">
+<input type="hidden" name="pd_line2" id="pd_line2" value="">
+<input type="hidden" name="pd_line3" id="pd_line3" value="">
+<input type="hidden" name="pd_dist" id="pd_dist" value="">
+<input type="hidden" name="pd_district_others" id="pd_district_others" value="">
+<input type="hidden" name="state_ps" id="state_ps" value="">
+<input type="hidden" name="state_ps_code_others" id="state_ps_code_others" value="">
+<input type="hidden" name="pd_pincode" id="pd_pincode" value="">
+<input type="hidden" name="pd_mobile" id="pd_mobile" value="">
+<input type="hidden" name="edu_scribe" id="edu_scribe" value="">
+<input type="hidden" name="rel_scribe" id="rel_scribe" value="">
+<input type="hidden" name="upfile_scribe" id="upfile_scribe" value="">
+<input type="hidden" name="billingtoo" id="billingtoo" value="">
+<input type="hidden" name="agedateisover" value="">
+<input type="hidden" name="fin_reco_ass_comd" value="">
+<input type="hidden" name="oth_app_reg" value="">
+<input type="hidden" name="oth_resn_app_form" value="">
+<input type="hidden" name="ph_id_pr_opt" value="">
+<input type="hidden" name="next_page" value="0">
+<input type="hidden" name="count_assi_device" id="count_assi_device" value="0">
+    <input type="reset" name="Reset" value="Reset / पुन: सेट करें" class="button">
+    &nbsp;&nbsp;
+    <input name="Submit2" type="button" onclick="validform1()" value="Continue / आगे बढ़ें" class="button">
+  </p>
+  
+  
+  
+  
+<p align="center"><img src="./nda ss_files/footer.gif" style="margin-bottom:0.5cm"></p><div style="position: absolute; visibility: hidden;"><div></div><div></div></div></body></html>

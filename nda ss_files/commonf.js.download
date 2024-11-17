@@ -1,0 +1,2604 @@
+function rowSelect(){
+  var chkd = 0;
+  if(!document.forms[0].chkbox.length){
+    if(document.forms[0].chkbox.checked){
+      chkd = 1;
+    }
+  }
+  else{
+    for(var i=0; i<document.forms[0].chkbox.length; i++){
+      if(document.forms[0].chkbox[i].checked){
+        chkd = 1;
+        break;
+      } 
+    }
+  }
+  return chkd;
+}
+//function to check input fields for main data of exams;
+function editCheck(str1,str2){
+  var e_count = 0;
+  if(!document.forms[0].chkbox.length){
+    if(Trim(document.getElementById('name_'+document.forms[0].chkbox.value).value) == '' ||
+    Trim(document.getElementById('code_'+document.forms[0].chkbox.value).value) == ''){
+      alert(str1+" or "+str2+" cannot be blank.");
+      return 0;
+    }
+    else if(isNaN(document.getElementById('code_'+document.forms[0].chkbox.value).value)){
+      alert(str2+" should be a numeric value.");
+      document.getElementById('code_'+document.forms[0].chkbox.value).focus();
+      return 0;
+    }
+  }
+  else{
+    for(var i=0; i<document.forms[0].chkbox.length; i++){
+      if(document.forms[0].chkbox[i].checked){
+        if(Trim(document.getElementById('name_'+document.forms[0].chkbox[i].value).value) == '' ||
+        Trim(document.getElementById('code_'+document.forms[0].chkbox[i].value).value) == ''){
+          e_count = 1;
+          alert(str1+" or "+str2+" cannot be blank.");
+          break;
+        }
+        else if(isNaN(document.getElementById('code_'+document.forms[0].chkbox[i].value).value)){
+          e_count = 1;
+          alert(str2+" should be a numeric value.");
+          document.getElementById('code_'+document.forms[0].chkbox[i].value).focus();
+          break;
+        }
+      }
+    }
+  }
+  if(e_count == 0){
+      document.forms[0].editY.value = 1;
+      document.forms[0].editC.value = 0;
+  }
+  else{return 0;}
+}
+//function to validate the upsc administrator before submitting the user id and password
+function uservalidation(){
+  if(document.upscuser.upscuserid.value == "" && document.upscuser.upscuserpwd.value == ""){
+    document.upscuser.action = 'index.php';
+    document.upscuser.submit();
+  }
+  else if(document.upscuser.upscuserid.value == "" || document.upscuser.upscuserpwd.value == ""){
+    alert("Please enter a valid user-id and password to log in.");
+    return false;
+  }
+  else{
+    document.upscuser.upscuserpwd.value = get_hex(document.upscuser.uniqid.value,document.upscuser.upscuserpwd.value);
+    return true;
+  }
+}
+//function to check validations in contact module
+function validationContact(){
+	var d = document.forms[0].dobdate;
+    var m = document.forms[0].dobmonth;
+    var y = document.forms[0].dobyear;
+
+  if(trimWSpaces(document.feedback.reg_id.value) == "" ||
+  document.feedback.reg_id.value.length < 11){
+    alert("Please enter your 11 digit Registration-Id.");
+    document.feedback.reg_id.focus();
+  }
+  else if(isNaN(document.feedback.reg_id.value)){
+    alert("Registration Id should be a numeric 11 digit value.");
+    document.feedback.reg_id.focus();
+  }
+  else if(document.forms[0].dobdate.value == 0 || document.forms[0].dobmonth.value == 0 || document.forms[0].dobyear.value == 0)
+    {
+    	alert("Please enter your Date of Birth.")
+    	document.forms[0].dobdate.focus();
+    }
+  else{
+	document.forms[0].dob.value = formDate(d.value,m.value,y.value) 
+    document.feedback.qerysubmit.value = 1;
+    document.feedback.submit();
+  }
+} 
+//function to check the numberic value
+function checkNum(cspnoofatt){
+   var s_len=cspnoofatt.length ;
+   var s_charcode = 0;
+    for (var s_i=0;s_i < s_len;s_i++){
+     s_charcode = cspnoofatt.charCodeAt(s_i);
+     if(!((s_charcode>=48 && s_charcode<=57))){
+        return 1;
+      }
+    }
+}
+function encryptLogin(key,datastring){
+	var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/rn/g,"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+
+	var data=datastring;
+	var encodeval = Base64.encode(data);
+	//alert(encodeval);
+	//alert(Base64.decode(encodeval));
+	var enc =window.btoa(Math.random()+"#"+encodeval+"#"+key);
+	return enc;
+}
+//function to check the eaxm specific validation in form3.php
+function examSpecificValid(obj1,obj2,obj3){ 
+
+var submit = 1;
+ if(obj1.value == "CSP"){	
+ if(obj3.value == '2'){
+	var per_gud_level= 0;
+ }else{
+	var per_gud_level= document.getElementById("per_gud_level").value;
+ }
+	var csp_ifs_exam_pref=document.getElementById("csp_ifs_exam_pref").value;
+	var qualcode=document.getElementById("qualcode").value;
+		//
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var key = document.form3.key.value;
+	//alert(result_dupli_d);
+	//alert(oth_app_reg);
+	//alert(conf_ph_id_pr);
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	if((ph_id_pr_opt == 0) && (ph_id_pr_opt < 1 || ph_id_pr_opt > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_opt != 0) && (ph_id_pr == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card number / VID length between 12 and 16.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && ph_id_pr_len != 12 && ph_id_pr == "000000000000"){
+		alert("Please enter the valid Aadhaar card number.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.2");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card number / VID length between 12 and 16.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr != conf_ph_id_pr){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	//alert(csp_ifs_exam_pref);
+	if((per_gud_level == '')  && (obj3.value != 2)){
+	alert("Please enter percentage at the Graduation level value.");
+	document.getElementById("per_gud_level").focus();
+	submit = 0; 
+	return false;	
+  }else if((isNaN(per_gud_level)) && (obj3.value != 2)){
+	alert("Please enter percentage only numeric value.");
+	document.getElementById("per_gud_level").focus();
+	document.getElementById("per_gud_level").value='';
+	submit = 0;    
+	return false;
+  }else if((per_gud_level != '') && (per_gud_level >= 100)){
+    alert("Please enter percentage at the Graduation level less than 100%.");
+	document.getElementById("per_gud_level").focus();
+	document.getElementById("per_gud_level").value='';
+    submit = 0;  
+	return false;
+  }else if((qualcode == 1) && (per_gud_level ==0 || per_gud_level ==00)){
+    alert("Please enter percentage at the Graduation level greater than 0%.");
+	document.getElementById("per_gud_level").focus();
+	document.getElementById("per_gud_level").value='';
+    submit = 0;  
+	return false;
+  }
+	if((csp_ifs_exam_pref == 2) || (csp_ifs_exam_pref == 5) || (csp_ifs_exam_pref == 8) ||(csp_ifs_exam_pref == 11)||(csp_ifs_exam_pref == 14)||(csp_ifs_exam_pref == 17)||(csp_ifs_exam_pref == 20)||(csp_ifs_exam_pref == 23)||(csp_ifs_exam_pref == 26)||(csp_ifs_exam_pref == 29)||(csp_ifs_exam_pref == 32)||(csp_ifs_exam_pref == 35)||(csp_ifs_exam_pref == 38)||(csp_ifs_exam_pref == 41)){
+	//alert("ifs");
+	var ifsopt1= document.getElementById("ifsopt1").value;
+	var ifsopt2= document.getElementById("ifsopt2").value;
+	var ifsnoofatt= document.getElementById("ifsnoofatt").value;
+	var handicapp = document.getElementById("handicapp").value;
+	var pcategory = document.getElementById("pcategory").value;
+	var hcategory = document.getElementById("hcategory").value;
+	var ifsm_centre_code = document.getElementById("ifsm_centre_code").value;
+	var obccommunity = document.getElementById("obccommunity").value;
+
+	 if(handicapp == 2 && pcategory == 1){
+		var ifsm_scribe_rquired =document.getElementById("ifsm_scribe_rquired").value;
+	 }
+	
+	if(ifsm_centre_code == '0'){
+		alert("Please Select Centre for I.Fo.S.(Main) Examination.");
+		document.getElementById("ifsm_centre_code").focus();
+		submit = 0;   
+	 }else if(ifsopt1 == '0'){
+		alert("Please Select First Optional Subject");
+		document.getElementById("ifsopt1").focus();
+		submit = 0;   
+	 }else if(ifsopt2 == '0'){
+		alert("Please Select Second Optional Subject ");
+		document.getElementById("ifsopt2").focus();
+		submit = 0;   
+	 }else if(ifsnoofatt == ''){
+		alert("Please select no of attempts is not blank.");
+		document.getElementById("ifsnoofatt").focus();
+		submit = 0;  	 
+	}else if(isNaN(ifsnoofatt)){
+		alert("Please enter number of attempts only numeric value.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(checkNum(ifsnoofatt) == 1){
+		alert("Please enter number of attempts only numeric value.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(ifsnoofatt.length == 3){
+		alert("As per your selected community, number of attemps already made is not valid.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 1 && ifsnoofatt > 8){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 2 && ifsnoofatt > 5){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if((obj2.value == 4 || obj2.value == 5) && handicapp != 2 && ifsnoofatt > 5){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 1 && ifsnoofatt > 5){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(obj2.value == 3 && obccommunity == 0 && handicapp == 1 && ifsnoofatt > 8){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(obj2.value == 3 && obccommunity == 0 && handicapp == 2 && pcategory == 2 && ifsnoofatt > 8){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(obj2.value == 3 && handicapp == 2 && pcategory == 1 && ifsnoofatt > 8){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 2 && pcategory == 2 && ifsnoofatt > 5){
+		alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+		document.getElementById("ifsnoofatt").focus();
+		document.getElementById("ifsnoofatt").value='';
+		submit = 0;   
+    }else if(handicapp == 2 && pcategory == 1 && ifsm_scribe_rquired == 0){
+		alert("Please Select Scribe Required.");
+		document.getElementById("ifsm_scribe_rquired").focus();
+		submit = 0; 	
+	}
+  }else if((csp_ifs_exam_pref == 1) || (csp_ifs_exam_pref == 4) || (csp_ifs_exam_pref == 7) ||(csp_ifs_exam_pref == 10)||(csp_ifs_exam_pref == 13)||(csp_ifs_exam_pref == 16)||(csp_ifs_exam_pref == 19)||(csp_ifs_exam_pref == 22)||(csp_ifs_exam_pref == 25)||(csp_ifs_exam_pref == 28)||(csp_ifs_exam_pref == 31)||(csp_ifs_exam_pref == 34)||(csp_ifs_exam_pref == 37)||(csp_ifs_exam_pref == 40)																																																																						 ||(csp_ifs_exam_pref == 43) ||(csp_ifs_exam_pref == 44) ||(csp_ifs_exam_pref == 45) ||(csp_ifs_exam_pref == 46) ||(csp_ifs_exam_pref == 47) 
+  ||(csp_ifs_exam_pref == 48) ||(csp_ifs_exam_pref == 49) ||(csp_ifs_exam_pref == 50) ||(csp_ifs_exam_pref == 51) ||(csp_ifs_exam_pref == 52)
+  ||(csp_ifs_exam_pref == 53) ||(csp_ifs_exam_pref == 54) ||(csp_ifs_exam_pref == 55)
+  ){//alert("csp");
+	 var cspnoofatt= document.getElementById("cspnoofatt_csp").value;
+	 var handicapp = document.getElementById("handicapp").value;
+	 var csp2011apply = 1;
+	//alert(csp2011apply);
+	 var csm_centre_code = document.getElementById("csm_centre_code").value;
+	 var cspsubcode = document.getElementById("cspsubcode").value;
+	 var medium_code = document.getElementById("medium_code").value; 
+	 var language_exception = document.getElementById("language_exception").value;
+	 var obccommunity = document.getElementById("obccommunity").value;
+	 var opt_medium_code = document.getElementById("opt_medium_code");
+	 if(opt_medium_code == null){
+		 var opt_medium_code_cs = document.getElementById("opt_medium_code_cs");
+	 } 
+	if(language_exception == 0){var language_code = document.getElementById("language_code").value;}
+	if(handicapp == 2){ 
+		var pcategory = document.getElementById("pcategory").value;
+		var hcategory = document.getElementById("hcategory").value;
+		if(hcategory == 5){
+			var ywrexcat_extratime = document.getElementById("ywrexcat_extratime").value;
+		}
+	 }
+	 var hail_apmmeminasi = document.getElementById("hail_apmmeminasi").value;
+	 if(handicapp == 2 && (hcategory == 2 || hcategory == 6 || (hcategory == 5 && ywrexcat_extratime == 53)) && pcategory == 1){
+		 var cspmain_qstpaper = document.getElementById("cspmain_qstpaper").value;
+	 }
+	 
+	 if(handicapp == 2 && pcategory == 1){
+         var scriberquired = document.getElementById("scriberquired").value;
+
+	}
+		if(cspnoofatt == ''){
+		alert("Please enter no of attempts.");
+		document.getElementById("cspnoofatt_csp").focus();
+		submit = 0;   
+	 	}else if(isNaN(cspnoofatt)){
+		alert("Please enter number of attempts only numeric value.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;   
+        }else if(checkNum(cspnoofatt) == 1){
+		alert("Please enter number of attempts only numeric value.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;   
+        }else if(cspnoofatt.length == 3){
+		alert("As per your selected community, number of attemps already made is not valid");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;   
+       }
+	  //added 12may2015
+		else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 1 && cspnoofatt > 8){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 2 && cspnoofatt > 5){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if((obj2.value == 4 || obj2.value == 5) && handicapp != 2 && cspnoofatt > 5){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if(obj2.value == 3 && (obccommunity == 0 || obccommunity == 1 ) && handicapp == 2 && pcategory == 1 && cspnoofatt > 8){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if(obj2.value == 3 && obccommunity ==0 && ((handicapp == 1) || (handicapp == 2 && pcategory == 2 )) && cspnoofatt > 8){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 2 && pcategory == 2 && cspnoofatt > 5){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 1 && cspnoofatt > 5){
+	    alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		document.getElementById("cspnoofatt_csp").focus();
+		document.getElementById("cspnoofatt_csp").value ='';
+		submit = 0;  
+	  }else if(csm_centre_code == '0'){
+		alert("Please Select Centre for CSM Examination.");
+		document.getElementById("csm_centre_code").focus();
+		submit = 0; 
+	  }else if(medium_code == '0'){
+		alert("Please Select Language Medium for Examination for Paper I to Paper V.");
+		document.getElementById("medium_code").focus();
+		submit = 0; 
+	  }else if(cspsubcode == '0'){
+		alert("Please Select Optional Subject for Paper VI & VII.");
+		document.getElementById("cspsubcode").focus();
+		submit = 0; 
+	  }else if(opt_medium_code == null && opt_medium_code_cs.value == '0'){
+		alert("Please Select Language Medium of Optional Subject for Paper VI & VII.");
+		document.getElementById("opt_medium_code_cs").focus();
+		submit = 0; 
+	  }else if(opt_medium_code != null && opt_medium_code.value == '0'){
+		alert("Please Select Language Medium of Optional Subject for Paper VI & VII.");
+		document.getElementById("opt_medium_code").focus();
+		submit = 0; 
+	  }else if((hail_apmmeminasi == '0')){
+	    alert("Please select option for hail from Arunachal Pradesh/Manipur/Meghalaya/Mizoram/Nagaland/Sikkim");
+	    document.getElementById("hail_apmmeminasi").focus();
+	    submit = 0; 
+	  }//else if((hcategory != 3 && hcategory != 7) && pcategory == 1 && hail_apmmeminasi == '1' && language_exception == '0'){
+		//alert("Please select valid option for hail from Arunachal Pradesh/Manipur/Meghalaya/Mizoram/Nagaland/Sikkim");
+		//document.getElementById("hail_apmmeminasi").focus();
+		//submit = 0;
+	  //}
+	  else if((hcategory == 3 || hcategory == 7) && (language_exception == '0') && (language_code == '0')){
+		alert("Select the Language for Paper A.");
+		document.getElementById("language_code").focus();
+		submit = 0; 
+	  }else if((language_exception == '0') && (language_code == '0')){
+		alert("Select the Language for Paper A.");
+		document.getElementById("language_code").focus();
+		submit = 0; 
+	  }else if(cspmain_qstpaper == '0'){
+	    alert("Please select option of the question paper in bigger font size for CS(Main).");
+	    document.getElementById("cspmain_qstpaper").focus();
+	    submit = 0; 
+	  }else if(scriberquired == '0'){
+		alert("Please Select Scribe Required.");
+		document.getElementById("scriberquired").focus();
+		submit = 0; 
+	  }
+	}
+	else if((csp_ifs_exam_pref == 3) || (csp_ifs_exam_pref == 6) || (csp_ifs_exam_pref == 9) ||(csp_ifs_exam_pref == 12)||(csp_ifs_exam_pref == 15)||(csp_ifs_exam_pref == 18)||(csp_ifs_exam_pref == 21)||(csp_ifs_exam_pref == 24)||(csp_ifs_exam_pref == 27)||(csp_ifs_exam_pref == 30)||(csp_ifs_exam_pref == 33)||(csp_ifs_exam_pref == 36)||(csp_ifs_exam_pref == 39)||(csp_ifs_exam_pref == 42)																																																																	     ){ // alert("both");	
+	 var cspnoofatt_both=document.getElementById("cspnoofatt_both").value;
+	 var ifsopt1= document.getElementById("ifsopt1").value;
+	 var ifsopt2= document.getElementById("ifsopt2").value;
+	 var ifsnoofatt= document.getElementById("ifsnoofatt").value;
+	 var handicapp = document.getElementById("handicapp").value;
+	 var csm_centre_code = document.getElementById("csm_centre_code").value;
+	 var cspsubcode = document.getElementById("cspsubcode");
+	 var medium_code = document.getElementById("medium_code").value; 
+	 var language_exception = document.getElementById("language_exception").value;
+	 if(language_exception == 0){var language_code = document.getElementById("language_code").value;}
+	 var csp2011apply=1;
+	 
+	 var obccommunity = document.getElementById("obccommunity").value;
+	 var opt_medium_code = document.getElementById("opt_medium_code");
+	 if(opt_medium_code == null){
+		 var opt_medium_code_both = document.getElementById("opt_medium_code_both");
+	 } 
+	 var hail_apmmeminasi = document.getElementById("hail_apmmeminasi").value;
+	 
+	//alert(hail_apmmeminasi);
+	 if(handicapp == 2){ 
+		var pcategory = document.getElementById("pcategory").value;
+	    var hcategory = document.getElementById("hcategory").value;
+		if(hcategory == 5){
+			var ywrexcat_extratime = document.getElementById("ywrexcat_extratime").value;
+		}		
+	 }
+	 if(handicapp == 2 && (hcategory == 2 || hcategory == 6 || (hcategory == 5 && ywrexcat_extratime == 53)) && pcategory == 1){
+		 var cspmain_qstpaper = document.getElementById("cspmain_qstpaper").value;
+	 }
+	if(handicapp == 2 && pcategory == 1){
+         var scriberquired = document.getElementById("scriberquired").value;
+		 var ifsm_scriberquired_both=document.getElementById("ifsm_scriberquired_both");
+	}
+	 var ifsm_centre_code = document.getElementById("ifsm_centre_code").value;
+	 
+		if(cspnoofatt_both == ''){
+			alert("Number of attempts cannot be blank in Civil Services Examination.");
+			document.getElementById("cspnoofatt_both").focus();
+			submit = 0;   
+		}else if(isNaN(cspnoofatt_both)){
+			alert("Please enter number of attempts only numeric value in Civil Services Examination.");
+			document.getElementById("cspnoofatt_both").focus();
+			document.getElementById("cspnoofatt_both").value='';
+			submit = 0;   
+        }else if(checkNum(cspnoofatt_both) == 1){
+			alert("Please enter number of attempts only numeric value in Civil Services Examination.");
+			document.getElementById("cspnoofatt_both").focus();
+			document.getElementById("cspnoofatt_both").value='';
+			submit = 0;   
+        }else if(cspnoofatt_both.length == 3){
+			alert("As per your selected community, number of attemps already made is not valid");
+			document.getElementById("cspnoofatt_both").focus();
+			document.getElementById("cspnoofatt_both").value='';
+			submit = 0;   
+        }else if((obj2.value == 4 || obj2.value == 5)  && handicapp == 2 && pcategory == 1 && cspnoofatt_both > 8){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 2 && cspnoofatt_both > 5){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value ='';
+		   submit = 0;  
+	    }else if((obj2.value == 4 || obj2.value == 5) && handicapp != 2 && cspnoofatt_both > 5){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(obj2.value == 3 && obccommunity == 0 && handicapp == 1 && cspnoofatt_both > 8){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(obj2.value == 3 && (obccommunity == 0 || obccommunity == 1) && handicapp == 2 && pcategory == 1 && cspnoofatt_both > 8){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 1 && cspnoofatt_both > 5){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 2 && pcategory == 2 && cspnoofatt_both > 5){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(obj2.value == 3 && obccommunity == 0 && handicapp == 2 && pcategory == 2 && cspnoofatt_both > 8){
+	       alert("You have already availed permissible Number of Attempts in Civil Services Examination.");
+		   document.getElementById("cspnoofatt_both").focus();
+		   document.getElementById("cspnoofatt_both").value='';
+		   submit = 0;  
+	    }else if(csm_centre_code == '0'){
+		   alert("Please Select Centre for CSM Examination.");
+		   document.getElementById("csm_centre_code").focus();
+		   submit = 0; 
+	    }else if(medium_code == '0'){
+			alert("Please Select Language Medium for Examination for Paper I to Paper V.");
+			document.getElementById("medium_code").focus();
+			submit = 0; 
+		}else if(cspsubcode.value == '0'){
+			alert("Please Select Optional Subject for Paper VI & VII");
+			document.getElementById("cspsubcode").focus();
+			submit = 0; 
+		}else if(opt_medium_code == null && opt_medium_code_both.value == '0'){
+			alert("Please Select Language Medium of Optional Subject for Paper VI & VII.");
+			document.getElementById("opt_medium_code_both").focus();
+			submit = 0; 
+		}else if(opt_medium_code != null && opt_medium_code.value == '0'){
+			alert("Please Select Language Medium of Optional Subject for Paper VI & VII.");
+			document.getElementById("opt_medium_code").focus();
+			submit = 0; 
+		}else if((hail_apmmeminasi == '0')){
+		   alert("Please select option for hail from Arunachal Pradesh/Manipur/Meghalaya/Mizoram/Nagaland/Sikkim");
+		   document.getElementById("hail_apmmeminasi").focus();
+		   submit = 0; 
+	    }//else if(hail_apmmeminasi == '1' && language_exception == '0'){
+			//alert("Please select valid option for hail from Arunachal Pradesh/Manipur/Meghalaya/Mizoram/Nagaland/Sikkim");
+			//document.getElementById("hail_apmmeminasi").focus();
+			//submit = 0;
+		//}
+		else if((hcategory == 3 || hcategory == 7) && (language_exception == '0') && (language_code == '0')){
+		   alert("Select the Language for Paper A.");
+		   document.getElementById("language_code").focus();
+		   submit = 0; 
+	    }else if((language_exception == '0') && (language_code == '0')){
+		   alert("Select the Language for Paper A.");
+		   document.getElementById("language_code").focus();
+		   submit = 0; 
+	    }else if(cspmain_qstpaper == '0'){
+			alert("Please select option of the question paper in bigger font size for CS(Main).");
+			document.getElementById("cspmain_qstpaper").focus();
+			submit = 0; 
+		}else if((scriberquired == '0')){
+		   alert("Please Select Scribe Required.");
+		   document.getElementById("scriberquired").focus();
+		   submit = 0; 
+	    }else if(ifsm_centre_code == '0'){
+			alert("Please Select Centre for I.Fo.S.(Main) Examination.");
+			document.getElementById("ifsm_centre_code").focus();
+			submit = 0;   
+	 	}else if(ifsopt1 == '0'){
+		   alert("Please Select First Optional Subject.");
+		   document.getElementById("ifsopt1").focus();
+		   submit = 0; 
+	    }else if(ifsopt2 == '0'){
+		    alert("Please Select Second Optional Subject ");
+			document.getElementById("ifsopt2").focus();
+			submit = 0; 
+	    }else if(isNaN(ifsnoofatt)){
+			alert("Please enter number of attempts only numeric value in Indian Forest Services Examination.");
+			document.getElementById("ifsopt2").focus();
+			submit = 0;   
+		}else if(ifsnoofatt == ''){
+			alert("Please select no of attempts is not blank in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			submit = 0; 
+		}else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 1 && ifsnoofatt > 8){
+		    alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").value='';
+		    document.getElementById("ifsnoofatt").focus();
+		    submit = 0;   
+        }else if((obj2.value == 4 || obj2.value == 5) && handicapp == 2 && pcategory == 2 && ifsnoofatt > 5){
+		    alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").value='';
+		    document.getElementById("ifsnoofatt").focus();
+		    submit = 0;   
+        }else if((obj2.value == 4 || obj2.value == 5) && handicapp != 2 && ifsnoofatt > 5){
+		    alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").value='';
+		    document.getElementById("ifsnoofatt").focus();
+		    submit = 0;   
+        }else if(obj2.value == 3 && obccommunity == 1 && handicapp == 1 && ifsnoofatt > 5){
+			alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+		}else if(obj2.value == 3 && obccommunity == 0 && handicapp == 1 && ifsnoofatt > 8){
+			alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+		}else if(obj2.value == 3 && (obccommunity == 0 || obccommunity == 1) && handicapp == 2 && pcategory == 1 && ifsnoofatt > 8){
+			alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+		}else if(obj2.value == 3 && obccommunity == 1 && handicapp == 2 && pcategory == 2 && ifsnoofatt > 5){
+			alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+		}else if(obj2.value == 3 && obccommunity == 0 && handicapp == 2 && pcategory == 2 && ifsnoofatt > 8){
+			alert("You have already availed permissible Number of Attempts in Indian Forest Services Examination.");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+		}else if(ifsnoofatt.length == 3){
+			alert("As per your selected community, number of attemps already made is not valid");
+			document.getElementById("ifsnoofatt").focus();
+			document.getElementById("ifsnoofatt").value='';
+			submit = 0;   
+    	}else if((ifsm_scriberquired_both != null && ifsm_scriberquired_both.value == '0')){
+		   alert("Please Select Scribe Required.");
+		   document.getElementById("ifsm_scriberquired_both").focus();
+		   submit = 0; 
+	    }
+	 }
+  }
+  else if(obj1.value == "NDAII" || obj1.value == "NDAI"){
+    var qualcode = document.form3.qualcode.value
+    var ndaprefarmy = document.form3.ndaprefarmy.value;
+    var ndaprefnavy = document.form3.ndaprefnavy.value;
+    var ndaprefaf = document.form3.ndaprefaf.value;
+    var ndaprefna = document.form3.ndaprefna.value;
+    var feerem = document.form3.feerem.value;
+    var community = document.form3.community.value;
+    var sainikschool = document.form3.ndasanikschool.value;
+    var jcoson = document.form3.ndasonjco.value;
+	//
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var sex = document.form3.sex.value;
+	var key = document.form3.key.value;
+	//alert(qualcode);	
+	if(qualcode == 2 || qualcode == 4){
+		var afa_gdo = document.form3.afa_gdo.value;
+		var pabt_cpss = document.form3.pabt_cpss.value;
+		if(pabt_cpss == 1){
+			var pabt_cpss_year = document.form3.pabt_cpss_year.value;
+		}
+	}
+	//alert("rad");
+	//alert(oth_app_reg);
+	//alert(conf_ph_id_pr);
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	if((ph_id_pr_opt == 0) && (ph_id_pr_opt < 1 || ph_id_pr_opt > 7)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_opt != 0) && (ph_id_pr == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card number / VID length between 12 and 16.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card number / VID length between 12 and 16.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr != conf_ph_id_pr){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	if(sainikschool == 1 && jcoson == 1){
+		document.form3.feerem.value=2;
+	}else if(sex == 2){
+		document.form3.feerem.value=2;
+	}else if((community == 3 || community == 4 || community == 5) && sex == 1 &&(sainikschool == 1 && jcoson == 2)){
+		document.form3.feerem.value=1;
+	}else if((community == 3 || community == 4 || community == 5) && sex == 1 && (sainikschool == 2 && jcoson == 1)){
+		document.form3.feerem.value=1;
+	}else if((community == 3 || community == 4 || community == 5) && sex == 1 && (sainikschool == 2 && jcoson == 2)){
+		document.form3.feerem.value=1;
+	}
+	if((qualcode == 2 || qualcode == 4) && pabt_cpss == 0 && ndaprefaf > 0){
+		alert("Please select option of ever fail in CPSS(Computerised Pilot Selection System) / PABT (Pilot Aptitude Battery Test) Examination of Air Force.");
+		document.form3.pabt_cpss.focus();
+		submit = 0;
+	}else if((qualcode == 2 || qualcode == 4) && pabt_cpss == 1 && pabt_cpss_year == 0 && ndaprefaf > 0){
+		alert("Please select option in which year did you fail in CPSS(Computerised Pilot Selection System) / PABT (Pilot Aptitude Battery Test) Examination of Air Force.");
+		document.form3.pabt_cpss_year.focus();
+		submit = 0;
+	}
+    else if(qualcode == 2 || qualcode == 4){
+      if(ndaprefarmy == "" || ndaprefnavy == "" || ndaprefaf == "" || ndaprefna == ""){
+        alert("Please give your preference(s).");
+        submit = 0;
+      }
+      else if(isNaN(ndaprefarmy) || isNaN(ndaprefnavy) || isNaN(ndaprefaf) || isNaN(ndaprefna)){
+        alert("Please enter only numeric values for preferences.");
+        submit = 0;
+      }
+      else if(ndaprefarmy < 0 || ndaprefarmy > 4 || ndaprefnavy < 0 ||
+      ndaprefnavy > 4 || ndaprefaf < 0 || ndaprefaf > 4 || ndaprefna < 0 || ndaprefna > 4){
+        alert("Please give the preferences in 1-4 numbers only.");
+        submit = 0;
+      }
+      else if(ndaprefarmy == 0 && ndaprefnavy == 0 && ndaprefaf == 0 && ndaprefna == 0){
+        alert("Please enter atleast one preference except 0.");
+        document.form3.ndaprefarmy.focus();
+        document.form3.ndaprefarmy.select();
+        submit = 0;
+      }
+	  else if(ndaprefarmy != 1 && ndaprefnavy != 1 && ndaprefaf != 1 && ndaprefna != 1){
+			alert ("You must give atleast one preference as '1'.");
+			submit = 0;
+	  }
+      else if((ndaprefarmy > 0 && ndaprefnavy > 0 && ndaprefarmy == ndaprefnavy) ||
+      (ndaprefarmy > 0 && ndaprefaf > 0 && ndaprefarmy == ndaprefaf) || 
+      (ndaprefarmy > 0 && ndaprefna > 0 && ndaprefarmy == ndaprefna) ||
+      (ndaprefnavy > 0 && ndaprefaf > 0 && ndaprefnavy == ndaprefaf) ||
+      (ndaprefnavy > 0 && ndaprefna > 0 && ndaprefnavy == ndaprefna) ||
+      (ndaprefaf > 0 && ndaprefna > 0 && ndaprefaf == ndaprefna)){
+        alert("You can not give same preference more than once.");
+        submit = 0;
+      }
+	  else if((sex == 2) && ndaprefna > 0){
+		alert("No vacancy earmarked for women candidates in Naval Academy. Please opt '0'.");
+		document.form3.ndaprefna.focus();
+        submit = 0; 
+	  }
+	  else if((qualcode == 2 || qualcode == 4) && afa_gdo == 0 && ndaprefaf >0){
+		alert("Please select option of consider for GDO (Ground Duty Officer).");
+		document.form3.afa_gdo.focus();
+		submit = 0;
+	  }
+    }
+  }
+  else if(obj1.value == "CDSI" || obj1.value == "CDSII"){ 
+    var qualcode = document.form3.qualcode.value; 
+	var IMA = document.form3.cdsprefIMA.value;
+    var NA = document.form3.cdsprefNA.value;
+    var AFA = document.form3.cdsprefAFA.value;
+    var OTA = document.form3.cdsprefOTA.value;
+    var branch = document.form3.exambranch;
+    var dob = document.form3.dob.value;
+	var marital  = document.form3.marital_code.value;
+    var floor_IMA = document.form3.age_from_IMA.value;
+    var ceil_IMA = document.form3.age_to_IMA.value;
+    var floor_NA = document.form3.age_from_NA.value;
+    var ceil_NA = document.form3.age_to_NA.value;
+    var floor_AFA = document.form3.age_from_AFA.value;
+    var ceil_AFA = document.form3.age_to_AFA.value;
+    var floor_OTA = document.form3.age_from_OTA.value;
+    var ceil_OTA = document.form3.age_to_OTA.value;
+	var cplicence = document.form3.cplicence.value;
+	var cplm_age25 = document.form3.cplm_age25.value;
+	//
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var key = document.form3.key.value;
+	//alert(cplm_age25);
+	//alert(conf_ph_id_pr);
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	if((ph_id_pr_opt == 0) && (ph_id_pr_opt < 1 || ph_id_pr_opt > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_opt != 0) && (ph_id_pr == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number1.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 15");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && ph_id_pr_len != 12){
+		alert("Please enter the Aadhaar card number cannot be more/less than 12 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 15");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && conf_ph_id_pr_len != 12){
+		alert("Please enter the Aadhaar card number cannot be more/less than 12 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(ph_id_pr != conf_ph_id_pr){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	if(cplicence == 1){
+	//Commercial Pilot Licence(CDSI AFA)
+	var input_date_Array = floor_AFA.split('-');//explode
+	var input_d = input_date_Array[0]-2;
+	var input_m = input_date_Array[1];
+	var input_y = input_date_Array[2];
+	var floor_AFA_r = input_d+"-"+input_m+"-"+input_y;
+	floor_AFA = floor_AFA_r;
+	}
+	//alert("hi"+floor_AFA);
+	//
+	//alert(floor_NA);
+	//alert(cplicence);
+    if(isNaN(IMA) || isNaN(NA) || isNaN(AFA) || isNaN(OTA)){
+			alert("Please enter the numeric value to set Preferences.");
+			document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}
+		else if (IMA == "" || NA == "" || AFA == "" || OTA == ""){
+			alert("Please give your choice of preferences. No choice should be left blank.\n"+
+      "Put '0' against the branch you do not want to give preference.");
+			document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}
+		else if(IMA < 0 || IMA > 4 || NA < 0 || NA > 4 || AFA < 0 ||
+    AFA > 4 || OTA < 0 || OTA > 4 ){
+			alert("Please only use numbers 1-4 to give preferences. Enter '0' against the branch "+
+      "you do not want to give preference.");
+			submit = 0;
+			return false;
+		}
+		else if((qualcode == 3 || qualcode == 1) && NA > 0){
+			alert("As per your educational qualification you cannot opt for NA. Please enter '0' against NA.");
+			document.form3.cdsprefNA.focus();
+			document.form3.cdsprefNA.select();
+			submit = 0;
+			return false;
+		}
+		else if(qualcode == 3 && AFA > 0){
+			alert("As per your educational qualification you cannot opt for AFA. Please enter '0' against AFA.");
+			document.form3.cdsprefAFA.focus();
+			document.form3.cdsprefAFA.select();
+			submit = 0;
+			return false;
+		}
+		else if(OTA == 1 && (IMA!=0 || NA!=0 || AFA!=0)){
+			alert("If you are choosing OTA as preference '1' then all other preferences must be '0'.");
+			submit = 0;
+			return false;
+		}	
+		else if(IMA != 1 && NA != 1 && AFA != 1 && OTA != 1){
+			alert ("You must give atleast one preference as '1'.");
+			submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0)){
+			alert ("If you are Married and age between 25 and 26 years, then you are only eligible to apply for AFA. "+
+      "In such case please set 'AFA' as '1' and all other preferences as '0'.");
+			document.form3.cdsprefIMA.select();
+			document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}else if(marital == 2 && (NA != 0)){
+			alert ("If you are Married and age between 25 and 26 years, then you are only eligible to apply for AFA. "+
+      "In such case please set 'AFA' as '1' and all other preferences as '0'.");
+			document.form3.cdsprefNA.select();
+			document.form3.cdsprefNA.focus();
+			submit = 0;
+			return false;
+		}else if(marital == 2 && (OTA != 0)){
+			alert ("If you are Married and age between 25 and 26 years, then you are only eligible to apply for AFA. "+
+      "In such case please set 'AFA' as '1' and all other preferences as '0'.");
+			document.form3.cdsprefOTA.select();
+			document.form3.cdsprefOTA.focus();
+			submit = 0;
+			return false;
+		}
+		else if((qualcode == 1 || qualcode == 2 || qualcode == 3) && AFA > 1){
+			alert ("Sorry!\nYou can opt 'AFA' as your 1st preference only otherwise put '0' against it.");
+			document.form3.cdsprefAFA.focus();
+			document.form3.cdsprefAFA.select();
+            submit = 0;
+			return false;
+		 }
+		else if(OTA != 0 && OTA!= 1 && OTA != 4){
+			alert("Sorry!\nYou can opt 'OTA' either as your 1st or 4th preference only.");
+			document.form3.cdsprefOTA.select();
+			document.form3.cdsprefOTA.focus();
+			submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0 || NA != 0 || OTA != 0 || AFA!=0) && (cplicence == 2) && cplm_age25==2){
+			alert("If you are Married and age between 25 and 26 years, then you are not eligible to apply for IMA/INA/AFA and OTA because you have not opted 'Commercial Pilot Licence' as 'YES'. ");
+	        document.form3.cdsprefIMA.select();
+			document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0 || NA != 0 || OTA != 0 || AFA!=0) && (cplicence == 1) && cplm_age25==0){
+			alert("If you are Married and age below or above 25 years, then you are not eligible to apply for IMA/INA/AFA/OTA.");
+	        document.form3.cdsprefIMA.select();
+			document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}else if(marital == 2 && (IMA != 0 || NA != 0 || OTA != 0 || AFA!=0) && (cplicence == 2) && cplm_age25==0){
+			alert("If you are Married and age below or above 25 years, then you are not eligible to apply for IMA/INA/AFA/OTA.");
+	        document.form3.cdsprefAFA.select();
+			document.form3.cdsprefAFA.focus();
+			submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0 || NA != 0 || AFA != 1) && OTA!=0 && cplicence == 1 && cplm_age25==2){
+			alert("If you are Married and age between 25 and 26 years, then you are only eligible to apply for AFA. "+
+      "In such case please set 'AFA' as '1' and all other preferences as '0'.");
+	        document.form3.cdsprefIMA.select();
+			document.form3.cdsprefIMA.focus();
+		 	submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0 || NA != 0 || AFA != 1) && OTA!=0 && cplicence == 1 && cplm_age25==0){
+		  	alert("If you are Married and age between 25 and 26 years, then you are only eligible to apply for AFA, "+
+	   "In such case please set 'AFA' as '1', all other preferences as '0'.");
+	        document.form3.cdsprefIMA.select();
+	      	document.form3.cdsprefIMA.focus();
+			submit = 0;
+			return false;
+		}
+		else if(marital == 2 && (IMA != 0 || NA != 0 || AFA != 0) && OTA!=0 && cplicence == 2){
+			alert("If you are Married, then you are not eligible for OTA.");
+			document.form3.cdsprefOTA.select();
+	      	document.form3.cdsprefOTA.focus();
+			submit = 0;
+			return false;
+		}
+		else if((IMA > 0 && NA > 0 && IMA == NA) || (IMA > 0 && AFA > 0 && IMA == AFA) || 
+      (IMA > 0 && OTA > 0 && IMA == OTA) || (NA > 0 && AFA > 0 && NA == AFA) ||
+      (NA > 0 && OTA > 0 && NA == OTA) || (AFA > 0 && OTA > 0 && AFA == OTA)){
+        alert("You can not give same preference more than once.");
+        submit = 0;
+        return false;
+		}
+    //if(document.form3.cdsnccc.value == 2){
+      //floor_NA = parseFloat(floor_NA.substr(0,4)-2)+floor_NA.substr(4,floor_NA.length-4);
+    //}
+    if(IMA == 1){branch.value = 1;}
+    else if(NA == 1){branch.value = 2;}
+    else if(AFA == 1){branch.value = 3;}
+    else if(OTA == 1){branch.value = 4;}
+    if(IMA > 0 && checkDOB(floor_IMA,dob,ceil_IMA) == 0){
+      alert("As per your given Date of Birth you are not eligible for IMA.\n"+
+      "Please enter '0' against IMA in the preferences.");
+      document.form3.cdsprefIMA.focus();
+      document.form3.cdsprefIMA.select();
+      submit = 0;
+      return false;
+    }
+    else if(NA > 0 && checkDOB(floor_NA,dob,ceil_NA) == 0){
+      alert("As per your given Date of Birth you are not eligible for NA.\n"+
+      "Please enter '0' against NA in the preferences.");
+      document.form3.cdsprefNA.focus();
+      document.form3.cdsprefNA.select();
+      submit = 0;
+      return false;
+    }
+    else if(AFA > 0 && checkDOB(floor_AFA,dob,ceil_AFA) == 0){
+      alert("As per your given Date of Birth you are not eligible for AFA.\n"+
+      "Please enter '0' against AFA in the preferences.");
+      document.form3.cdsprefAFA.focus();
+      document.form3.cdsprefAFA.select();
+      submit = 0;
+      return false;
+    }
+    else if(OTA > 0 && checkDOB(floor_OTA,dob,ceil_OTA) == 0){
+      alert("As per your given Date of Birth you are not eligible for OTA.\n"+
+      "Please enter '0' against OTA in the preferences.");
+      document.form3.cdsprefOTA.focus();
+      document.form3.cdsprefOTA.select();
+      submit = 0;
+      return false;
+    }
+    /*if(document.form3.cdsarmedforce.value == 1){
+      var msg = "The candidates who are serving in the Armed Forces are "+
+      " required to inform their Commanding Officer "+
+      " in writing that they have applied for this examination.";
+
+      if(confirm(msg)){
+        submit = 1;
+      }
+      else{
+        submit = 0;
+      }
+    }*/
+  }
+  else if(obj1.value == "ENGG" || obj1.value == "CMS"){
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	//
+	var key = document.form3.key.value;
+	var exam_code = document.form3.exam_code.value;
+	if(exam_code == "CMS"){
+		var chs_age_over = document.form3.chs_age_over.value;
+		if(chs_age_over == 1){
+			var app_chs = document.form3.app_chs.value;
+			//var gov_ser = document.form3.gov_ser.value;
+			if((app_chs == '') || (app_chs == 0)){
+				alert("Please select the option for CHS (Central Health Services)");
+				document.form3.app_chs.focus();
+				submit = 0;
+				return false;
+			}else if(app_chs != 0 && app_chs == 2){
+				alert("You are not elgilbe for CHS (Central Health Services) and date of birth does not match with the valid criteria of examination.");
+				document.form3.app_chs.focus();
+				submit = 0;
+				return false;
+			}/*else if(app_chs == 1 && ((gov_ser == '') || (gov_ser == 0))){
+				alert("Please select the option for Government Servant");
+				document.form3.gov_ser.focus();
+				submit = 0;
+				return false;
+			}*/
+		}
+	}
+	//alert(result_dupli_d);
+	//alert(oth_app_reg);
+	//alert(conf_ph_id_pr);
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	if((ph_id_pr_opt == 0) && (ph_id_pr_opt < 1 || ph_id_pr_opt > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_opt != 0) && (ph_id_pr == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 15");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_opt == 1) && (ph_id_pr == "000000000000" || ph_id_pr == "0000000000000000")){
+		alert("Please enter the valid Aadhaar card / VID of aadhaar card number.");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.form3.ph_id_pr.focus();
+		document.getElementById("ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 15");
+		document.form3.conf_ph_id_pr.focus();
+		document.getElementById("conf_ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.form3.conf_ph_id_pr.focus();
+		document.getElementById("conf_ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.form3.conf_ph_id_pr.focus();
+		document.getElementById("conf_ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.form3.conf_ph_id_pr.focus();
+		document.getElementById("conf_ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr_opt == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.form3.conf_ph_id_pr.focus();
+		document.getElementById("conf_ph_id_pr").value='';
+		submit = 0;
+		return false;
+	}else if(ph_id_pr != conf_ph_id_pr){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	if(obj1.value == "ENGG"){
+		if(document.form3.enggbranch.value == 0){
+			alert("Please select your Branch.");
+			document.form3.enggbranch.focus();
+			submit = 0;
+			return false;
+		}else if(document.form3.enggm_centre_code.value== 0){
+			alert("Please select Centre for Engineering Services (Main / Stage II) Examination");
+			document.form3.enggm_centre_code.focus();
+			submit = 0;
+			return false;
+		}
+	}
+  }else if(obj1.value == "ISS"){	
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var key = document.form3.key.value;
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	
+	
+	if((document.form3.ph_id_pr_opt.value == 0) && (document.form3.ph_id_pr_opt.value < 1 || document.form3.ph_id_pr_opt.value > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((document.form3.ph_id_pr_opt.value != 0) && (document.form3.ph_id_pr.value == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0) ){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr == "000000000000" || ph_id_pr == "0000000000000000")){
+		alert("Please enter the valid Aadhaar card / VID of aadhaar card number.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20)  && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr.value != document.form3.conf_ph_id_pr.value){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	
+  }else if(obj1.value == "IES"){		
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var key = document.form3.key.value;
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	
+	
+	if((document.form3.ph_id_pr_opt.value == 0) && (document.form3.ph_id_pr_opt.value < 1 || document.form3.ph_id_pr_opt.value > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((document.form3.ph_id_pr_opt.value != 0) && (document.form3.ph_id_pr.value == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0) ){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr == "000000000000" || ph_id_pr == "0000000000000000")){
+		alert("Please enter the valid Aadhaar card / VID of aadhaar card number.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20)  && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr.value != document.form3.conf_ph_id_pr.value){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	
+  }else if(obj1.value == "GEOL"){
+	
+    var geolcat= document.form3.geolcat.value;
+    var exambranch = document.form3.exambranch.value;
+         if(geolcat == 2){document.form3.exambranch.value = 1;}
+  	else if(geolcat == 1){document.form3.exambranch.value = 2;}
+  	else if(geolcat == 3){document.form3.exambranch.value = 2;}
+  	else if(geolcat == 4){document.form3.exambranch.value = 2;}
+	else if(geolcat == 5){document.form3.exambranch.value = 2;}
+	else if(geolcat == 6){document.form3.exambranch.value = 2;}
+	else if(geolcat == 7){document.form3.exambranch.value = 1;}
+	else if(geolcat == 8){document.form3.exambranch.value = 2;}
+	else if(geolcat == 9){document.form3.exambranch.value = 2;}
+	else if(geolcat == 10){document.form3.exambranch.value = 2;}
+	else if(geolcat == 11){document.form3.exambranch.value = 2;}
+	else if(geolcat == 12){document.form3.exambranch.value = 2;}
+	
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var geolm_centre_code = document.form3.geolm_centre_code.value;
+
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	if((document.form3.ph_id_pr_opt.value == 0) && (document.form3.ph_id_pr_opt.value < 1 || document.form3.ph_id_pr_opt.value > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((document.form3.ph_id_pr_opt.value != 0) && (document.form3.ph_id_pr.value == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0) ){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && ph_id_pr_len != 12){
+		alert("Please enter the Aadhaar card number cannot be more/less than 12 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20)  && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && conf_ph_id_pr_len != 12){
+		alert("Please enter the Aadhaar card number cannot be more/less than 12 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr.value != document.form3.conf_ph_id_pr.value){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}
+	else if(document.form3.geolcat.value == 0){
+		alert("Please select the category you are competing for.");
+		document.form3.geolcat.focus();
+		document.form3.geolcat.select();
+		submit = 0;
+	}else if(geolm_centre_code == 0){
+		alert("Please select Centre for COMBINED GEO-SCIENTISTGEOL (Stage II) Examination.");
+		document.form3.geolm_centre_code.focus();
+		submit = 0;
+	}
+  }else if(obj1.value == "CPF"){
+    var fin_reco_ass_comd= document.form3.fin_reco_ass_comd.value;
+	var ph_id_pr = document.form3.ph_id_pr.value;
+	var conf_ph_id_pr = document.form3.conf_ph_id_pr.value;
+	var ph_id_pr_len = ph_id_pr.length;
+	var conf_ph_id_pr_len = conf_ph_id_pr.length;
+	var oth_app_reg = document.form3.oth_app_reg1;
+	var ph_id_pr_opt = document.form3.ph_id_pr_opt.value;
+	var result_dupli_d = document.form3.result_dupli_d.value;
+	var key = document.form3.key.value;
+	
+	if(result_dupli_d == 1 && oth_app_reg.value == ''){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(result_dupli_d == 1 && oth_app_reg.value == 0){
+		alert("Please select the option of submit another application form.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}else if(oth_app_reg.value == 1){
+		var oth_resn_app_form = document.form3.oth_resn_app_form.value;
+		if(oth_resn_app_form == ''){
+			alert("Please provide the reason of filling of the another application form.");
+			document.form3.oth_resn_app_form.focus();
+			submit = 0;
+			return false;
+		}
+	}else if(oth_app_reg.value == 2){
+		alert("Please select Do you want to submit another application form option 'Yes'.");
+		document.form3.oth_app_reg.focus();
+		submit = 0;
+		return false;
+	}
+	
+	
+	if((document.form3.ph_id_pr_opt.value == 0) && (document.form3.ph_id_pr_opt.value < 1 || document.form3.ph_id_pr_opt.value > 6)){
+		alert("Please select photo identity card.");
+		document.form3.ph_id_pr_opt.focus();
+		submit = 0;
+		return false;
+	}else if((document.form3.ph_id_pr_opt.value != 0) && (document.form3.ph_id_pr.value == "") && (oth_app_reg.value == 1 || oth_app_reg.value == 0) ){
+		alert("Please enter the photo identity card number.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((ph_id_pr_len < 5 || ph_id_pr_len >20) && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the photo identity card number length between 5 and 20.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr_len < 12 || ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (ph_id_pr == "000000000000" || ph_id_pr == "0000000000000000")){
+		alert("Please enter the valid Aadhaar card / VID of aadhaar card number.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("ph_id_pr").value='';
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if((conf_ph_id_pr_len < 5 || conf_ph_id_pr_len >20)  && (oth_app_reg.value == 1 || oth_app_reg.value == 0)){
+		alert("Please enter the Confirm photo identity card number length between 5 and 20.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 1 && (conf_ph_id_pr_len < 12 || conf_ph_id_pr_len > 16)){
+		alert("Please enter the Aadhaar card / VID of aadhaar card number length between 12 and 16.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 3 && conf_ph_id_pr_len != 10){
+		alert("Please enter the PAN Card number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 6 && conf_ph_id_pr_len != 10){
+		alert("Please enter the Voter ID number cannot be more/less than 10 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr_opt.value == 4 && conf_ph_id_pr_len != 8){
+		alert("Please enter the Passport number cannot be more/less than 8 digit.");
+		document.getElementById("conf_ph_id_pr").value='';
+		document.form3.conf_ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(document.form3.ph_id_pr.value != document.form3.conf_ph_id_pr.value){
+		alert("Photo Identity Card Number and confirm Photo Identity Card Number should be same.");
+		document.form3.ph_id_pr.focus();
+		submit = 0;
+		return false;
+	}else if(fin_reco_ass_comd == 0){
+		alert("Please select the finally selected / recommended an earlier examination to the post of Assistant Commandants");
+		submit = 0;
+		document.form3.fin_reco_ass_comd.focus();
+        document.form3.fin_reco_ass_comd.select();
+	}else if(fin_reco_ass_comd == 1){
+		alert("Not eligible for the CAPF Examination 2021, Please refer to para 3.V of Eligibility Conditions.");
+		document.form3.fin_reco_ass_comd.focus();
+        document.form3.fin_reco_ass_comd.select();
+		submit = 0;
+	}
+  }
+  if(submit == 0){
+    return false;
+  }
+  else{
+	//alert(key);
+	var encSaltreg_id=encryptLogin(key,ph_id_pr);
+	document.form3.ph_id_pr.value=encSaltreg_id;
+	//alert(document.form3.ph_id_pr.value);
+	var encSalt_conf_ph_id_pr=encryptLogin(key,conf_ph_id_pr);
+	document.form3.conf_ph_id_pr.value=encSalt_conf_ph_id_pr;
+	//alert(document.form3.conf_ph_id_pr.value);
+    document.form3.action = 'form4.php';
+    document.form3.submit();
+  }
+}
+//function to validate the data in tpform1
+function validform1(){
+ // var aadhar = document.getElementById("aadhar");
+  var exam = document.getElementById("exam_code");
+  var close_date = document.getElementById("close_date");
+  var x = document.getElementById("cand_name");
+  var cx = document.getElementById("c_name");
+  var h_cname = document.getElementById("h_cname");
+  var str_name =x.value.split(" ").join("");
+  var c_str_name =cx.value;
+  var a = document.getElementById("fname");
+  var sex = document.getElementById("sex");
+  var mname = document.getElementById("mname");
+  var b = document.getElementById("handicapp");
+  var c = document.getElementById("hcategory");
+  var d = document.getElementById("community");
+  var e = document.getElementById("feerem");
+  var g = document.getElementById("state");
+  var h = document.getElementById("add1");
+  var i = document.getElementById("add2");
+  var j = document.getElementById("district");
+  var k = document.getElementById("pincode");
+  var mob = document.getElementById("mobile");
+  var email = document.getElementById('email');
+  var confirmemail = document.getElementById('confirmemail');
+  var a_email = document.getElementById('a_email');
+  var m = document.getElementById("date1");
+  var n = document.getElementById("month1");
+  var o = document.getElementById("year1");
+  var qualcode = document.getElementById("qualcode");
+  var degreecode= document.getElementById("degreecode");
+  var d_name= document.getElementById("d_name");
+  var m_subject= document.getElementById("m_subject");
+  var other_name= document.getElementById("other_name");
+  var majorsubject= document.getElementById("majorsubject");
+  var marital  = document.getElementById("marital_code");
+  var community  = document.getElementById("community");
+  var comm_certno  = document.getElementById("comm_certno");
+  var commcertissauth  = document.getElementById("commcertissauth");
+  var minority_status  = document.getElementById("minority_status");
+  var minority_code  = document.getElementById("minority_code");
+  var feerem1  = document.getElementById("feerem1");
+  var feerem2  = document.getElementById("feerem2");
+  
+  var feerem_hi  = document.getElementById("feerem_hi");
+  var hcategory  = document.getElementById("hcategory");
+ // var pcategory  = document.getElementById("pcategory");
+  //var dcstairsoption  = document.getElementById("dcstairsoption");
+  var ph_certno  = document.getElementById("ph_certno");
+  var phcertissauth  = document.getElementById("phcertissauth");
+  var othoextratime  = document.getElementById("othoextratime");
+  var hsubcatgory  = document.getElementById("hsubcatgory");
+  var blindgrscribed  = document.getElementById("blindgrscribed");
+  var blindgrscribedextratime  = document.getElementById("blindgrscribedextratime");
+  <!-- NEW-------------------------->
+  var qstpaper  = document.getElementById("qstpaper");
+  var assidev  = document.getElementById("assidev");
+  var assi_device  = document.getElementById("assi_device");
+  var ywrexcat_extratime  = document.getElementById("ywrexcat_extratime");
+  //var shareomno  = document.getElementById("shareomno");
+  <!-- NEW-------------------------->
+  var ph_certificate_date  = document.getElementById("ph_certificate_date");
+  var community_certificate_date  = document.getElementById("community_certificate_date");
+  var obccommunity  = document.getElementById("obccommunity");
+  var blindscribeoptionbring  = document.getElementById("blindscribeoptionbring");
+  var orthogrscribed  = document.getElementById("orthogrscribed");
+  var orthoscribeoptionbring  = document.getElementById("orthoscribeoptionbring");
+  var state_code_others  = document.getElementById("state_code_others");
+  var district_others  = document.getElementById("district_others");
+  
+  if(document.getElementById("phassdevice").style.display == "block"){
+	var phassdevice_name  = document.getElementById("phassdevice_name"); 
+  }
+  if(document.getElementById("ph_oth_assdev2").style.display == "block"){
+	var ph_oth_assdev_name2=document.getElementById("ph_oth_assdev_name2"); 
+  }
+  if(document.getElementById("ph_oth_assdev3").style.display == "block"){
+	var ph_oth_assdev_name3=document.getElementById("ph_oth_assdev_name3"); 
+  }
+  if(document.getElementById("ph_oth_assdev4").style.display == "block"){
+	var ph_oth_assdev_name4=document.getElementById("ph_oth_assdev_name4"); 
+  }
+  if(document.getElementById("ph_oth_assdev5").style.display == "block"){
+	var ph_oth_assdev_name5=document.getElementById("ph_oth_assdev_name5"); 
+  }
+   
+  //var multi_dis_sub_cat_opt  = document.getElementById("multi_dis_sub_cat_opt").value;
+  
+//community_certificate_date
+var input_date_Array = community_certificate_date.value.split('-');//explode
+var input_d = input_date_Array[0];
+var input_m = input_date_Array[1];
+var input_y = input_date_Array[2];
+var community_certificate_date_r = input_y+"-"+input_m+"-"+input_d;
+
+//Check string or not
+var input_dd = isNaN(input_d);
+var input_mm = isNaN(input_m);
+var input_yy = isNaN(input_y);
+//
+var close_date_Array = close_date.value.split('-'); //explode
+var close_d = (parseInt(close_date_Array[0])-01);
+var close_m = close_date_Array[1];
+var close_y = close_date_Array[2];
+var close_date_r = close_y+"-"+close_m+"-"+close_d;
+if(close_date_r.length!=10){
+	var close_d = "0"+(parseInt(close_date_Array[0])-01);
+	var close_m = close_date_Array[1];
+	var close_y = close_date_Array[2];
+	var close_date_r = close_y+"-"+close_m+"-"+close_d;
+}
+//ph_certificate_date
+var ph_input_date_Array = ph_certificate_date.value.split('-');//explode
+var ph_input_d = ph_input_date_Array[0];
+var ph_input_m = ph_input_date_Array[1];
+var ph_input_y = ph_input_date_Array[2];
+var ph_certificate_date_r = ph_input_y+"-"+ph_input_m+"-"+ph_input_d;
+//Check string or not
+var ph_input_dd = isNaN(ph_input_d);
+var ph_input_mm = isNaN(ph_input_m);
+var ph_input_yy = isNaN(ph_input_y);
+//
+
+var c_c_date = new Date(community_certificate_date_r) ;
+var ph_c_date = new Date(ph_certificate_date_r) ;
+var c_date = new Date(close_date_r) ;
+var canddob = o.value+"-"+n.value+"-"+m.value;
+var cand_dob = new Date(canddob);
+
+var communitycertificatedate = c_c_date.getTime();
+var phcertificatedate = ph_c_date.getTime();
+var closedate = c_date.getTime();
+var cand_dob_time = cand_dob.getTime();
+//
+ var phcatperless  = document.getElementById("phcatperless");
+//
+var distictArray = new Array
+('4','18','44','78','117','119','148','150','153','165','168','202','225','238','259','284','316','331','334','336','389','426','443','445','467','480','511','516','539','573','578','617','651','660','672','739','753','777');
+
+
+  if(exam.value=='CSP'){
+  var stream= document.form1.stream;
+  var csp_ifs_exam_pref=document.getElementById("csp_ifs_exam_pref");
+  var csp_ifs_exam_pref_update=document.getElementById("csp_ifs_exam_pref_update");
+  var literature_sub=document.getElementById("literature_sub");
+  var csp_ifs_exam_pref_default_update=document.getElementById("csp_ifs_exam_pref_default_update");
+  var literature_sub=document.getElementById("literature_sub");
+  var formupdate=document.getElementById("formupdate");
+  var updatedefault=document.getElementById("updatedefault");
+  //var nationality = document.getElementById("nationality");
+  }
+  var submit = 0;
+  //alert(x.value.toUpperCase().replace(/\s/g, ""));
+  //alert(a.value.toUpperCase().replace(/\s/g, ""));
+  //alert(mname.value.toUpperCase().replace(/\s/g, ""));
+  if(x.value == ""){
+    alert("Candidate's Name cannot be blank.");
+    x.focus();
+    return;
+  }else if(str_name.length <= 3){
+    alert("Candidate's Name cannot be less than 4 characters.");
+    x.focus();
+    return;
+  }else if(cx.value != "" && c_str_name.length <= 29){
+    alert("Full Name field cannot be less than 30 characters.");
+    cx.focus();
+    return;
+  }else if(cx.value == "" && h_cname.value == 30){
+    alert("Full Name field cannot be blank.");
+    cx.focus();
+    return;
+  }else if(sex.value=="" || sex.value == 0){
+	alert("Please select Gender.");
+    sex.focus();
+    return;
+  }else if(m.value == 0 || n.value == 0 || o.value == 0){
+    alert("Please give your date of birth as recorded in the matriculation/secondary school certificate.");
+    m.focus();
+    return;
+  }else if(checkDate1(m.value,n.value,o.value) == 0){
+    alert("Date of Birth entered by you is not a valid date.\nPlease enter a valid date.");
+    m.focus();
+    return;
+  }else if(isNaN(m.value) || isNaN(n.value) || isNaN(o.value)){
+    alert("Date of Birth entered by you is not a valid date.\nPlease enter a valid date.");
+    m.focus();
+    return;
+  }else if(a.value==""){
+    alert("Candidate Father's Name cannot be blank.");
+    a.focus();
+    return;
+  }else if(x.value.toUpperCase().replace(/\s/g, "") == a.value.toUpperCase().replace(/\s/g, "")){
+	alert("Candidate's Name and Father's Name should not be same.");
+    x.focus();
+    return; 
+  }else if(mname.value==""){
+    alert("Candidate Mother's Name cannot be blank.");
+    mname.focus();
+    return;
+  }else if(x.value.toUpperCase().replace(/\s/g, "") == mname.value.toUpperCase().replace(/\s/g, "")){
+	alert("Candidate's Name and Mother's Name should not be same.");
+    x.focus();
+    return; 
+  }else if(marital.value=="" || marital.value==0){
+    alert("Please select Marital Status.");
+    marital.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value=="" || hcategory.value==0)){
+    alert("Please select Physically Challenged Category.");
+    hcategory.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value < 0 && hcategory.value >8) && (exam.value != "CDSII")){
+    alert("Please select Candidates of Persons with Benchmark Disability Category.");
+    hcategory.focus();
+    return;
+  }/*else if((b.value== 2) && (pcategory.value=="" || pcategory.value==0)){
+    alert("Please select option for Candidates of Persons with Benchmark Disability Percentage.");
+    pcategory.focus();
+    return;
+  }else if((b.value== 2) && (pcategory.value == 2) && (phcatperless.value == 2)){
+    alert("You have selected invalid option of disability percentage(%), Please select option '40% or more' in disability Percentage.");
+    pcategory.focus();
+    return;
+  }else if((b.value== 2) && (pcategory.value == 2) && (phcatperless.value == 1)){
+    alert("You have selected invalid option in the candidates of persons with benchmark disability, Please select option 'No' in the candidates of persons with benchmark disability.");
+    b.focus();
+    return;
+  }*/else if((b.value== 2) && (hcategory.value != 2  && hcategory.value != 6) && (hsubcatgory.value==0 || hsubcatgory.value=="")){
+    alert("Please select option for belong to writing extremity category.");
+    hsubcatgory.focus(); 
+    return;
+  }else if((b.value== 2) && (hsubcatgory.value==1) && (ywrexcat_extratime.value == 0 || ywrexcat_extratime.value == "")){
+    alert("If Yes, Please Select option for the writing extremity category on account of PwBD.");
+    ywrexcat_extratime.focus(); 
+    return;
+  }else if((b.value== 2) && (hcategory.value == 1 || hcategory.value == 3 || hcategory.value == 4 || hcategory.value == 5 || hcategory.value == 7 || hcategory.value == 8) && (hsubcatgory.value==1) && (ywrexcat_extratime.value != 0) && (orthogrscribed.value==0 || orthogrscribed.value=="")){
+    alert("Please select Whether you require Scribe.");
+    orthogrscribed.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value == 1 || hcategory.value == 3 || hcategory.value == 4 || hcategory.value == 5 || hcategory.value == 7 || hcategory.value == 8) && (hsubcatgory.value==1) && (ywrexcat_extratime.value != 0) && (orthogrscribed.value==1) && (orthoscribeoptionbring.value==0)){
+    alert("Please select Whether you would bring your own Scribe.");
+    orthoscribeoptionbring.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value == 2 || hcategory.value == 6) && (blindgrscribed.value == 0 || blindgrscribed == '')){
+	alert("Please select Whether you require Scribe.");
+    blindgrscribed.focus();
+    return;
+  }else if(b.value== 2 && (hcategory.value == 2 || hcategory.value == 6) & blindgrscribed.value == 1 && (blindscribeoptionbring.value == 0 || blindscribeoptionbring.value =='')){
+	alert("Please select Whether you require Scribe.");
+    blindscribeoptionbring.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value == 2 || hcategory.value == 6 ||(hcategory.value == 5 && hsubcatgory.value == 1 && ywrexcat_extratime.value == 53)) && (qstpaper.value==0 || qstpaper.value=="")){
+    alert("Please select whether you want question paper in bigger font size.");
+    qstpaper.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value == 2 || hcategory.value == 6 || (hcategory.value == 5 && hsubcatgory.value == 1 && ywrexcat_extratime.value == 53)) && (assidev.value==0 || assidev.value=="")){
+    alert("Please select the option whether bring any other assistive device in taking the exam.");
+    assidev.focus();
+    return;
+  }else if((b.value== 2) && (hcategory.value == 2 || hcategory.value == 6 || (hcategory.value == 5 && hsubcatgory.value == 1 && ywrexcat_extratime.value == 53)) && (assidev.value == 1) &&(assi_device.value==0 || assi_device.value=="")){
+    alert("If Yes, Please select the option whether bring the assistive device name to facilitate yourself in taking the exam.");
+    assi_device.focus();
+    return;
+  }else if((document.getElementById("phassdevice").style.display == "block") && (Trim(phassdevice_name.value) == "")){
+	alert("If you have selected 'others assistive device option' for 'others assistive device name 1' cannot be blank.");
+    phassdevice_name.focus();
+    return;
+  }else if((document.getElementById("ph_oth_assdev2").style.display == "block") && (Trim(ph_oth_assdev_name2.value) == "")){
+	alert("If you have selected 'others assistive device option' for 'others assistive device name 2' cannot be blank.");
+    ph_oth_assdev_name2.focus();
+    return;
+  }else if((document.getElementById("ph_oth_assdev3").style.display == "block") && (Trim(ph_oth_assdev_name3.value) == "")){
+	alert("If you have selected 'others assistive device option' for 'others assistive device name 3' cannot be blank.");
+    ph_oth_assdev_name3.focus();
+    return;
+  }else if((document.getElementById("ph_oth_assdev4").style.display == "block") && (Trim(ph_oth_assdev_name4.value) == "")){
+	alert("If you have selected 'others assistive device option' for 'others assistive device name 4' cannot be blank.");
+    ph_oth_assdev_name4.focus();
+    return;
+  }else if((document.getElementById("ph_oth_assdev5").style.display == "block") && (Trim(ph_oth_assdev_name5.value) == "")){
+	alert("If you have selected 'others assistive device option' for 'others assistive device name 5' cannot be blank.");
+    ph_oth_assdev_name5.focus();
+    return;
+  }else if((b.value== 2) && (Trim(ph_certno.value) == "")){
+	alert("PwBD candidate of certificate number cannot be blank.");
+    ph_certno.focus();
+    return;  
+  }else if((b.value== 2) && (Trim(phcertissauth.value) == "")){
+	alert("PwBD candidate of issuing authority name cannot be blank.");
+    phcertissauth.focus();
+    return;  
+  }else if((b.value== 2) && (ph_certificate_date.value == "") && (exam.value!='ENGG' && exam.value!='CMS')){
+	alert("Physically challenged certificate date cannot be blank.");
+	ph_certificate_date.focus();
+	return;
+  }else if((b.value== 2) && ((ph_input_dd == true) || (ph_certificate_date.value == ""))){
+	ph_certificate_date.value = '';
+	alert("Physically challenged certificate date cannot be blank.");
+	ph_certificate_date.focus();
+	return;
+  }else if(closedate < phcertificatedate){
+	alert("Please entered the physically challenged certificate date one day before of the closing date");
+	ph_certificate_date.focus();
+	return;
+  }else if(parseInt(cand_dob_time) > parseInt(phcertificatedate)){
+	alert("Please entered valid the physically challenged certificate date.");
+	ph_certificate_date.focus();
+	return;
+  }else if((b.value== 2) && (ph_certificate_date_r.length > 10)){
+	alert("Physically challenged certificate date is not valid.");
+	ph_certificate_date.value = '';
+	ph_certificate_date.focus();
+	return;
+  }else if(community.value == "" || community.value == 0){
+    alert("Please select Community.");
+    community.focus();
+    return;
+  }else if((community.value== 3) && (obccommunity.value == 2)){
+	alert("Please select Creamy Layer Option.");
+	obccommunity.focus();
+	return;
+  }else if((community.value== 3) && (obccommunity.value == 1) && (community_certificate_date.value !="")){
+	alert("You have opted \'Yes\' for Creamy Layer which is not valid.");
+	obccommunity.focus();
+	return;
+  }else if((community.value== 1 || community.value== 2) && (Trim(comm_certno.value) == "")){
+	alert("Community certificate number cannot be blank.");
+    comm_certno.focus();
+    return;  
+  }else if((community.value== 3) && (obccommunity.value == 0) && (Trim(comm_certno.value) == "")){
+	alert("Community certificate number cannot be blank.");
+    comm_certno.focus();
+    return;  
+  }else if((community.value== 1 || community.value== 2) && (Trim(commcertissauth.value) == "")){
+	alert("Community Certificate Issuing Authority name cannot be blank.");
+    commcertissauth.focus();
+    return;  
+  }else if((community.value== 3) && (obccommunity.value == 0) && (Trim(commcertissauth.value) == "")){
+	alert("Community Certificate Issuing Authority name cannot be blank.");
+    commcertissauth.focus();
+    return;  
+  }else if((community.value== 1 || community.value== 2) && (community_certificate_date.value == "") && (exam.value!='ENGG' && exam.value!='CMS')){
+	alert("Community certificate date cannot be blank.");
+	community_certificate_date.focus();
+	return;
+  }else if((community.value== 1 || community.value== 2) && ((input_dd == true) || (community_certificate_date.value == ""))){
+	community_certificate_date.value = '';
+	alert("Community certificate date cannot be blank.");
+	community_certificate_date.focus();
+	return;
+  }else if(closedate < communitycertificatedate) {
+	alert("Please entered the community certificate date one day before of the closing date.");
+	community_certificate_date.focus();
+	return;
+  }else if(parseInt(cand_dob_time) > parseInt(communitycertificatedate)){
+	alert("Please entered valid the community certificate date.");
+	community_certificate_date.focus();
+	return;
+  }else if((community.value== 1 || community.value== 2) && (community_certificate_date_r.length > 10)) {
+	alert("Community certificate date is not valid.");
+	community_certificate_date.value = '';
+	community_certificate_date.focus();
+	return;
+  }else if((community.value== 3) && (obccommunity.value == 0) && (community_certificate_date.value == "") && (exam.value!='ENGG' && exam.value!='CMS')){
+	alert("Community certificate date cannot be blank.");
+	community_certificate_date.focus();
+	return;
+  }else if((community.value== 3) && (obccommunity.value == 0) && ((input_dd == true) || (community_certificate_date.value == "")) && (exam.value!='ENGG' && exam.value!='CMS')){
+	alert("Community certificate date cannot be blank.");
+	community_certificate_date.focus();
+	return;
+  }else if((community.value== 3) && (obccommunity.value == 0) && (community_certificate_date_r.length > 10)) {
+	alert("Community certificate date is not valid.");
+	community_certificate_date.value = '';
+	community_certificate_date.focus();
+	return;
+  }else if(minority_status.value == "" || minority_status.value == 99){
+	alert("Please select Minority.");
+    minority_status.focus();
+    return;  
+  }else if((minority_status.value == 1) && (minority_code.value==0 || minority_code.value=='')){
+    alert("Please select the Religion.");
+    minority_code.focus();
+    return;
+  }else if((sex.value == 1) && (community.value == 3 || community.value == 4 || community.value == 5) && (feerem_hi.value == 0) && (b.value == 1)){
+	alert("Please select Fee Remission claimed.");
+    feerem1.focus();
+    return;  
+  }else if((sex.value == 1) && (community.value == 3 || community.value == 4 || community.value == 5) && (feerem_hi.value == 2) && (b.value == 1) && ((exam.value!='NDAI') && (exam.value!='NDAII'))){
+	alert("Please select Fee Remission claimed is ' NO '.");
+    feerem1.focus();
+    return;  
+  }else if((sex.value == 1) && (community.value == 1 || community.value == 2) && (feerem1.value == 1)){
+	alert("Please select Fee Remission claimed is ' Yes '.");
+    feerem1.focus();
+    return;  
+  }else if((sex.value == 2 || community.value == 1 || community.value == 2) && (feerem2.value == "" || feerem2.value == 0)){
+	alert("Please select Fee Remission claimed.");
+    feerem2.focus();
+    return;  
+  }else if((exam.value=='CDSII' || exam.value=='CDSI') && sex.value==2 && marital.value==2){
+    alert("Married Female candidates are not allowed.");
+    marital.focus();
+    return;
+  }else if((exam.value=='CDSII' || exam.value=='CDSI') && sex.value==1 && (marital.value==3 || marital.value==4)){
+    alert("Widow/Widower or Divorcee Male candidates are not allowed.");
+    marital.focus();
+    return;
+  }else if((b.value == 2) && (c.value==0 || c.value=='')){
+    alert("Please select the handicapped category.");
+    c.focus();
+    return;
+  }else if(qualcode.value=="0"){
+    alert("Please Select Educational Qualification.");
+    qualcode.focus();
+    return;
+  }else if((exam.value=='CSP') && (stream.value == '0')){
+    alert("Select your Degree Subject in Graduation.");
+	stream.focus();
+	return;
+   }else if((exam.value=='CSP') && (stream.value > 0) && (csp_ifs_exam_pref.value == 0)){
+	       alert("Please Select Valid Examination Perference.");
+		   csp_ifs_exam_pref.focus();
+		   return;
+	   
+   }else if((exam.value=='CSP') && (updatedefault.value == 1) && (stream.value > 0) && (csp_ifs_exam_pref_default_update.value == 0)){
+	       alert("Please Select Valid Examination Perference.");
+		   csp_ifs_exam_pref_default_update.focus();
+		   return;
+	   
+   }else if((exam.value=='CSP') && (formupdate.value == 3) && (stream.value > 0) && (csp_ifs_exam_pref_update.value == 0)){
+	       alert("Please Select Valid Examination Perference.");
+		   csp_ifs_exam_pref_update.focus();
+		   return;
+	   
+   }else if((exam.value=='CSP') && (stream.value == 15) && (literature_sub.value == 0)){
+	       alert("Please Select Valid Literature Subject.");
+		   literature_sub.focus();
+		   return;
+	   
+   }else if(h.value==""){
+    alert("Address Line 1 cannot be blank.");
+    h.focus();
+    return;
+  }else if(i.value==""){
+    alert("Address Line 2 cannot be blank.");
+    i.focus();
+    return;
+  }else if(g.value==0){
+    alert("Please select your state.");
+    g.focus();
+    return;
+  }else if((g.value== 99)&& (state_code_others.value=="")){
+   alert('You have selected "Others" State, Please provide your State Name');
+   state_code_others.focus();
+    return;
+   }else if(j.value==0){
+    alert("Please select your district.");
+    j.focus();
+    return;
+  }else if((distictArray.indexOf(j.value) !== -1)&& (Trim(district_others.value)=="")){
+   alert('You have selected "Others" District, Please provide your District Name.');
+   district_others.focus();
+    return;
+   }
+   else if(k.value==""){
+    alert("Pincode cannot be blank.");
+    k.focus();
+    return;
+  }
+  else if(k && (isNaN(k.value) || k.value.length < 6 || k.value.length > 6)){
+    alert("Invalid / Incorrect PIN Code, re-enter correct PIN Code.");
+    k.focus();
+    k.select();
+    return;
+  }else if(mob.value == ''){
+	alert("Mobile number cannot be blank.");
+    mob.focus();
+    return;  
+  }else if(isNaN(mob.value)){
+	alert("Mobile number is not valid.");
+    mob.focus();
+	mob.value='';
+    return;
+  }else if(mob.value.length != 10){
+	alert("Mobile number cannot be more/less than 10 digit.");
+    mob.focus();
+    return;
+  }else if(mob.value.substr(0,1) == 0){
+	alert("Mobile number is not valid.");
+    mob.focus();
+	mob.value='';
+    return;
+  }
+  else if(Trim(email.value) == ''){
+    alert('Email id can not be blank.');
+	email.value='';
+    email.focus();
+  }
+  else if(email.value != '' && !isEmail(email.value)){
+    alert('Email id given is not valid.');
+    email.focus();
+    email.select();
+  }
+ else if(Trim(confirmemail.value) == ''){
+    alert('Confirm Email can not be blank.');
+	confirmemail.value='';
+    confirmemail.focus();
+  }
+  else if(confirmemail.value != '' && !isEmail(confirmemail.value)){
+    alert('Confirm Email id given is not valid.');
+    confirmemail.focus();
+    confirmemail.select();
+  }
+  else if(Trim(email.value) != Trim(confirmemail.value)){
+    alert("Email id and confirm Email id should be same.");
+    confirmemail.focus();
+  }
+   else if(a_email.value != '' && !isEmail(a_email.value)){
+    alert('Alternate Email id given is not valid.');
+    a_email.focus();
+    a_email.select();
+  }
+  else if(a_email.value == email.value){
+    alert('Alternate Email id and Email id should not be same.');
+    a_email.focus();
+    a_email.select();
+  }
+  
+  else{submit = 1;}
+  if(submit == 1){
+    window.document.form1.submit();
+  }
+  else{return;}
+}
+function getFileextension(inputFe) 
+{ 
+
+  var filename = inputFe.value; 
+
+ if(!filename ) return ""; 
+ 
+ if( filename.length == 0 ) return ""; 
+ var dot = filename.lastIndexOf("."); 
+ if( dot == -1 ) return ""; 
+ var extension = filename.substr(dot,filename.length); 
+ return extension; 
+} 
+function checkFileType(inputId) 
+{
+ var ext1 = getFileextension(inputId);
+ var ext=ext1.toLowerCase(); 
+if(ext == "") return false;
+ if(ext != '.jpg'){
+  return false;
+ }
+   return true;
+}
+function checkFileTypePDF(inputId) 
+{
+ var ext1 = getFileextension(inputId);
+ var ext=ext1.toLowerCase(); 
+if(ext == "") return false;
+ if(ext != '.pdf'){
+  return false;
+ }
+   return true;
+}
+function validform2(){
+  var x = document.getElementById("cand_name");
+  var str_name =x.value.split(" ").join("");
+  var sex = document.getElementById("sex");
+  var m = document.getElementById("date1");
+  var n = document.getElementById("month1");
+  var o = document.getElementById("year1");
+  var a = document.getElementById("fname");
+  var mname = document.getElementById("mname");
+  var mob = document.getElementById("mobile");
+  var email = document.getElementById('email');
+  var confirmemail = document.getElementById('confirmemail');
+  var with_app = document.getElementById('with_app').value;
+  
+ // alert(sex.value);
+  var submit = 0;
+  if(x.value == ""){
+    alert("Candidate's Name cannot be blank.");
+    x.focus();
+    return false;
+  }
+ else if(str_name.length <= 3){
+    alert("Candidate's Name cannot be less than 4 characters.");
+    x.focus();
+    return false;
+  }
+ else if(sex.value == 0){
+	alert("Please select Gender.");
+    document.form2.sex.focus();
+    return false;
+  }
+  else if(m.value == 0){
+    alert("Please give your date of birth as recorded in the filling of online application form.");
+    m.focus();
+    return false;
+  }else if(n.value == 0){
+    alert("Please give your date of birth as recorded in the filling of online application form.");
+    n.focus();
+   return false;
+  }else if(o.value == 0){
+    alert("Please give your date of birth as recorded in the filling of online application form.");
+    o.focus();
+   return false;
+  }
+  else if(checkDate1(m.value,n.value,o.value) == 0){
+    alert("Date of Birth entered by you is not a valid date.\nPlease enter a valid date.");
+    m.focus();
+    return false;
+  }
+  else if(isNaN(m.value) || isNaN(n.value) || isNaN(o.value)){
+    alert("Date of Birth entered by you is not a valid date.\nPlease enter a valid date.");
+    m.focus();
+   return false;
+  }
+  else if(a.value==""){
+    alert("Candidate Father's Name cannot be blank.");
+    a.focus();
+    return false;
+  }
+  else if(mname.value==""){
+    alert("Candidate Mother's Name cannot be blank.");
+    mname.focus();
+    return false;
+  }
+  else if(mob.value == ''){
+	alert("Mobile number cannot be blank.");
+    mob.focus();
+    return false;
+  }else if(isNaN(mob.value)){
+	alert("Mobile number is not valid.");
+    mob.focus();
+	mob.value='';
+    return false;
+  }else if(mob.value.length != 10){
+	alert("Mobile number cannot be more/less than 10 digit.");
+    mob.focus();
+    return false;
+  }else if(mob.value.substr(0,1) == 0){
+	alert("Mobile number is not valid.");
+    mob.focus();
+	mob.value='';
+   return false;
+  }
+  else if(Trim(email.value) == ''){
+    alert('Email id can not be blank.');
+	email.value='';
+    email.focus();
+	return false;
+  }
+  else if(email.value != '' && !isEmail(email.value)){
+    alert('Email id given is not valid.');
+    email.focus();
+    email.select();
+	return false;
+  }
+ else if(Trim(confirmemail.value) == ''){
+    alert('Confirm Email can not be blank.');
+	confirmemail.value='';
+    confirmemail.focus();
+	return false;
+  }
+  else if(confirmemail.value != '' && !isEmail(confirmemail.value)){
+    alert('Confirm Email id given is not valid.');
+    confirmemail.focus();
+    confirmemail.select();
+	return false;
+  }
+  else if(Trim(email.value) != Trim(confirmemail.value)){
+    alert("Email id and confirm Email id should be same.");
+    confirmemail.focus();
+	return false;
+  }else if(with_app == 0){
+    alert('Please select option for withdrawn application.');
+	document.form2.with_app.focus();
+	return false;
+  }else if(with_app == 2){
+    alert("Please select 'Yes' option for withdrawn application.");
+	document.form2.with_app.focus();
+	return false;
+  }
+  else{submit = 1;}
+  
+  if(submit == 1){
+	document.form2.submit_detail.value = 1;
+    window.document.form2.submit();
+  }
+  else{return true;}
+}

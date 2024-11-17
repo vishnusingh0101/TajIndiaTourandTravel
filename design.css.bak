@@ -1,0 +1,26 @@
+body{
+	background-color: lightblue;
+}
+
+#icon-bar{
+	width = 50%px;
+	background-color = #555;
+	align = center;
+}
+
+#icon-bar a{
+	display: block;
+	height:100%;
+	text-align: center;
+	padding: 15px;
+	transition: all 0.2s ease;
+	color: white;
+	font-size: 20px;
+}
+
+#icon-bar a:hover{
+	background-color:#e6f7ff;
+}
+#icon-bar a:active{
+	background-color: #adaba6;
+}

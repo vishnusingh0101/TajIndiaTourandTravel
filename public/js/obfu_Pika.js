@@ -6,7 +6,7 @@ function openBookingModal(e,a){var o=document.getElementById("bookingFormContent
                         <div class="col-md-6 text-white">
                             <h6 class="text-white text-uppercase">Booking</h6>
                             <h1 class="text-white mb-4">Online Booking</h1>
-                            <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/918447095180?text=Hi%21" target="_blank">+91 8447095180</a></h4>
+                            <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/919548467707?text=Hi%21" target="_blank">+91 9548467707</a></h4>
                         </div>
                         <div class="col-md-6">
                             <h1 class="text-white mb-4">Book A Tour</h1>

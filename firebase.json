@@ -1,6 +1,48 @@
 {
   "hosting": {
     "public": "public",
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/booking",
+        "destination": "/booking.html"
+      },
+      {
+        "source": "/destination",
+        "destination": "/destination.html"
+      },
+      {
+        "source": "/service",
+        "destination": "/service.html"
+      },
+      {
+        "source": "/team",
+        "destination": "/team.html"
+      },
+      {
+        "source": "/testimonial",
+        "destination": "/testimonial.html"
+      },
+      {
+        "source": "/package",
+        "destination": "/package.html"
+      },
+      {
+        "source": "/about",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/404",
+        "destination": "/404.html"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "express": "^4.21.1",
     "git": "^0.1.5"
+  },
+  "devDependencies": {
+    "globals": "^15.12.0"
   }
 }

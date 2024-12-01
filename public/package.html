@@ -16,7 +16,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -39,7 +41,8 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -52,9 +55,11 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Ram Bazar Mori Gate, Delhi GPO, India</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Ram Bazar Mori Gate, Delhi
+                        GPO, India</small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+91 9548467707</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>tajindiatourandtravel@gmail.com</small>
+                    <small class="text-light"><i
+                            class="fa fa-envelope-open me-2"></i>tajindiatourandtravel@gmail.com</small>
                 </div>
             </div>
             <!-- <div class="col-lg-4 text-center text-lg-end">
@@ -82,7 +87,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -95,12 +101,13 @@
                     <p>Thanks for reaching out! Our team will connect with you shortly.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="closeModal()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="closeModal()"
+                        data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
@@ -120,7 +127,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu m-0">
-                            <a href="https://tajindiatourandtravel.com/destination" class="dropdown-item">Destination</a>
+                            <a href="https://tajindiatourandtravel.com/destination"
+                                class="dropdown-item">Destination</a>
                             <a href="https://tajindiatourandtravel.com/booking" class="dropdown-item">Booking</a>
                             <!-- <a href="team.html" class="dropdown-item">Travel Guides</a> -->
                             <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
@@ -160,73 +168,197 @@
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-1.jpg" alt="">
+                    <div class="package-item shadow rounded">
+                        <!-- Image Section -->
+                        <div class="overflow-hidden rounded-top position-relative">
+                            <img class="img-fluid" src="img/package-1.jpg"
+                                alt="Mathura Tour Package: Explore the Birthplace of Lord Krishna, famous temples, and vibrant culture">
+                            <!-- Price Tag -->
+                            <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
+                                style="top: 10px; right: 10px; font-weight: bold; font-size: 1rem;">
+                                From ₹5,500
+                            </div>
                         </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Mathura</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
+                        <!-- Tour Highlights -->
+                        <div class="d-flex border-bottom text-center bg-light">
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                                <span>Destination:</span> Mathura
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i>
+                                <span>Duration:</span> 3 Days / 2 Nights
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-user text-primary me-2"></i>
+                                <span>Ideal For:</span> Couples & Families
+                            </small>
                         </div>
+                        <!-- Tour Description -->
                         <div class="text-center p-4">
-                            <p>Sacred Indian city, birthplace of Lord Krishna, revered for its spirituality.</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Details</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-start" style="border-radius: 0 30px 30px 0;" onclick="openBookingModal('Mathura', '3 days')">Get Quote</a>
+                            <h5 class="fw-bold mb-3">Mathura Tour Package: Discover Spiritual Bliss</h5>
+                            <p class="mb-4 text-muted">Embark on a journey to Mathura, the revered birthplace of Lord
+                                Krishna. Explore majestic temples, cultural heritage, and spiritual tranquility, perfect
+                                for family vacations and couple retreats.</p>
+                            <!-- Call-to-Action Buttons -->
+                            <div class="d-flex justify-content-center">
+                                <a href="https://tajindiatourandtravel.com/mathura-tour"
+                                    class="btn btn-outline-primary px-4 rounded-start"
+                                    title="Details about Mathura Tour Package: 3 Days 2 Nights">
+                                    View Details
+                                </a>
+                                <a href="#" class="btn btn-primary px-4 rounded-end"
+                                    onclick="openBookingModal('Mathura', '3 Days / 2 Nights')"
+                                    title="Get a Quote for Mathura Tour Package">
+                                    Get Quote
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-2.jpeg" alt="">
+                    <div class="package-item shadow rounded">
+                        <!-- Image Section -->
+                        <div class="overflow-hidden rounded-top position-relative">
+                            <img class="img-fluid" src="img/package-2.jpeg"
+                                alt="Agra Tour Package: Explore Taj Mahal and Historical Marvels">
+                            <!-- Price Tag -->
+                            <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
+                                style="top: 10px; right: 10px; font-weight: bold; font-size: 1rem;">
+                                From ₹7,500
+                            </div>
                         </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Agra</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>5 days</small>
+                        <!-- Tour Highlights -->
+                        <div class="d-flex border-bottom text-center bg-light">
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                                <span>Destination:</span> Agra
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i>
+                                <span>Duration:</span> 3 Days
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-user text-primary me-2"></i>
+                                <span>Ideal For:</span> Couples & Families
+                            </small>
                         </div>
+                        <!-- Tour Description -->
                         <div class="text-center p-4">
-                            <p>Home to Taj Mahal, Agra is a historical marvel with architectural grandeur.</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Details</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-start" style="border-radius: 0 30px 30px 0;" onclick="openBookingModal('Agra', '3 days')">Get Quote</a>
+                            <h5 class="fw-bold mb-3">Agra Tour Package: Discover the Taj Mahal</h5>
+                            <p class="mb-4 text-muted">Experience the iconic Taj Mahal and immerse yourself in Agra's
+                                rich Mughal heritage. Perfect for cultural enthusiasts and those seeking timeless
+                                architectural beauty.</p>
+                            <!-- Call-to-Action Buttons -->
+                            <div class="d-flex justify-content-center">
+                                <a href="https://tajindiatourandtravel.com/agra-tour"
+                                    class="btn btn-outline-primary px-4 rounded-start"
+                                    title="Details about Agra Tour Package: 3 Days">
+                                    View Details
+                                </a>
+                                <a href="#" class="btn btn-primary px-4 rounded-end"
+                                    onclick="openBookingModal('Agra', '3 Days')"
+                                    title="Get a Quote for Agra Tour Package">
+                                    Get Quote
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-3.jpg" alt="">
+                    <div class="package-item shadow rounded">
+                        <!-- Image Section -->
+                        <div class="overflow-hidden rounded-top position-relative">
+                            <img class="img-fluid" src="img/package-3.jpg"
+                                alt="Jaipur Tour Package: Explore the Pink City">
+                            <!-- Price Tag -->
+                            <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
+                                style="top: 10px; right: 10px; font-weight: bold; font-size: 1rem;">
+                                From ₹6,000
+                            </div>
                         </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Rishikesh</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
+                        <!-- Tour Highlights -->
+                        <div class="d-flex border-bottom text-center bg-light">
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                                <span>Destination:</span> Jaipur
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i>
+                                <span>Duration:</span> 3 Days
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-user text-primary me-2"></i>
+                                <span>Ideal For:</span> Couples & Families
+                            </small>
                         </div>
+                        <!-- Tour Description -->
                         <div class="text-center p-4">
-                            <p>Spiritual haven nestled in the Himalayas, Rishikesh is renowned for yoga.</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Details</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-start" style="border-radius: 0 30px 30px 0;" onclick="openBookingModal('Rishikesh', '3 days')" >Get Quote</a>
+                            <h5 class="fw-bold mb-3">Jaipur Tour Package: Discover the Pink City</h5>
+                            <p class="mb-4 text-muted">Uncover the royal heritage of Jaipur, featuring magnificent
+                                forts, palaces, and vibrant bazaars. Ideal for history lovers and cultural seekers.</p>
+                            <!-- Call-to-Action Buttons -->
+                            <div class="d-flex justify-content-center">
+                                <a href="https://tajindiatourandtravel.com/jaipur-tour"
+                                    class="btn btn-outline-primary px-4 rounded-start"
+                                    title="Details about Jaipur Tour Package: 3 Days">
+                                    View Details
+                                </a>
+                                <a href="#" class="btn btn-primary px-4 rounded-end"
+                                    onclick="openBookingModal('Jaipur', '3 Days')"
+                                    title="Get a Quote for Jaipur Tour Package">
+                                    Get Quote
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-4.jpg" alt="">
+                    <div class="package-item shadow rounded">
+                        <!-- Image Section -->
+                        <div class="overflow-hidden rounded-top position-relative">
+                            <img class="img-fluid" src="img/package-4.jpg"
+                                alt="Delhi Tour Package: Experience India's Cultural and Historical Capital">
+                            <!-- Price Tag -->
+                            <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
+                                style="top: 10px; right: 10px; font-weight: bold; font-size: 1rem;">
+                                From ₹5,500
+                            </div>
                         </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Delhi</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
+                        <!-- Tour Highlights -->
+                        <div class="d-flex border-bottom text-center bg-light">
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                                <span>Destination:</span> Delhi
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i>
+                                <span>Duration:</span> 3 Days
+                            </small>
+                            <small class="flex-fill py-2">
+                                <i class="fa fa-user text-primary me-2"></i>
+                                <span>Ideal For:</span> Couples & Families
+                            </small>
                         </div>
+                        <!-- Tour Description -->
                         <div class="text-center p-4">
-                            <p>Delhi, India's capital, blends rich history, diverse culture, and vibrant modernity.</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Details</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-start" style="border-radius: 0 30px 30px 0;" onclick="openBookingModal('Delhi', '3 days')" >Get Quote</a>
+                            <h5 class="fw-bold mb-3">Delhi Tour Package: Experience India's Cultural Capital</h5>
+                            <p class="mb-4 text-muted">Dive into the heart of India by exploring Delhi's historical landmarks, vibrant bazaars, and cultural diversity. From ancient Mughal architecture to modern cityscapes, Delhi offers something for everyone.</p>
+                            <!-- Call-to-Action Buttons -->
+                            <div class="d-flex justify-content-center">
+                                <a href="https://tajindiatourandtravel.com/delhi-tour"
+                                    class="btn btn-outline-primary px-4 rounded-start"
+                                    title="Details about Delhi Tour Package: 3 Days">
+                                    View Details
+                                </a>
+                                <a href="#" class="btn btn-primary px-4 rounded-end"
+                                    onclick="openBookingModal('Delhi', '3 Days')"
+                                    title="Get a Quote for Delhi Tour Package">
+                                    Get Quote
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -336,29 +468,34 @@
             <div class="row gy-5 gx-4 justify-content-center">
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
                             <i class="fa fa-globe fa-3x text-white"></i>
                         </div>
                         <h5 class="mt-4">Choose A Destination</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0"> Explore our wide range of destinations and pick the perfect one for your next journey.</p>
+                        <p class="mb-0"> Explore our wide range of destinations and pick the perfect one for your next
+                            journey.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
                             <i class="fa fa-dollar-sign fa-3x text-white"></i>
                         </div>
                         <h5 class="mt-4">Complete the form</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Enjoy peace of mind with our secure online payment system, ensuring a hassle-free booking experience.</p>
+                        <p class="mb-0">Enjoy peace of mind with our secure online payment system, ensuring a
+                            hassle-free booking experience.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
                             <i class="fa fa-plane fa-3x text-white"></i>
                         </div>
                         <h5 class="mt-4">We will connect you</h5>
@@ -371,7 +508,7 @@
         </div>
     </div>
     <!-- Process Start -->
-        
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -424,7 +561,8 @@
                     <div class="row g-2 pt-2">
                         <div class="col-8">
                             <a href="https://wa.me/+919548467707?text=Hi, I have inquiry for tour." target="_blank">
-                                <img class="img-fluid bg-light p-1" src="img\TajContactWhatsappScanner.PNG" alt="WhatsApp">
+                                <img class="img-fluid bg-light p-1" src="img\TajContactWhatsappScanner.PNG"
+                                    alt="WhatsApp">
                             </a>
                         </div>
 
@@ -458,7 +596,7 @@
         <i class="bi bi-whatsapp my-float"></i>
     </a>
 
-<!-- Footer End -->
+    <!-- Footer End -->
 
 
     <!-- Back to Top -->
@@ -482,5 +620,5 @@
     <script src="js/obfu_Pika.js"></script>
     <!-- <script src="js/keylock.js"></script> -->
 </body>
-</html>
 
+</html>

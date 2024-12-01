@@ -1,71 +1,146 @@
-function openBookingModal(e,a){var o=document.getElementById("bookingFormContent");o.innerHTML=`
-        <div class="container py-4 wow " id="bookingForm">
-            <div class="container">
-                <div class="booking p-5">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-md-6 text-white">
-                            <h6 class="text-white text-uppercase">Booking</h6>
-                            <h1 class="text-white mb-4">Online Booking</h1>
-                            <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/919548467707?text=Hi%21" target="_blank">+91 9548467707</a></h4>
-                        </div>
-                        <div class="col-md-6">
-                            <h1 class="text-white mb-4">Book A Tour</h1>
-                            <form id="contactForm" onsubmit="sendEmail(); return false">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control bg-transparent" id="email" placeholder="tajindiatourandtravel@gmail.com">
-                                            <label for="email">example@gmail.com</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="phone" class="form-control bg-transparent" id="phone" placeholder="phone">
-                                            <label for="phone">phone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating date" id="date3" data-target-input="nearest">
-                                            <input type="date" class="form-control bg-transparent" id="datetime" placeholder="Date" data-target="#date3" data-toggle="datepicker" />
-                                            <label for="datetime">Date</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input value="${e}" class="form-control bg-transparent" id="location" placeholder="No of Persons" hidden>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input value="${a}" class="form-control bg-transparent" id="forDays" placeholder="No of Persons" hidden>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="number" class="form-control bg-transparent" id="number_of_people" placeholder="No of Persons">
-                                            <label for="presons">No of Persons</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+function openBookingModal(e, a) {
+    var o = document.getElementById("bookingFormContent");
+    o.innerHTML = `
+    <div class="container py-4 wow" id="bookingForm">
+        <div class="container">
+            <div class="booking p-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-6 text-white">
+                        <h6 class="text-white text-uppercase">Booking</h6>
+                        <h1 class="text-white mb-4">Online Booking</h1>
+                        <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/919548467707?text=Hi%21" target="_blank">+91 9548467707</a></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="text-white mb-4">Book A Tour</h1>
+                        <form id="contactForm" onsubmit="sendEmail(); return false">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name" required minlength="3">
+                                        <label for="name">Your Name</label>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control bg-transparent" id="email" placeholder="example@gmail.com" required>
+                                        <label for="email">example@gmail.com</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control bg-transparent" id="phone" placeholder="Phone" required minlength="10" maxlength="15">
+                                        <label for="phone">Phone</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control bg-transparent" id="datetime" placeholder="Date" required>
+                                        <label for="datetime">Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input value="${e}" class="form-control bg-transparent" id="location" placeholder="Location" hidden>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input value="${a}" class="form-control bg-transparent" id="forDays" placeholder="Number of Days" hidden>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-transparent" id="number_of_people" placeholder="No of Persons" required min="1">
+                                        <label for="number_of_people">No of Persons</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px" maxlength="500"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    `;$("#bookingModal").modal("show")}function closeBookingModal(){$("#bookingModal").modal("hide")}function sendEmail(){debugger;var e=document.getElementById("name").value;var a=document.getElementById("email").value;var o=document.getElementById("phone").value;var l=document.getElementById("datetime").value;var t=document.getElementById("location").value;var i=document.getElementById("forDays").value;var s=document.getElementById("number_of_people").value;var n=document.getElementById("message").value;emailjs.init("dpHylrOzMjDWa9VYF");var d={from_name:e,from_email:a,from_phone:o,days:i,to_name:"Taj India Tour & Travel",subject:"Booking for "+i+" for "+t,message:n+". On this date: "+l+". Number of people: "+s};emailjs.send("service_8j9vn8o","template_lr13lz8",d).then(function(e){successModal()},function(e){alert("Email failed to send",e)})}function successModal(){$("#successModal").modal("show");$("#bookingModal").modal("hide");setTimeout(function(){$("#successModal").modal("hide")},5e3)}function closeModal(){$("#successModal").modal("hide")}
+    </div>
+    `;
+    $("#bookingModal").modal("show");
+}
+
+function closeBookingModal() {
+    $("#bookingModal").modal("hide");
+}
+
+function sendEmail() {
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var datetime = document.getElementById("datetime").value;
+    var location = document.getElementById("location").value;
+    var forDays = document.getElementById("forDays").value;
+    var number_of_people = document.getElementById("number_of_people").value;
+    var message = document.getElementById("message").value.trim();
+
+    // Client-side validation
+    if (!name || name.length < 3) {
+        alert("Please enter a valid name (at least 3 characters).");
+        return;
+    }
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (!phone || phone.length < 10 || phone.length > 15) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+    if (!datetime) {
+        alert("Please select a valid date.");
+        return;
+    }
+    if (!number_of_people || number_of_people <= 0) {
+        alert("Please enter a valid number of people.");
+        return;
+    }
+
+    emailjs.init("dpHylrOzMjDWa9VYF");
+    var templateParams = {
+        from_name: name,
+        from_email: email,
+        from_phone: phone,
+        days: forDays,
+        to_name: "Taj India Tour & Travel",
+        subject: `Booking for ${forDays} for ${location}`,
+        message: `${message}. On this date: ${datetime}. Number of people: ${number_of_people}`
+    };
+
+    emailjs
+        .send("service_8j9vn8o", "template_lr13lz8", templateParams)
+        .then(
+            function () {
+                successModal();
+            },
+            function (error) {
+                alert("Email failed to send. Error: " + JSON.stringify(error));
+            }
+        );
+}
+
+function successModal() {
+    $("#successModal").modal("show");
+    $("#bookingModal").modal("hide");
+    setTimeout(function () {
+        $("#successModal").modal("hide");
+    }, 5000);
+}
+
+function closeModal() {
+    $("#successModal").modal("hide");
+}

@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #555555; /* Soft black */
+}
+
+.my-4 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Header styling */
+.header {
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
+    height: 60px;           /* Set a fixed height for the header */
+    background-color: #ffffff; /* Optional: Add a subtle background color */
+    border-radius: 8px;     /* Optional: Add rounded corners */
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Content layout */
+.content {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+}
+
+/* Left image section */
+.image-container {
+    flex: 2; /* Larger space for the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* Right details section */
+.details-container {
+    margin-left: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Details styling */
+.details {
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.details p {
+    margin: 0 0 10px;
+}
+
+/* Button styling */
+.cta-button-container {
+    text-align: left;
+}
+
+.cta-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    background-color: #2abd3d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1a7c27;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .cta-button-container {
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+.day, .itinerary-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333333;
+}
+
+h3 {
+    color: #444444;
+}
+
+.highlight {
+    color: #222222;
+    font-weight: bold;
+}

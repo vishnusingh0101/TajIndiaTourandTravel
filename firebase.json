@@ -41,6 +41,10 @@
       {
         "source": "/404",
         "destination": "/404.html"
+      },
+      {
+        "source": "/delhiagra",
+        "destination": "/pkg/delhiagra.html"
       }
     ],
     "ignore": [

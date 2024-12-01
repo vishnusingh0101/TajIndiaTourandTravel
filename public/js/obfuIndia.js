@@ -4,12 +4,11 @@ function openBookingModal(e,a){var o=document.getElementById("bookingFormContent
                 <div class="booking p-5">
                     <div class="row g-5 align-items-center">
                         <div class="col-md-6 text-white">
-                            <h6 class="text-white text-uppercase">Booking</h6>
-                            <h1 class="text-white mb-4">Online Booking</h1>
+                            <h1 class="text-white mb-4">Online Inquiry</h1>
                             <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/919548467707?text=Hi%21" target="_blank">+91 9548467707</a></h4>
                         </div>
                         <div class="col-md-6">
-                            <h1 class="text-white mb-4">Book A Tour</h1>
+                            <h1 class="text-white mb-4">Get A Quote</h1>
                             <form id="contactForm" onsubmit="sendEmail(); return false">
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -59,7 +58,7 @@ function openBookingModal(e,a){var o=document.getElementById("bookingFormContent
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                        <button class="btn btn-outline-light w-100 py-3" type="submit">Get Quote</button>
                                     </div>
                                 </div>
                             </form>

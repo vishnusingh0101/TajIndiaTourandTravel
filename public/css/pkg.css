@@ -89,17 +89,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .cta-button-container {
-        text-align: center;
-        margin-top: 15px;
-    }
-}
 .day, .itinerary-box {
     background-color: #ffffff;
     border-radius: 8px;
@@ -119,4 +108,65 @@ h3 {
 .highlight {
     color: #222222;
     font-weight: bold;
+}
+
+.with-background {
+    position: relative;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;  /* Text color for contrast */
+    background-image: url('../img/contact.jpg');  /* Replace with actual image path */
+    background-size: cover;  /* Ensures the image covers the entire div */
+    background-position: center;  /* Ensures the image is centered */
+    background-repeat: no-repeat;  /* Prevents repeating the background */
+}
+
+.with-background .block-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);  /* Adds shadow for text visibility */
+    margin-bottom: 20px;
+}
+
+.with-background .block-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    padding: 20px;
+}
+
+.with-background .cta-button-container {
+    margin-top: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #22c55e;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #16a34a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.4);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .cta-button-container {
+        text-align: center;
+        margin-top: 15px;
+    }
 }

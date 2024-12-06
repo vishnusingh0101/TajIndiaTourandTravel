@@ -45,6 +45,10 @@
       {
         "source": "/delhiagra",
         "destination": "/pkg/delhiagra.html"
+      },
+      {
+        "source": "/mathurapackage",
+        "destination": "/pkg/mathurapackage.html"
       }
     ],
     "ignore": [

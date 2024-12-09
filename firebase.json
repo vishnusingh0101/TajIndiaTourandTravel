@@ -47,8 +47,12 @@
         "destination": "/pkg/delhiagra.html"
       },
       {
-        "source": "/mathurapackage",
-        "destination": "/pkg/mathurapackage.html"
+        "source": "/mathura-tour",
+        "destination": "/pkg/mathura-tour.html"
+      },
+      {
+        "source": "/jaipur-tour",
+        "destination": "/pkg/jaipur-tour.html"
       }
     ],
     "ignore": [

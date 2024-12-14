@@ -145,7 +145,7 @@
 }
 
 .hero-header {
-    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)) center center/cover no-repeat, url(../img/background2.jpg) center center/cover no-repeat
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)) center center/cover no-repeat, url(../img/background2.webp) center center/cover no-repeat
 }
 
 .breadcrumb-item+.breadcrumb-item::before {

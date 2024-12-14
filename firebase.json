@@ -53,6 +53,10 @@
       {
         "source": "/jaipur-tour",
         "destination": "/pkg/jaipur-tour.html"
+      },
+      {
+        "source": "/Two-days-mathura-vrindavan-tour",
+        "destination": "\pkg\twodaysmathuravrindavan.html"
       }
     ],
     "ignore": [

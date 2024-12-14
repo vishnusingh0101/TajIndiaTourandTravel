@@ -123,17 +123,6 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Cookie Preferences -->
-    <div id="cookie-preferences"
-        style="display:none;position:fixed;bottom:0;width:100%;background:#f8f9fa;padding:10px;z-index:1000;">
-        <h4>Cookie Preferences</h4>
-        <form id="cookie-form">
-            <label><input type="checkbox" id="ads" name="ads" value="true"> Advertising Cookies</label><br>
-            <label><input type="checkbox" id="analytics" name="analytics" value="true"> Analytics Cookies</label><br>
-            <button type="button" onclick="saveCookiePreferences()">Save Preferences</button>
-        </form>
-    </div>
-
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -286,7 +275,7 @@
                     <div class="package-item shadow rounded">
                         <!-- Image Section -->
                         <div class="overflow-hidden rounded-top position-relative">
-                            <img class="img-fluid" src="img/mathura-tour.jpg"
+                            <img class="img-fluid" src="img/mathura-tour.webp"
                                 alt="Mathura Tour Package: Explore the Birthplace of Lord Krishna, famous temples, and vibrant culture">
                             <!-- Price Tag -->
                             <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
@@ -295,7 +284,7 @@
                             </div>
                         </div>
                         <!-- Tour Highlights -->
-                        <div class="d-flex border-bottom text-center bg-light">
+                        <!-- <div class="d-flex border-bottom text-center bg-light">
                             <small class="flex-fill py-2">
                                 <i class="fa fa-map-marker-alt text-primary me-2"></i>
                                 <span>Destination:</span> Mathura
@@ -308,13 +297,22 @@
                                 <i class="fa fa-user text-primary me-2"></i>
                                 <span>Ideal For:</span> Couples & Families
                             </small>
-                        </div>
+                        </div> -->
                         <!-- Tour Description -->
                         <div class="text-center p-4">
                             <h5 class="fw-bold mb-3">Mathura Tour Package: Discover Spiritual Bliss</h5>
-                            <p class="mb-4 text-muted">Embark on a journey to Mathura, the revered birthplace of Lord
-                                Krishna. Explore majestic temples, cultural heritage, and spiritual tranquility, perfect
-                                for family vacations and couple retreats.</p>
+                            <div class="d-flex flex-column align-items-start mb-3">
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-map-marker-alt fs-5 me-2"></i> Mathura
+                                </div>
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-calendar-alt fs-5 me-2"></i> 3 Days / 2 Nights
+                                </div>
+                                <div class="badge bg-light text-primary p-2 fs-5 w-100">
+                                    <i class="fa fa-user fs-5 me-2"></i> Couples & Families
+                                </div>
+                            </div>                          
+                                                     
                             <!-- Call-to-Action Buttons -->
                             <div class="d-flex justify-content-center">
                                 <a href="https://tajindiatourandtravel.com/mathura-tour"
@@ -325,7 +323,7 @@
                                 <a href="#" class="btn btn-primary px-4 rounded-end"
                                     onclick="openBookingModal('Mathura', '3 Days / 2 Nights')"
                                     title="Get a Quote for Mathura Tour Package">
-                                    Get Quote
+                                    Book
                                 </a>
                             </div>
                         </div>
@@ -344,27 +342,21 @@
                                 From ₹7,500
                             </div>
                         </div>
-                        <!-- Tour Highlights -->
-                        <div class="d-flex border-bottom text-center bg-light">
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
-                                <span>Destination:</span> Agra
-                            </small>
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-calendar-alt text-primary me-2"></i>
-                                <span>Duration:</span> 3 Days
-                            </small>
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-user text-primary me-2"></i>
-                                <span>Ideal For:</span> Couples & Families
-                            </small>
-                        </div>
-                        <!-- Tour Description -->
+                        <!-- Tour Highlights (Replaced with Vertical Badges) -->
                         <div class="text-center p-4">
                             <h5 class="fw-bold mb-3">Agra Tour Package: Discover the Taj Mahal</h5>
-                            <p class="mb-4 text-muted">Experience the iconic Taj Mahal and immerse yourself in Agra's
-                                rich Mughal heritage. Perfect for cultural enthusiasts and those seeking timeless
-                                architectural beauty.</p>
+                            <div class="d-flex flex-column align-items-start mb-3">
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-map-marker-alt fs-5 me-2"></i> Agra
+                                </div>
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-calendar-alt fs-5 me-2"></i> 3 Days / 2 Nights
+                                </div>
+                                <div class="badge bg-light text-primary p-2 fs-5 w-100">
+                                    <i class="fa fa-user fs-5 me-2"></i> Couples & Families
+                                </div>
+                            </div>
+                            
                             <!-- Call-to-Action Buttons -->
                             <div class="d-flex justify-content-center">
                                 <a href="https://tajindiatourandtravel.com/delhiagra"
@@ -375,12 +367,13 @@
                                 <a href="#" class="btn btn-primary px-4 rounded-end"
                                     onclick="openBookingModal('Agra', '3 Days')"
                                     title="Get a Quote for Agra Tour Package">
-                                    Get Quote
+                                    Book
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="package-item shadow rounded">
@@ -394,26 +387,21 @@
                                 From ₹6,000
                             </div>
                         </div>
-                        <!-- Tour Highlights -->
-                        <div class="d-flex border-bottom text-center bg-light">
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-map-marker-alt text-primary me-2"></i>
-                                <span>Destination:</span> Jaipur
-                            </small>
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-calendar-alt text-primary me-2"></i>
-                                <span>Duration:</span> 3 Days
-                            </small>
-                            <small class="flex-fill py-2">
-                                <i class="fa fa-user text-primary me-2"></i>
-                                <span>Ideal For:</span> Couples & Families
-                            </small>
-                        </div>
-                        <!-- Tour Description -->
+                        <!-- Tour Highlights (Replaced with Vertical Badges) -->
                         <div class="text-center p-4">
                             <h5 class="fw-bold mb-3">Jaipur Tour Package: Discover the Pink City</h5>
-                            <p class="mb-4 text-muted">Uncover the royal heritage of Jaipur, featuring magnificent
-                                forts, palaces, and vibrant bazaars. Ideal for history lovers and cultural seekers.</p>
+                            <div class="d-flex flex-column align-items-start mb-3">
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-map-marker-alt fs-5 me-2"></i> Jaipur
+                                </div>
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-calendar-alt fs-5 me-2"></i> 3 Days / 2 Nights
+                                </div>
+                                <div class="badge bg-light text-primary p-2 fs-5 w-100">
+                                    <i class="fa fa-user fs-5 me-2"></i> Couples & Families
+                                </div>
+                            </div>
+                            
                             <!-- Call-to-Action Buttons -->
                             <div class="d-flex justify-content-center">
                                 <a href="https://tajindiatourandtravel.com/jaipur-tour"
@@ -424,12 +412,56 @@
                                 <a href="#" class="btn btn-primary px-4 rounded-end"
                                     onclick="openBookingModal('Jaipur', '3 Days')"
                                     title="Get a Quote for Jaipur Tour Package">
-                                    Get Quote
+                                    Book
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="package-item shadow rounded">
+                        <!-- Image Section -->
+                        <div class="overflow-hidden rounded-top position-relative">
+                            <img class="img-fluid" src="img/kirti_mandir.jpg"
+                                alt="Jaipur Tour Package: Explore the Pink City">
+                            <!-- Price Tag -->
+                            <div class="price-tag position-absolute bg-primary text-white px-3 py-1 rounded"
+                                style="top: 10px; right: 10px; font-weight: bold; font-size: 1rem;">
+                                From ₹6,000
+                            </div>
+                        </div>
+                        <!-- Tour Highlights (Replaced with Vertical Badges) -->
+                        <div class="text-center p-4">
+                            <h5 class="fw-bold mb-3">Delhi to Mathura Vrindavan Tour</h5>
+                            <div class="d-flex flex-column align-items-start mb-3">
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-map-marker-alt fs-5 me-2"></i> Mathura & Vrindavan
+                                </div>
+                                <div class="badge bg-light text-primary mb-2 p-2 fs-5 w-100">
+                                    <i class="fa fa-calendar-alt fs-5 me-2"></i> 2 Days / 1 Nights
+                                </div>
+                                <div class="badge bg-light text-primary p-2 fs-5 w-100">
+                                    <i class="fa fa-user fs-5 me-2"></i> Couples & Families
+                                </div>
+                            </div>
+                            
+                            <!-- Call-to-Action Buttons -->
+                            <div class="d-flex justify-content-center">
+                                <a href="https://tajindiatourandtravel.com/Two-days-mathura-vrindavan-tour"
+                                    class="btn btn-outline-primary px-4 rounded-start"
+                                    title="Details about Jaipur Tour Package: 3 Days">
+                                    View Details
+                                </a>
+                                <a href="#" class="btn btn-primary px-4 rounded-end"
+                                    onclick="openBookingModal('Jaipur', '3 Days')"
+                                    title="Get a Quote for Jaipur Tour Package">
+                                    Book
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
 
             </div>
         </div>

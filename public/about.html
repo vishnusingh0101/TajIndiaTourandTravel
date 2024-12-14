@@ -3,13 +3,13 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP1C96GW8J"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNKEEBMBZV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-LP1C96GW8J');
+        gtag('config', 'G-YNKEEBMBZV');
     </script>
     <!-- Google Tag Manager -->
     <script>
@@ -408,6 +408,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <!-- <script src="js/keylock.js"></script> -->
+    <script type="module">
+        import { initCookieConsent } from './js/consentbanner.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCookieConsent();
+        });
+    </script>
 </body>
 
 </html>

@@ -94,5 +94,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       });
     </script>
-  </body>
+      <script type="module">
+        import { initCookieConsent } from './js/consentbanner.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCookieConsent();
+        });
+    </script>
+</body>
 </html>

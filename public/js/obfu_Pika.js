@@ -24,7 +24,7 @@ function openBookingModal(e, a) {
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="email" class="form-control bg-transparent" id="email" placeholder="example@gmail.com" required>
-                                        <label for="email">example@gmail.com</label>
+                                        <label for="email">Email</label>
                                         <div class="invalid-feedback">Please enter a valid email address.</div>
                                     </div>
                                 </div>
@@ -118,27 +118,31 @@ function sendEmail() {
         return;
     }
 
+    // Initialize EmailJS
     emailjs.init("dpHylrOzMjDWa9VYF");
+
+    // Prepare EmailJS template parameters
     var templateParams = {
         from_name: name,
         from_email: email,
         from_phone: phone,
         days: forDays,
+        location: location,
+        number_of_people: number_of_people,
         to_name: "Taj India Tour & Travel",
-        subject: `Booking for ${forDays} for ${location}`,
+        subject: `Booking for ${forDays} days at ${location}`,
         message: `${message}. On this date: ${datetime}. Number of people: ${number_of_people}`
     };
 
-    emailjs
-        .send("service_8j9vn8o", "template_lr13lz8", templateParams)
-        .then(
-            function () {
-                successModal();
-            },
-            function (error) {
-                alert("Email failed to send. Error: " + JSON.stringify(error));
-            }
-        );
+    // Send email using EmailJS
+    emailjs.send("service_w5uk33d", "template_lr13lz8", templateParams)
+        .then(function (response) {
+            successModal();
+        })
+        .catch(function (error) {
+            console.error("Email failed to send:", error);
+            alert("Failed to send email. Please try again later.");
+        });
 }
 
 function showValidationError(fieldId, message) {

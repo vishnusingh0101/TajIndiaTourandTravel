@@ -55,7 +55,7 @@ function sendEmail() {
     };
 
     // Send email using EmailJS
-    emailjs.send("service_8j9vn8o", "template_lr13lz8", emailData)
+    emailjs.send("service_w5uk33d", "template_lr13lz8", emailData)
         .then(function (response) {
             successModal();
             blankfields();

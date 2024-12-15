@@ -56,8 +56,17 @@
       },
       {
         "source": "/Two-days-mathura-vrindavan-tour",
-        "destination": "\pkg\twodaysmathuravrindavan.html"
+        "destination": "/pkg/twodaysmathuravrindavan.html"
+      },
+      {
+        "source": "/Same-Day-Agra-Tour",
+        "destination": "/pkg/samedayagra.html"
+      },
+      {
+        "source": "/Same-Day-Jaipur-Tour",
+        "destination": "/pkg/samedayjaipur.html"
       }
+      
     ],
     "ignore": [
       "firebase.json",

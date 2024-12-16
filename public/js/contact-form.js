@@ -41,15 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div id="travelDateError" class="text-danger small mt-1" style="display:none;">Please select a travel date.</div>
                         </div>
                         <div class="mb-3">
-                            <textarea 
+                            <textarea
                                 class="form-control rounded-3" 
                                 id="message" 
                                 name="message" 
                                 rows="3" 
                                 placeholder="Message" 
                                 required 
-                                style="resize: none; overflow-y: auto; line-height: 1.2; padding: 6px;">
-                            </textarea>
+                                style="resize: none; overflow-y: auto; line-height: 1.2; padding: 5px;"></textarea>
                             <div id="messageError" class="text-danger small mt-1" style="display:none;">Message is required.</div>
                         </div>
                         <div class="text-center">
@@ -85,6 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var phone = document.getElementById("phone").value.trim();
         var travelDate = document.getElementById("travelDate").value.trim();
         var message = document.getElementById("message").value.trim();
+
+        name = name.trim();
+        email = email.trim();
+        phone = phone.trim();
+        travelDate = travelDate.trim();
+        message = message.trim();
+
         var isValid = true;
 
         if (name === "") { showError("nameError"); isValid = false; }

@@ -65,8 +65,19 @@
       {
         "source": "/Same-Day-Jaipur-Tour",
         "destination": "/pkg/samedayjaipur.html"
+      },
+      {
+        "source": "/Privacy-and-Policy",
+        "destination": "/privacyandpolicy.html"
+      },
+      {
+        "source": "/Terms-and-Conditions",
+        "destination": "/termsandconditions.html"
+      },
+      {
+        "source": "/FAQs-and-Help",
+        "destination": "/faqsandhelp.html"
       }
-      
     ],
     "ignore": [
       "firebase.json",

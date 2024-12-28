@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>weekly</changefreq> 
+    <priority>1.0</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/about</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/contact</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.7</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/service</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.7</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/package</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>weekly</changefreq> 
+    <priority>0.9</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/delhiagra.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/mathura-tour.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/jaipur-tour.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/twodaysmathuravrindavan.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/samedayagra.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/pkg/samedayjaipur.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.8</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/testimonial</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.7</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/team</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.7</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/privacyandpolicy.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>yearly</changefreq> 
+    <priority>0.5</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/termsandconditions.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>yearly</changefreq> 
+    <priority>0.5</priority> 
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/faqsandhelp.html</loc> 
+    <lastmod>2024-12-25</lastmod> 
+    <changefreq>monthly</changefreq> 
+    <priority>0.6</priority> 
+  </url>
+</urlset>
+
+<!-- **Explanation:**
+
+- **`<?xml version="1.0" encoding="UTF-8"?>`:** This line declares the XML version and encoding.
+- **`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`:** This tag indicates the start of the sitemap and specifies the XML namespace.
+- **`<url>`:** Each `<url>` tag represents a single URL on your website.
+    - **`<loc>`:** This tag contains the full URL of the page.
+    - **`<lastmod>`:** This tag specifies the last time the page was modified.
+    - **`<changefreq>`:** This tag indicates how often the page is likely to change (e.g., `always`, `hourly`, `daily`, `weekly`, `monthly`, `yearly`, `never`).
+    - **`<priority>`:** This tag assigns a priority to the page relative to other pages on your site (values range from 0.0 to 1.0).
+
+**To use this sitemap:**
+
+1.  **Save the code:** Save this code as `sitemap.xml` in a plain text editor (like Notepad) or a code editor.
+2.  **Upload to your server:** Upload the `sitemap.xml` file to the root directory of your website's public_html or similar folder (e.g., `/public_html/sitemap.xml`).
+3.  **Submit to Google Search Console:**
+    - Log in to your Google Search Console account.
+    - Navigate to "Index" -> "Sitemaps."
+    - Click "Add/Test Sitemap."
+    - Enter the URL of your sitemap (e.g., `https://www.tajindiatourandtravel.com/sitemap.xml`) and click "Submit."
+
+**Note:**
+
+- This is a basic example. You should customize it by:
+    - Adding more URLs to the sitemap.
+    - Updating the `lastmod` dates for each page.
+    - Adjusting the `changefreq` and `priority` values as appropriate for your website.
+- Consider using a sitemap generator tool for more complex websites or to automatically update your sitemap.
+
+Remember to replace the example URLs in the code with the actual URLs of the corresponding pages on your website. This will help search engines crawl and index your website more efficiently. -->

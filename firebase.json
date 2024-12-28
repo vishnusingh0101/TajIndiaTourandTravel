@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "public",
+    "site":"tajtourandtrv",
     "rewrites": [
       {
         "source": "/",
@@ -77,7 +78,16 @@
       {
         "source": "/FAQs-and-Help",
         "destination": "/faqsandhelp.html"
+      },
+      {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap.xml"
+      },
+      {
+        "source": "/golden-triangle-tour",
+        "destination": "/pkg/golden_triangle.html"
       }
+      
     ],
     "ignore": [
       "firebase.json",

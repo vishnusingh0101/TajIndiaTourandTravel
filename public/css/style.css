@@ -442,6 +442,7 @@ i.bi-whatsapp {
 
 .custom-img {
     height: 240px;
+    width: 360px;
     object-fit: cover;
     overflow: hidden;
     display: block;

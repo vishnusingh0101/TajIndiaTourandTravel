@@ -98,6 +98,14 @@
       {
         "source": "/delhi-agra-jaipur-package",
         "destination": "/pkg/delhiagrajaipur.html"
+      },
+      {
+        "source": "/same-day-tajmahal-tour",
+        "destination": "/pkg/sameday_tajmahaltour.html"
+      },
+      {
+        "source": "/tajmahal-sunset-tour",
+        "destination": "/pkg/tajmahal_sunsettour.html"
       }
       
     ],

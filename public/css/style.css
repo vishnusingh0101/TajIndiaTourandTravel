@@ -429,3 +429,20 @@ i.bi-whatsapp {
     position: relative;
     top: -5px; /* Adjust the value as needed */
 }
+
+.text-gold {
+    color: #FFD700; /* Gold color */
+}
+
+.owl-carousel .item {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.custom-img {
+    height: 240px;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+}

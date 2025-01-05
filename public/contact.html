@@ -223,54 +223,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Contact Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5 bg-light">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
                 <h1 class="mb-5">Contact For Any Query</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h5>Get In Touch</h5>
-                    <p class="mb-4">We would be happy to connect you.</p>
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
-                            style="width: 50px; height: 50px;">
+                <!-- Contact Information -->
+                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="text-uppercase text-primary mb-4">Get In Touch</h5>
+                    <p class="mb-4">We would be happy to connect with you. Reach out to us anytime!</p>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-container bg-primary d-flex align-items-center justify-content-center rounded-circle" style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Office</h5>
+                            <h6 class="text-primary mb-1">Office</h6>
                             <p class="mb-0">Ram Bazar Mori Gate, Delhi GPO, India</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
-                            style="width: 50px; height: 50px;">
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-container bg-primary d-flex align-items-center justify-content-center rounded-circle" style="width: 50px; height: 50px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Mobile</h5>
+                            <h6 class="text-primary mb-1">Mobile</h6>
                             <p class="mb-0">+91 9548467707</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
-                            style="width: 50px; height: 50px;">
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="icon-container bg-primary d-flex align-items-center justify-content-center rounded-circle" style="width: 50px; height: 50px;">
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Email</h5>
+                            <h6 class="text-primary mb-1">Email</h6>
                             <p class="mb-0">tajindiatourandtravel@gmail.com</p>
                         </div>
                     </div>
+                    <div class="d-flex align-items-start">
+                        <div class="icon-container bg-primary d-flex align-items-center justify-content-center rounded-circle" style="width: 50px; height: 50px;">
+                            <i class="fa fa-clock text-white"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="text-primary mb-1">Working Hours</h6>
+                            <p class="mb-0">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                            <p class="mb-0">Sun: Closed</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.8406524627912!2d77.22104902550204!3d28.664489525647316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd0956ace0f9%3A0x8a238f27354749b3!2sRam%20Bazar%2C%20South%20Indian%20Madrasi%20Colony%2C%20Mori%20Gate%2C%20Delhi!5e0!3m2!1sen!2sin!4v1710518722006!5m2!1sen!2sin"
-                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                </div>
-                <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                
+                <!-- Contact Form -->
+                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <form id="contactForm" onsubmit="sendEmail(); return false">
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -281,19 +284,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email"
-                                        placeholder="tajindiatourandtravel@gmail.com" required>
-                                    <label for="email">example@gmail.com</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="phone" placeholder="Phone"
-                                        inputmode="none">
-                                    <label for="phone">Phone</label>
+                                    <input type="number" class="form-control" id="phone" placeholder="Your Phone" required>
+                                    <label for="phone">Your Phone</label>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Subject" required>
                                     <label for="subject">Subject</label>
@@ -301,9 +302,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
-                                        style="height: 100px" required></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea class="form-control" id="message" placeholder="Your Message" style="height: 120px;" required></textarea>
+                                    <label for="message">Your Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -311,10 +311,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </form>
+                    <!-- <div class="mt-4">
+                        <h6 class="text-primary">Follow Us</h6>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- Contact End -->
 
 

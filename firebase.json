@@ -86,6 +86,18 @@
       {
         "source": "/golden-triangle-tour",
         "destination": "/pkg/golden_triangle.html"
+      },
+      {
+        "source": "/delhi-vrindavan-package",
+        "destination": "/pkg/delhitovrindavan.html"
+      },
+      {
+        "source": "/delhi-mathura-package",
+        "destination": "/pkg/delhitomathura.html"
+      },
+      {
+        "source": "/delhi-agra-jaipur-package",
+        "destination": "/pkg/delhiagrajaipur.html"
       }
       
     ],

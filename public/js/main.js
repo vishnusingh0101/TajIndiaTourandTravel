@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // General Owl Carousel Initialization
+    // Initialize Owl Carousel
     $(".owl-carousel").owlCarousel({
         items: 1,
         loop: true,
@@ -27,13 +27,43 @@ $(document).ready(function () {
             },
         },
     });
+
+    // Scroll button functionality for horizontal scrolling of the package items
+    $(".scroll-btn.left").on("click", function () {
+        scrollLeft(); // Call the scrollLeft function
+    });
+
+    $(".scroll-btn.right").on("click", function () {
+        scrollRight(); // Call the scrollRight function
+    });
 });
 
-// Additional Scripts
+// Scroll Functions (for the package card scrolling)
+function scrollLeft() {
+    const container = document.querySelector('.package-item-container');
+    if (container) {
+        container.scrollBy({
+            left: -300, // Scroll to the left by 300px
+            behavior: 'smooth' // Smooth scrolling effect
+        });
+    }
+}
+
+function scrollRight() {
+    const container = document.querySelector('.package-item-container');
+    if (container) {
+        container.scrollBy({
+            left: 300, // Scroll to the right by 300px
+            behavior: 'smooth' // Smooth scrolling effect
+        });
+    }
+}
+
+// Additional Scripts for other functionalities
 (function ($) {
     "use strict";
 
-    // Spinner
+    // Spinner (removes the loading spinner after a delay)
     const spinner = function () {
         setTimeout(function () {
             if ($("#spinner").length > 0) {
@@ -43,10 +73,10 @@ $(document).ready(function () {
     };
     spinner();
 
-    // Initiate WOW.js
+    // Initialize WOW.js for animation effects on scroll
     new WOW().init();
 
-    // Sticky Navbar
+    // Sticky Navbar functionality when scrolling
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $(".navbar").addClass("sticky-top shadow-sm");
@@ -55,7 +85,7 @@ $(document).ready(function () {
         }
     });
 
-    // Dropdown on Mouse Hover
+    // Dropdown on Mouse Hover for larger screens
     const $dropdown = $(".dropdown");
     const $dropdownToggle = $(".dropdown-toggle");
     const $dropdownMenu = $(".dropdown-menu");
@@ -82,7 +112,7 @@ $(document).ready(function () {
         }
     });
 
-    // Back to Top Button
+    // Back to Top Button functionality
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $(".back-to-top").fadeIn("slow");
@@ -90,6 +120,7 @@ $(document).ready(function () {
             $(".back-to-top").fadeOut("slow");
         }
     });
+
     $(".back-to-top").click(function () {
         $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
         return false;

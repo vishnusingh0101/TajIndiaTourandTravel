@@ -106,6 +106,22 @@
       {
         "source": "/tajmahal-sunset-tour",
         "destination": "/pkg/tajmahal_sunsettour.html"
+      },
+      {
+        "source": "/ayodhya-package",
+        "destination": "/pkg/ayodhya_package.html"
+      },
+      {
+        "source": "/kumbh-package",
+        "destination": "/pkg/kumbh_package.html"
+      },
+      {
+        "source": "/ayodhya-tour",
+        "destination": "/pkg/ayodhya_package.html"
+      },
+      {
+        "source": "/kumbh-tour",
+        "destination": "/pkg/kumbh_package.html"
       }
       
     ],

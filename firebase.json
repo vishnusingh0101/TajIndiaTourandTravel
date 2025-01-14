@@ -122,7 +122,24 @@
       {
         "source": "/kumbh-tour",
         "destination": "/pkg/kumbh_package.html"
+      },
+      {
+        "source": "/kumbh-mela-tour",
+        "destination": "/pkg/kumbh_package.html"
+      },
+      {
+        "source": "/kumbhmela",
+        "destination": "/pkg/kumbh_package.html"
+      },
+      {
+        "source": "/kumbhmela-tour",
+        "destination": "/pkg/kumbh_package.html"
+      },
+      {
+        "source": "/kumbhmela-package",
+        "destination": "/pkg/kumbh_package.html"
       }
+      
       
     ],
     "ignore": [

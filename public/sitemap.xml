@@ -1,60 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
-    <loc>https://www.tajindiatourandtravel.com/</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>weekly</changefreq> 
-    <priority>1.0</priority> 
+    <loc>https://www.tajindiatourandtravel.com/</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Other pages -->
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/contact</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/golden-triangle-tour</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>monthly</changefreq> 
-    <priority>0.8</priority> 
+    <loc>https://www.tajindiatourandtravel.com/booking</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/Same-Day-Agra-Tour</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>monthly</changefreq> 
-    <priority>0.7</priority> 
+    <loc>https://www.tajindiatourandtravel.com/destination</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/mathura-tour</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>monthly</changefreq> 
-    <priority>0.7</priority> 
+    <loc>https://www.tajindiatourandtravel.com/service</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/delhiagra</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>weekly</changefreq> 
-    <priority>0.9</priority> 
+    <loc>https://www.tajindiatourandtravel.com/team</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/package</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>monthly</changefreq> 
-    <priority>0.7</priority> 
+    <loc>https://www.tajindiatourandtravel.com/testimonial</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/Privacy-and-Policy</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>yearly</changefreq> 
-    <priority>0.5</priority> 
+    <loc>https://www.tajindiatourandtravel.com/package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/Terms-and-Conditions</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>yearly</changefreq> 
-    <priority>0.5</priority> 
+    <loc>https://www.tajindiatourandtravel.com/about</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Packages - High priority -->
+  
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/kumbhmela-package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tajindiatourandtravel.com/FAQs-and-Help</loc> 
-    <lastmod>2024-12-25</lastmod> 
-    <changefreq>monthly</changefreq> 
-    <priority>0.6</priority> 
+    <loc>https://www.tajindiatourandtravel.com/delhiagra</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/mathura-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/jaipur-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/Two-days-mathura-vrindavan-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/Same-Day-Agra-Tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/Same-Day-Jaipur-Tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/golden-triangle-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/delhi-vrindavan-package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/delhi-mathura-package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/delhi-agra-jaipur-package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/same-day-tajmahal-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/tajmahal-sunset-tour</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/ayodhya-package</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Miscellaneous -->
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/Privacy-and-Policy</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/Terms-and-Conditions</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.tajindiatourandtravel.com/FAQs-and-Help</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
+
 
 <!-- **Explanation:**
 

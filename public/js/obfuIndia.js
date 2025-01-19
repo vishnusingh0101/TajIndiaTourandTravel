@@ -7,7 +7,7 @@ function openBookingModal(e, a) {
                     <div class="row g-5 align-items-center">
                         <div class="col-md-6 text-white">
                             <h1 class="text-white mb-4">Online Inquiry</h1>
-                            <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/919548467707?text=Hi%21" target="_blank">+91 9548467707</a></h4>
+                            <h4 class="text-white text-uppercase">Or Whatsapp - <a href="https://wa.me/917827000754?text=Hi%21" target="_blank">+91 7827000754</a></h4>
                         </div>
                         <div class="col-md-6">
                             <h1 class="text-white mb-4">Get A Quote</h1>

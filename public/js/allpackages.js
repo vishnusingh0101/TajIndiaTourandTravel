@@ -96,7 +96,7 @@ const otherpackages = [
     {
         "title": "Jaipur Tour Package: Discover the Pink City",
         "image": "img/jaipur-tour.jpg",
-        "price": "₹6,000",
+        "price": "₹11,000",
         "location": "Jaipur",
         "duration": "3 Days / 2 Nights",
         "audience": "Couples & Families",

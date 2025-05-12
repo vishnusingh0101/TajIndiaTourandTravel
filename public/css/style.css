@@ -447,3 +447,11 @@ i.bi-whatsapp {
     overflow: hidden;
     display: block;
 }
+
+.custom-header {
+    margin-top: 80px; /* Push header below navbar */
+    padding: 20px 0; /* Maintain spacing */
+    background-color: #f8f9fa; /* Light background */
+    color: #333; /* Dark text for contrast */
+    text-align: center;
+}

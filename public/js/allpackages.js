@@ -1,17 +1,17 @@
 const onedaypackages = [
-    {
-        title: "Kumbhmela",
-        image: "./img/kumbh-mela.jpg",
-        price: "₹5,000",
-        location: "Prayagraj",
-        duration: "1 Day",
-        audience: "Couples & Families",
-        detailsLink: "https://tajindiatourandtravel.com/kumbhmela-package",
-        bookingInfo: {
-            packageName: "kumbhmela",
-            duration: "1 Day"
-        }
-    },
+    // {
+    //     title: "Kumbhmela",
+    //     image: "./img/kumbh-mela.jpg",
+    //     price: "₹5,000",
+    //     location: "Prayagraj",
+    //     duration: "1 Day",
+    //     audience: "Couples & Families",
+    //     detailsLink: "https://tajindiatourandtravel.com/kumbhmela-package",
+    //     bookingInfo: {
+    //         packageName: "kumbhmela",
+    //         duration: "1 Day"
+    //     }
+    // },
     {
         title: "Same-Day Agra Tour",
         image: "img/tajlandscape.jpg",
@@ -39,7 +39,7 @@ const onedaypackages = [
         }
     },
     {
-        title: "Same Day Tajmahal Tour",
+        title: "Tajmahal Sunrise Tour",
         image: "https://tajindiatourandtravel.com/img/sameday_tajmahaltour.webp",
         price: "₹5,500",
         location: "Agra",
@@ -67,6 +67,19 @@ const onedaypackages = [
 ];
 
 const otherpackages = [
+    // {
+    //     "title": "2 Days Holi Celebration in Mathura Vrindavan Gokul",
+    //     "image": "img/holi-festival.jpg",
+    //     "price": "₹2100",
+    //     "location": "Mathura, Vrindavan, Banaras",
+    //     "duration": "2 Days / 1 Nights",
+    //     "audience": "Couples & Families",
+    //     "detailsLink": "https://tajindiatourandtravel.com/holi-special-package",
+    //     "bookingInfo": {
+    //         "packageName": "Mathura",
+    //         "duration": "2 Days / 1 Nights"
+    //     }
+    // },
     {
         "title": "Mathura Tour Package: Discover Spiritual Bliss",
         "image": "img/mathura-tour.webp",
@@ -148,7 +161,7 @@ const otherpackages = [
     {
         "title": "Delhi to Mathura",
         "image": "https://tajindiatourandtravel.com/img/delhitomathura.webp",
-        "price": "₹12,000",
+        "price": "₹5,000",
         "location": "Mathura",
         "duration": "2 Days",
         "audience": "Couples & Families",

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </form>
                 </div>
             </div>`;
-            
+
             // Insert modal form HTML
             document.body.insertAdjacentHTML('beforeend', modalHTML);
         }, 2000);
@@ -105,7 +105,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    emailjs.init("1el1PtFh_N1ch5v0A");
+
+    // Prepare EmailJS template parameters
+    var templateParams = {
+        from_name: name,
+        from_email: email,
+        from_phone: phone,
+        to_name: "Taj India Tour & Travel",
+        message: `${message}. On this date: ${datetime}. Number of people: ${number_of_people}`
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_w5uk33d", "template_lr13lz8", templateParams)
+        .then(function (response) {
+            successModal();
+        })
+        .catch(function (error) {
+            console.error("Email failed to send:", error);
+            alert("Failed to send email. Please try again later.");
+        });
+
     function showError(errorId) {
+        console.log(errorId);
         document.getElementById(errorId).style.display = "block";
     }
 

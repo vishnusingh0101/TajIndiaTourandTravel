@@ -120,26 +120,13 @@
         "destination": "/pkg/ayodhya_package.html"
       },
       {
-        "source": "/kumbh-tour",
-        "destination": "/pkg/kumbh_package.html"
+        "source": "/holi-special-package",
+        "destination": "/pkg/holi-special-package.html"
       },
       {
-        "source": "/kumbh-mela-tour",
-        "destination": "/pkg/kumbh_package.html"
-      },
-      {
-        "source": "/kumbhmela",
-        "destination": "/pkg/kumbh_package.html"
-      },
-      {
-        "source": "/kumbhmela-tour",
-        "destination": "/pkg/kumbh_package.html"
-      },
-      {
-        "source": "/kumbhmela-package",
-        "destination": "/pkg/kumbh_package.html"
+        "source": "/taj-mahal",
+        "destination": "/blogs/tajmahal.html"
       }
-      
       
     ],
     "ignore": [

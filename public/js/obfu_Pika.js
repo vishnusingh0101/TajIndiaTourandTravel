@@ -119,7 +119,8 @@ function sendEmail() {
     }
 
     // Initialize EmailJS
-    emailjs.init("dpHylrOzMjDWa9VYF");
+    // emailjs.init("dpHylrOzMjDWa9VYF");
+    emailjs.init("1el1PtFh_N1ch5v0A");
 
     // Prepare EmailJS template parameters
     var templateParams = {

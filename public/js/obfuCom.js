@@ -1,89 +1,87 @@
 function sendEmail() {
-    // Get field values
-    var name = document.getElementById("name").value.trim();
-    var email = document.getElementById("email").value.trim();
-    var phone = document.getElementById("phone").value.trim();
-    var subject = document.getElementById("subject").value.trim();
-    var message = document.getElementById("message").value.trim();
+    // Fetch and trim input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    // Validation regex patterns
-    var phoneRegex = /^\d{10}$/;
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Regex patterns for validation
+    const phoneRegex = /^\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
 
-    // Validate Name
-    if (!name || !/^[a-zA-Z\s]+$/.test(name)) {
-        alert("Please enter a valid name without numbers or special characters.");
+    // Validation checks
+    if (!name || !nameRegex.test(name)) {
+        alert("Please enter a valid name (letters and spaces only).");
         return;
     }
 
-    // Validate Email
     if (!email || !emailRegex.test(email)) {
         alert("Please enter a valid email address.");
         return;
     }
 
-    // Validate Phone
     if (!phone || !phoneRegex.test(phone)) {
         alert("Please enter a valid 10-digit phone number.");
         return;
     }
 
-    // Validate Subject
     if (!subject || subject.length < 3) {
-        alert("Please enter a subject with at least 3 characters.");
+        alert("Please enter a subject (at least 3 characters).");
         return;
     }
 
-    // Validate Message
+    // Optional: Message validation
     // if (!message || message.length < 10) {
     //     alert("Please enter a message with at least 10 characters.");
     //     return;
     // }
 
-    // Initialize EmailJS
+    // Initialize EmailJS (ensure it runs only once in a real app)
     emailjs.init("1el1PtFh_N1ch5v0A");
 
-    // Data for the email template
-    var emailData = {
+    // Prepare email data
+    const emailData = {
         from_name: name,
         from_email: email,
         from_phone: phone,
         subject: subject,
-        days: "", // Assuming this is a placeholder
         to_name: "Taj India Tour & Travel",
-        message: message
+        message: message || "No message provided."
     };
 
-    // Send email using EmailJS
+    // Send email
     emailjs.send("service_w5uk33d", "template_lr13lz8", emailData)
-        .then(function (response) {
+        .then(response => {
+            console.log("Email sent successfully", response.status, response.text);
             successModal();
-            blankfields();
-        }, function (error) {
-            alert("Email failed to send: " + JSON.stringify(error));
-            blankfields();
+            clearFormFields();
+        })
+        .catch(error => {
+            console.error("Email sending failed", error);
+            alert("Failed to send email. Please try again later.");
         });
 }
 
-// Clear input fields after submission
-function blankfields() {
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("subject").value = "";
-    document.getElementById("message").value = "";
+// Clear form fields after successful submission
+function clearFormFields() {
+    ["name", "email", "phone", "subject", "message"].forEach(id => {
+        const field = document.getElementById(id);
+        if (field) field.value = "";
+    });
 }
 
 // Show success modal
 function successModal() {
     $("#successModal").modal("show");
     $("#bookingModal").modal("hide");
-    setTimeout(function () {
+    setTimeout(() => {
         $("#successModal").modal("hide");
     }, 5000);
 }
 
-// Close modal function
+// Close modal manually
 function closeModal() {
     $("#successModal").modal("hide");
 }

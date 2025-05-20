@@ -8,12 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 style="position: fixed; top: 20%; left: 50%; transform: translateX(-50%); z-index: 9999; 
                 display: block; border-radius: 8px; overflow: hidden; width: 350px;">
                 <div class="card-body p-4" style="background-color: #e6f7e6; position: relative; border: 1px solid #c3e6cb;">
-                    <!-- Close Button -->
                     <span class="close-btn" onclick="closeFormnow()" 
                         style="position: absolute; top: 10px; right: 10px; font-size: 24px; cursor: pointer; color: #155724;">&times;</span>
-                    <!-- Header -->
                     <h3 class="text-center mb-3" style="color: #28a745; font-weight: bold; font-size: 1.5em;">Enquire Now</h3>
-                    <!-- Form -->
                     <form id="contactForm" onsubmit="return validateForm(event)">
                         <div class="mb-3">
                             <input type="text" class="form-control rounded-3 p-2" id="name" name="name" 
@@ -41,13 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div id="travelDateError" class="text-danger small mt-1" style="display:none;">Please select a travel date.</div>
                         </div>
                         <div class="mb-3">
-                            <textarea
-                                class="form-control rounded-3" 
-                                id="message" 
-                                name="message" 
-                                rows="3" 
-                                placeholder="Message" 
-                                required 
+                            <textarea class="form-control rounded-3" id="message" name="message" rows="3" 
+                                placeholder="Message" required 
                                 style="resize: none; overflow-y: auto; line-height: 1.2; padding: 5px;"></textarea>
                             <div id="messageError" class="text-danger small mt-1" style="display:none;">Message is required.</div>
                         </div>
@@ -59,8 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </form>
                 </div>
             </div>`;
-
-            // Insert modal form HTML
             document.body.insertAdjacentHTML('beforeend', modalHTML);
         }, 2000);
     }
@@ -69,29 +59,26 @@ document.addEventListener("DOMContentLoaded", function () {
     window.closeFormnow = function () {
         var modal = document.getElementById('contactFormModal');
         if (modal) {
-            modal.remove(); // Properly removes modal
+            modal.remove();
             sessionStorage.setItem('contactFormShown', 'true');
         }
     };
+
+    // EmailJS initialization
+    emailjs.init("1el1PtFh_N1ch5v0A");
 
     // Validate Form Function
     window.validateForm = function (event) {
         event.preventDefault();
         clearErrors();
 
-        var name = document.getElementById("name").value.trim();
-        var email = document.getElementById("email").value.trim();
-        var phone = document.getElementById("phone").value.trim();
-        var travelDate = document.getElementById("travelDate").value.trim();
-        var message = document.getElementById("message").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const travelDate = document.getElementById("travelDate").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-        name = name.trim();
-        email = email.trim();
-        phone = phone.trim();
-        travelDate = travelDate.trim();
-        message = message.trim();
-
-        var isValid = true;
+        let isValid = true;
 
         if (name === "") { showError("nameError"); isValid = false; }
         if (!validateEmail(email)) { showError("emailError"); isValid = false; }
@@ -100,34 +87,30 @@ document.addEventListener("DOMContentLoaded", function () {
         if (message === "") { showError("messageError"); isValid = false; }
 
         if (isValid) {
-            alert("Form submitted successfully!");
-            closeFormnow();
+            const fullMessage = `${message}\n\nTravel Date: ${travelDate}`;
+
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                from_phone: phone,
+                subject: `Booking Enquiry for ${travelDate}`,
+                message: fullMessage,
+                to_name: "Taj India Tour & Travel"
+            };
+
+            emailjs.send("service_w5uk33d", "template_lr13lz8", templateParams)
+                .then(function (response) {
+                    alert("Form submitted and email sent successfully!");
+                    closeFormnow();
+                })
+                .catch(function (error) {
+                    console.error("Email failed to send:", error);
+                    alert("Failed to send email. Please try again later.");
+                });
         }
     };
 
-    emailjs.init("1el1PtFh_N1ch5v0A");
-
-    // Prepare EmailJS template parameters
-    var templateParams = {
-        from_name: name,
-        from_email: email,
-        from_phone: phone,
-        to_name: "Taj India Tour & Travel",
-        message: `${message}. On this date: ${datetime}. Number of people: ${number_of_people}`
-    };
-
-    // Send email using EmailJS
-    emailjs.send("service_w5uk33d", "template_lr13lz8", templateParams)
-        .then(function (response) {
-            successModal();
-        })
-        .catch(function (error) {
-            console.error("Email failed to send:", error);
-            alert("Failed to send email. Please try again later.");
-        });
-
     function showError(errorId) {
-        console.log(errorId);
         document.getElementById(errorId).style.display = "block";
     }
 
@@ -138,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateEmail(email) {
-        var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return re.test(email);
     }
 });

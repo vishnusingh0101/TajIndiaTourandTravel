@@ -279,40 +279,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
                 <!-- Contact Form -->
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <form id="contactForm" onsubmit="sendEmail(); return false">
+                    <form id="contactForm" role="form" aria-labelledby="contact-heading" onsubmit="sendEmail(); return false">
+                        <h2 id="contact-heading" class="sr-only">Contact form</h2>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" id="name" aria-label="Your name" placeholder="Your Name" required>
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" id="email" aria-label="Your email" placeholder="Your Email" required>
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="phone" placeholder="Your Phone" required>
+                                    <input type="tel" class="form-control" id="phone" aria-label="Your phone" placeholder="Your Phone" required>
                                     <label for="phone">Your Phone</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <input type="text" class="form-control" id="subject" aria-label="Subject" placeholder="Subject" required>
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Your Message" style="height: 120px;" required></textarea>
+                                    <textarea class="form-control" id="message" aria-label="Your message" placeholder="Your Message" style="height: 120px;" required></textarea>
                                     <label for="message">Your Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button id="contactSubmit" class="btn btn-primary w-100 py-3" type="submit" aria-label="Send message">Send Message</button>
                             </div>
                         </div>
                     </form>

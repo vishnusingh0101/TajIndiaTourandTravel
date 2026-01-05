@@ -9,7 +9,7 @@ function openBookingModal(locationValue, daysValue) {
                         <h1 class="text-white mb-4">Online Inquiry</h1>
                         <h4 class="text-white text-uppercase">
                             Or Whatsapp - 
-                            <a href="https://wa.me/917827000754?text=Hi%21" target="_blank">+91 7827000754</a>
+                            <a href="https://wa.me/918750915435?text=Hi%21" target="_blank">+91 8750915435</a>
                         </h4>
                     </div>
                     <div class="col-md-6">

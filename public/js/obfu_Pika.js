@@ -9,7 +9,7 @@ function openBookingModal(location, days) {
                             <h6 class="text-white mb-4">Inquiry</h6>
                             <h1 class="text-white mb-4">Our team will contact you for customizations within 24 hours.</h1>
                             <h4 class="text-white text-uppercase">Or WhatsApp - 
-                                <a href="https://wa.me/917827000754?text=Hi%21" target="_blank">+91 7827000754</a>
+                                <a href="https://wa.me/918750915435?text=Hi%21" target="_blank">+91 8750915435</a>
                             </h4>
                         </div>
                         <div class="col-md-6">

@@ -1,8 +1,21 @@
 {
   "hosting": {
     "public": "public",
-    "site":"tajtourandtrv",
+    "site": "tajtourandtrv",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/nda-ss",
+        "destination": "/",
+        "type": 301
+      }
+    ],
     "rewrites": [
+      {
+        "source": "**/*.@(js|css|gif|jpg|jpeg|png|svg|webp|webm|eot|otf|ttf|woff|woff2)",
+        "destination": "/index.html"
+      },
       {
         "source": "/",
         "destination": "/index.html"
@@ -40,48 +53,16 @@
         "destination": "/about.html"
       },
       {
-        "source": "/404",
-        "destination": "/404.html"
-      },
-      {
-        "source": "/delhiagra",
-        "destination": "/pkg/delhiagra.html"
-      },
-      {
-        "source": "/mathura-tour",
-        "destination": "/pkg/mathura-tour.html"
-      },
-      {
-        "source": "/jaipur-tour",
-        "destination": "/pkg/jaipur-tour.html"
-      },
-      {
-        "source": "/Two-days-mathura-vrindavan-tour",
-        "destination": "/pkg/twodaysmathuravrindavan.html"
-      },
-      {
-        "source": "/Same-Day-Agra-Tour",
-        "destination": "/pkg/samedayagra.html"
-      },
-      {
-        "source": "/Same-Day-Jaipur-Tour",
-        "destination": "/pkg/samedayjaipur.html"
-      },
-      {
-        "source": "/Privacy-and-Policy",
-        "destination": "/privacyandpolicy.html"
-      },
-      {
-        "source": "/Terms-and-Conditions",
-        "destination": "/termsandconditions.html"
-      },
-      {
-        "source": "/FAQs-and-Help",
+        "source": "/faqsandhelp",
         "destination": "/faqsandhelp.html"
       },
       {
-        "source": "/sitemap.xml",
-        "destination": "/sitemap.xml"
+        "source": "/privacy-and-policy",
+        "destination": "/privacyandpolicy.html"
+      },
+      {
+        "source": "/terms-and-conditions",
+        "destination": "/termsandconditions.html"
       },
       {
         "source": "/golden-triangle-tour",
@@ -112,12 +93,12 @@
         "destination": "/pkg/ayodhya_package.html"
       },
       {
-        "source": "/kumbh-package",
-        "destination": "/pkg/kumbh_package.html"
-      },
-      {
         "source": "/ayodhya-tour",
         "destination": "/pkg/ayodhya_package.html"
+      },
+      {
+        "source": "/kumbh-package",
+        "destination": "/pkg/kumbh_package.html"
       },
       {
         "source": "/holi-special-package",
@@ -126,13 +107,69 @@
       {
         "source": "/taj-mahal",
         "destination": "/blogs/tajmahal.html"
+      },
+      {
+        "source": "/delhiagra",
+        "destination": "/pkg/delhiagra.html"
+      },
+      {
+        "source": "/mathura-tour",
+        "destination": "/pkg/mathura-tour.html"
+      },
+      {
+        "source": "/jaipur-tour",
+        "destination": "/pkg/jaipur-tour.html"
+      },
+      {
+        "source": "/two-days-mathura-vrindavan-tour",
+        "destination": "/pkg/twodaysmathuravrindavan.html"
+      },
+      {
+        "source": "/same-day-agra-tour",
+        "destination": "/pkg/samedayagra.html"
+      },
+      {
+        "source": "/same-day-jaipur-tour",
+        "destination": "/pkg/samedayjaipur.html"
       }
-      
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|webp|svg)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      }
     ],
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "design.css.bak",
+      "nda ss.html",
+      "nda ss_files/**",
+      "publicd/**"
     ]
   }
 }

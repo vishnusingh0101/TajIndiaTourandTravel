@@ -1,9 +1,27 @@
 {
+  "name": "taj-india-tour-travel",
+  "version": "1.0.0",
+  "description": "Taj India Tour and Travel - Explore Agra, Mathura, Vrindavan & Jaipur",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "deploy": "firebase deploy"
+  },
+  "keywords": [
+    "taj-mahal",
+    "tour",
+    "travel",
+    "india"
+  ],
+  "author": "Taj India Tour and Travel",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1",
-    "git": "^0.1.5"
+    "express": "^4.21.1"
   },
   "devDependencies": {
     "globals": "^15.12.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

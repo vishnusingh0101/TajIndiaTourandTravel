@@ -1,0 +1,27 @@
+# Robots.txt for Taj India Tour and Travel
+User-agent: *
+Allow: /
+Disallow: /nda ss.html
+Disallow: /nda ss_files/
+Disallow: /publicd/
+Disallow: /design.css.bak
+
+# Sitemap location
+Sitemap: https://tajindiatourandtravel.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific rules for common bots
+User-agent: Googlebot
+Allow: /
+Priority: 1.0
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
